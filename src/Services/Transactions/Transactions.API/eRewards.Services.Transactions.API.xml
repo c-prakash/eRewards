@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>eRewards.Services.Transactions.API</name>
+    </assembly>
+    <members>
+        <member name="T:eRewards.Services.Transactions.API.Application.Behavior.TransactionBehaviour`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Behavior.TransactionBehaviour`2.#ctor(eRewards.Services.Transactions.Infrastructure.ActionsDbContext,eRewards.Services.Transactions.API.Application.IntegrationEvents.IActionIntegrationEventService,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Transactions.API.Application.Behavior.TransactionBehaviour{`0,`1}})">
+            <summary>
+            
+            </summary>
+            <param name="dbContext"></param>
+            <param name="actionIntegrationEventService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Behavior.TransactionBehaviour`2.Handle(`0,System.Threading.CancellationToken,MediatR.RequestHandlerDelegate{`1})">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.DomainEventHandlers.UpdateActionStatusChangedToAwaitingValidationDomainEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.DomainEventHandlers.UpdateActionStatusChangedToAwaitingValidationDomainEvent.#ctor(eRewards.Services.Transactions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILoggerFactory,eRewards.Services.Transactions.API.Application.IntegrationEvents.IActionIntegrationEventService)">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+            <param name="actionIntegrationEventService"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler})">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler.Handle(eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents)">
+            <summary>
+            Integration event handler which starts the create order process
+            </summary>
+            <param name="@event">
+            Integration event message which is sent by the
+            basket.api once it has successfully process the 
+            order items.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionCompleteIntegrationEvents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionCompleteIntegrationEvents.Actions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionCompleteIntegrationEvents.#ctor(eRewards.Services.Transactions.Domain.ActionsAggregate.Actions)">
+            <summary>
+            
+            </summary>
+            <param name="actions"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.UniqueToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.UserID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.Payload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.Sender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.RequestId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.#ctor(System.String,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="actionName"></param>
+            <param name="token"></param>
+            <param name="accountNo"></param>
+            <param name="userId"></param>
+            <param name="payload"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="actionId"></param>
+            <param name="accountNo"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Controllers.ActionsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Controllers.ActionsController.#ctor(MediatR.IMediator,eRewards.Services.Transactions.API.Application.Queries.IActionsQueries,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Transactions.API.Controllers.ActionsController})">
+            <summary>
+            ctor
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Controllers.ActionsController.RecordAction(eRewards.Services.Transactions.API.Application.Commands.ActionsCommand)">
+            <summary>
+            RecordAction
+            Receive, record, validate the action
+            </summary>
+            <param name="actionsCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Extensions.IHostExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Extensions.IHostExtensions.SeedDatabase(Microsoft.AspNetCore.Hosting.IWebHost)">
+            <summary>
+            
+            </summary>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Extensions.IServiceCollectionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Extensions.IServiceCollectionExtensions.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Extensions.IServiceCollectionExtensions.AddAppInsights(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Extensions.IServiceCollectionExtensions.AddCustomDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Extensions.IServiceCollectionExtensions.AddIntegrationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Extensions.IServiceCollectionExtensions.AddEventBus(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Extensions.IServiceCollectionExtensions.AddGenerics(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="targetAssembly"></param>
+            <param name="handlerInterface"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Infrastructure.AutoFacModules.ApplicationModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Infrastructure.IntegrationEventMigrations.IntegrationEventLogContextDesignTimeFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Infrastructure.IntegrationEventMigrations.IntegrationEventLogContextModelSnapshot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Program.CreateHostBuilder(Microsoft.Extensions.Configuration.IConfiguration,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

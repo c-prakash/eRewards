@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sql_server": {
+            "value": {
+                "name": "erewardssql",
+                "dbs": {
+                    "actions": "actionsdb",
+                    "accounts": "accountsdb"
+                }
+            }
+        },
+        "admin": {
+            "value": "rewardsadmin"
+        },
+        "adminpwd": {
+            "value": "P@ssw0rd2021"
+        }
+    }
+}
