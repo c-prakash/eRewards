@@ -28,6 +28,95 @@
             <param name="next"></param>
             <returns></returns>
         </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.Commands.ActionsCommandHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Commands.ActionsCommandHandler.#ctor(eRewards.Services.Transactions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Transactions.API.Application.Commands.ActionsCommandHandler})">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommand.AccountId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommand.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommand.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommand.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountId"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommand.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="accountId"></param>
+            <param name="actionId"></param>
+            <param name="status"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler.#ctor(eRewards.Services.Transactions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler})">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler.Handle(eRewards.Services.Transactions.API.Application.Commands.SetAccountValidationActionStatusCommand,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler">
+            <summary>
+            ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler.#ctor(eRewards.Services.Transactions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILoggerFactory,eRewards.Services.Transactions.API.Application.IntegrationEvents.IActionIntegrationEventService)">
+            <summary>
+            ctor
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+            <param name="actionIntegrationEventService"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler.Handle(eRewards.Services.Transactions.Domain.Events.ActionStatusChangedToAwaitingEligibilityValidationDomainEvent,System.Threading.CancellationToken)">
+            <summary>
+            Handle
+            ActionStatusChangedToAwaitingEligibilityValidationDomainEvent
+            </summary>
+            <param name="actionStatusChangedToAwaitingEligibilityValidationDomainEvent"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:eRewards.Services.Transactions.API.Application.DomainEventHandlers.UpdateActionStatusChangedToAwaitingValidationDomainEvent">
             <summary>
             
@@ -40,6 +129,33 @@
             <param name="actionsRepository"></param>
             <param name="logger"></param>
             <param name="actionIntegrationEventService"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.DomainEventHandlers.UpdateActionStatusChangedToAwaitingValidationDomainEvent.Handle(eRewards.Services.Transactions.Domain.Events.ActionStatusChangedToAwaitingAccountValidationDomainEvent,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="actionStatusChangedToAwaitingValidationDomainEvent"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationIntegrationEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationIntegrationEventHandler.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationIntegrationEventHandler})">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationIntegrationEventHandler.Handle(eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="event"></param>
+            <returns></returns>
         </member>
         <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler">
             <summary>
@@ -63,6 +179,56 @@
             order items.
             </param>
             <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.AccountValidationStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.AccountValidationStatus.NonFound">
+            <summary>
+            NonFound
+            </summary>
+        </member>
+        <member name="F:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.AccountValidationStatus.Found">
+            <summary>
+            Found
+            </summary>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.AccountId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountId"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.#ctor(System.Int32,System.Int32,eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.AccountValidationStatus)">
+            <summary>
+            
+            </summary>
+            <param name="accountId"></param>
+            <param name="actionId"></param>
+            <param name="status"></param>
         </member>
         <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionCompleteIntegrationEvents">
             <summary>
@@ -131,6 +297,28 @@
             <param name="payload"></param>
             <param name="sender"></param>
         </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent">
+            <summary>
+            ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.ActionId">
+            <summary>
+            ActionId
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.AccountId">
+            <summary>
+            AccountId
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.#ctor(System.Int32,System.Int32)">
+            <summary>
+            ctor
+            </summary>
+            <param name="actionId"></param>
+            <param name="accountId"></param>
+        </member>
         <member name="T:eRewards.Services.Transactions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent">
             <summary>
             
@@ -152,6 +340,36 @@
             </summary>
             <param name="actionId"></param>
             <param name="accountNo"></param>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.Queries.IActionsQueries">
+            <summary>
+            IActionsQueries
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Queries.IActionsQueries.GetActionsAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Transactions.API.Application.Queries.ActionsQueries">
+            <summary>
+            ActionsQueries
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Queries.ActionsQueries.#ctor(eRewards.Services.Transactions.Domain.ActionsAggregate.IActionsRepository)">
+            <summary>
+            ctor
+            </summary>
+            <param name="actionsRepository"></param>
+        </member>
+        <member name="M:eRewards.Services.Transactions.API.Application.Queries.ActionsQueries.GetActionsAsync(System.Int32)">
+            <summary>
+            GetActionsAsync
+            </summary>
+            <param name="accountNo"></param>
+            <returns></returns>
         </member>
         <member name="T:eRewards.Services.Transactions.API.Controllers.ActionsController">
             <summary>

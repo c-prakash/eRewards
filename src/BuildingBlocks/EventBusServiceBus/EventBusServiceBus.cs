@@ -1,5 +1,6 @@
 ﻿namespace Microsoft.eShopOnContainers.BuildingBlocks.EventBusServiceBus
 {
+    using Autofac;
     using Microsoft.Azure.ServiceBus;
     using Microsoft.eShopOnContainers.BuildingBlocks.EventBus;
     using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
@@ -18,10 +19,12 @@
         private readonly ILogger<EventBusServiceBus> _logger;
         private readonly IEventBusSubscriptionsManager _subsManager;
         private readonly SubscriptionClient _subscriptionClient;
+        private readonly ILifetimeScope _autofac;
+        private readonly string AUTOFAC_SCOPE_NAME = "eshop_event_bus";
         private const string INTEGRATION_EVENT_SUFFIX = "IntegrationEvent";
 
         public EventBusServiceBus(IServiceBusPersisterConnection serviceBusPersisterConnection,
-            ILogger<EventBusServiceBus> logger, IEventBusSubscriptionsManager subsManager, string subscriptionClientName)
+            ILogger<EventBusServiceBus> logger, IEventBusSubscriptionsManager subsManager, string subscriptionClientName, ILifetimeScope autofac)
         {
             _serviceBusPersisterConnection = serviceBusPersisterConnection;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -29,6 +32,7 @@
 
             _subscriptionClient = new SubscriptionClient(serviceBusPersisterConnection.ServiceBusConnectionStringBuilder,
                 subscriptionClientName);
+            _autofac = autofac;
 
             //RemoveDefaultRule();
             RegisterSubscriptionClientMessageHandler();
@@ -76,7 +80,7 @@
                     _subscriptionClient.AddRuleAsync(new RuleDescription
                     {
                         Filter = new CorrelationFilter { Label = eventName },
-                       Name = eventName
+                        Name = eventName
                     }).GetAwaiter().GetResult();
                 }
                 catch (ServiceBusException)
@@ -144,7 +148,7 @@
         }
 
         private Task ExceptionReceivedHandler(ExceptionReceivedEventArgs exceptionReceivedEventArgs)
-        
+
         {
             var ex = exceptionReceivedEventArgs.Exception;
             var context = exceptionReceivedEventArgs.ExceptionReceivedContext;
@@ -159,20 +163,21 @@
             var processed = false;
             if (_subsManager.HasSubscriptionsForEvent(eventName))
             {
-                
+                using (var scope = _autofac.BeginLifetimeScope(AUTOFAC_SCOPE_NAME))
+                {
                     var subscriptions = _subsManager.GetHandlersForEvent(eventName);
                     foreach (var subscription in subscriptions)
                     {
                         if (subscription.IsDynamic)
                         {
-                            var handler = subscription.HandlerType as IDynamicIntegrationEventHandler;
+                            var handler = scope.ResolveOptional(subscription.HandlerType) as IDynamicIntegrationEventHandler;
                             if (handler == null) continue;
                             dynamic eventData = JObject.Parse(message);
                             await handler.Handle(eventData);
                         }
                         else
                         {
-                            var handler =  subscription.HandlerType;
+                            var handler = scope.ResolveOptional(subscription.HandlerType);
                             if (handler == null) continue;
                             var eventType = _subsManager.GetEventTypeByName(eventName);
                             var integrationEvent = JsonConvert.DeserializeObject(message, eventType);
@@ -180,6 +185,8 @@
                             await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { integrationEvent });
                         }
                     }
+                }
+
                 processed = true;
             }
             return processed;

@@ -25,7 +25,8 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         private int _actionStatusId;
 
 
-        public Actions() {
+        public Actions()
+        {
             this.CreatedAt = DateTime.Now;
         }
 
@@ -44,18 +45,27 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
             AddActionsStartedDomainEvent();
         }
 
-        public void SetAwaitingValidationStatus()
+        public void SetAwaitingAccountValidationStatus()
         {
             if (_actionStatusId == ActionStatus.Submitted.Id)
             {
-                AddDomainEvent(new ActionStatusChangedToAwaitingValidationDomainEvent(this.AccountNo, this.Id));
-                _actionStatusId = ActionStatus.AwaitingValidation.Id;
+                AddDomainEvent(new ActionStatusChangedToAwaitingAccountValidationDomainEvent(this.AccountNo, this.Id));
+                _actionStatusId = ActionStatus.AwaitingAccountValidation.Id;
+            }
+        }
+
+        public void SetAwaitingEligibilityValidation()
+        {
+            if (_actionStatusId == ActionStatus.AwaitingAccountValidation.Id)
+            {
+                AddDomainEvent(new ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(this.AccountNo, this.Id));
+                _actionStatusId = ActionStatus.AwaitingEligibilityValidation.Id;
             }
         }
 
         public void SetRewardedStatus()
         {
-            if (_actionStatusId == ActionStatus.AwaitingValidation.Id)
+            if (_actionStatusId == ActionStatus.AwaitingEligibilityValidation.Id)
             {
                 AddDomainEvent(new ActionStatusChangedToRewardedDomainEvent(this.AccountNo, this.Id));
                 _actionStatusId = ActionStatus.Rewarded.Id;

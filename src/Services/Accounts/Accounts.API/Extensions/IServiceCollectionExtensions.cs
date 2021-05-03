@@ -1,4 +1,6 @@
+using Autofac;
 using eRewards.Services.Accounts.API.Application.IntegrationEvents;
+using eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling;
 using eRewards.Services.Accounts.Infrastructure;
 using IntegrationEventLogEF;
 using IntegrationEventLogEF.Services;
@@ -144,16 +146,18 @@ namespace eRewards.Services.Accounts.API.Extensions
                 services.AddSingleton<IEventBus, EventBusServiceBus>(sp =>
                 {
                     var serviceBusPersisterConnection = sp.GetRequiredService<IServiceBusPersisterConnection>();
+                    var iLifetimeScope = sp.GetRequiredService<ILifetimeScope>();
                     var logger = sp.GetRequiredService<ILogger<EventBusServiceBus>>();
                     var eventBusSubcriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
 
                     return new EventBusServiceBus(serviceBusPersisterConnection, logger,
-                        eventBusSubcriptionsManager, subscriptionClientName);
+                        eventBusSubcriptionsManager, subscriptionClientName, iLifetimeScope);
                 });
 
             }
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
+            services.AddTransient<ActionStatusChangedToAwaitingValidationIntegrationEventHandler>();
 
             return services;
         }

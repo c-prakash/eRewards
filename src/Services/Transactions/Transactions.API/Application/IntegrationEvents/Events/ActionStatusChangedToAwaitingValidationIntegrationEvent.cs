@@ -5,7 +5,8 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
     /// <summary>
     /// 
     /// </summary>
-    public class ActionStatusChangedToAwaitingValidationIntegrationEvent : IntegrationEvent
+    public record ActionStatusChangedToAwaitingValidationIntegrationEvent 
+        : IntegrationEvent
     {
         /// <summary>
         /// 

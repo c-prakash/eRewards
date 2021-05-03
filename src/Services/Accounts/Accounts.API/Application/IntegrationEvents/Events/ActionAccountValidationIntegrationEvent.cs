@@ -22,7 +22,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
     /// <summary>
     /// 
     /// </summary>
-    public class AccountValidationIntegrationEvent : IntegrationEvent
+    public record ActionAccountValidationIntegrationEvent : IntegrationEvent
     {
         /// <summary>
         /// 
@@ -32,25 +32,35 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
+        public int ActionId { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AccountValidationStatus Status { get; set; }
+
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountId"></param>
-        public AccountValidationIntegrationEvent(int accountId)
+        /// <param name="actionId"></param>
+        public ActionAccountValidationIntegrationEvent(int accountId, int actionId)
         {
             AccountId = accountId;
+            ActionId = actionId;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountId"></param>
+        /// <param name="actionId"></param>
         /// <param name="status"></param>
-        public AccountValidationIntegrationEvent(int accountId, AccountValidationStatus status)
+        public ActionAccountValidationIntegrationEvent(int accountId, int actionId, AccountValidationStatus status)
         {
             AccountId = accountId;
+            ActionId = actionId;
             Status = status;
         }
     }

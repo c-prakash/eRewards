@@ -6,7 +6,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
     /// <summary>
     /// 
     /// </summary>
-    public class ActionReceivedIntegrationEvents : IntegrationEvent
+    public record ActionReceivedIntegrationEvents : IntegrationEvent
     {
         /// <summary>
         /// 

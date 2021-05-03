@@ -5,9 +5,16 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
     /// <summary>
     /// 
     /// </summary>
-    public class ActionStatusChangedToAwaitingValidationIntegrationEvent : IntegrationEvent
+    public record ActionStatusChangedToAwaitingValidationIntegrationEvent : IntegrationEvent
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public int AccountNo { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int ActionId { get; private set; }
 
         /// <summary>

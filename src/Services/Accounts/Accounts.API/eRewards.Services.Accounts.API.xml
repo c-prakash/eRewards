@@ -32,19 +32,20 @@
             <param name="evt"></param>
             <returns></returns>
         </member>
-        <member name="T:eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionsReceivedActionStatusChangedToAwaitingValidationIntegrationEventHandler">
+        <member name="T:eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingValidationIntegrationEventHandler">
             <summary>
             
             </summary>
         </member>
-        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionsReceivedActionStatusChangedToAwaitingValidationIntegrationEventHandler.#ctor(eRewards.Services.Accounts.Domain.AccountsAggregate.IAccountRepository,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionsReceivedActionStatusChangedToAwaitingValidationIntegrationEventHandler},eRewards.Services.Accounts.API.Application.IntegrationEvents.IAccountIntegrationEventService)">
+        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingValidationIntegrationEventHandler.#ctor(eRewards.Services.Accounts.Domain.AccountsAggregate.IAccountRepository,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingValidationIntegrationEventHandler},eRewards.Services.Accounts.API.Application.IntegrationEvents.IAccountIntegrationEventService)">
             <summary>
             
             </summary>
             <param name="accountRepository"></param>
             <param name="logger"></param>
+            <param name="accountIntegrationEventService"></param>
         </member>
-        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionsReceivedActionStatusChangedToAwaitingValidationIntegrationEventHandler.Handle(eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent)">
+        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingValidationIntegrationEventHandler.Handle(eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent)">
             <summary>
             
             </summary>
@@ -66,35 +67,52 @@
             Found
             </summary>
         </member>
-        <member name="T:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationIntegrationEvent">
+        <member name="T:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent">
             <summary>
             
             </summary>
         </member>
-        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationIntegrationEvent.AccountId">
+        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.AccountId">
             <summary>
             
             </summary>
         </member>
-        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationIntegrationEvent.Status">
+        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.ActionId">
             <summary>
             
             </summary>
         </member>
-        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationIntegrationEvent.#ctor(System.Int32)">
+        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.#ctor(System.Int32,System.Int32)">
             <summary>
             
             </summary>
             <param name="accountId"></param>
+            <param name="actionId"></param>
         </member>
-        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationIntegrationEvent.#ctor(System.Int32,eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationStatus)">
+        <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationIntegrationEvent.#ctor(System.Int32,System.Int32,eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationStatus)">
             <summary>
             
             </summary>
             <param name="accountId"></param>
+            <param name="actionId"></param>
             <param name="status"></param>
         </member>
         <member name="T:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingValidationIntegrationEvent.ActionId">
             <summary>
             
             </summary>

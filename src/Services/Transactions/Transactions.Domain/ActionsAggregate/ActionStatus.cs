@@ -9,9 +9,10 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
     public class ActionStatus
         : Enumeration
     {
-        public static ActionStatus Submitted = new ActionStatus(1, nameof(Submitted).ToLowerInvariant());
-        public static ActionStatus AwaitingValidation = new ActionStatus(2, nameof(AwaitingValidation).ToLowerInvariant());
-        public static ActionStatus Rewarded = new ActionStatus(3, nameof(Rewarded).ToLowerInvariant());
+        public static ActionStatus Submitted = new (1, nameof(Submitted).ToLowerInvariant());
+        public static ActionStatus AwaitingAccountValidation = new (2, nameof(AwaitingAccountValidation).ToLowerInvariant());
+        public static ActionStatus AwaitingEligibilityValidation = new (3, nameof(AwaitingEligibilityValidation).ToLowerInvariant());
+        public static ActionStatus Rewarded = new(4, nameof(Rewarded).ToLowerInvariant());
 
         public ActionStatus(int id, string name)
             : base(id, name)
@@ -19,7 +20,7 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         }
 
         public static IEnumerable<ActionStatus> List() =>
-            new[] { Submitted, AwaitingValidation, Rewarded };
+            new[] { Submitted, AwaitingAccountValidation, AwaitingEligibilityValidation, Rewarded };
 
         public static ActionStatus FromName(string name)
         {

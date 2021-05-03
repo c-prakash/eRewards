@@ -24,6 +24,7 @@ namespace eRewards.Services.Accounts.Domain.AccountsAggregate
         public Account() 
         {
             this.CreatedAt = DateTime.UtcNow;
+            this.Mappings = new List<AccountMapping>();
         }
 
     }

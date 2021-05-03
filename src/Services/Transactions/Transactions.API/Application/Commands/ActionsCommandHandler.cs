@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace eRewards.Services.Transactions.API.Application.Commands
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ActionsCommandHandler : IRequestHandler<ActionsCommand, bool>
     {
         private readonly IMediator _mediator;
@@ -16,7 +19,11 @@ namespace eRewards.Services.Transactions.API.Application.Commands
 
         private readonly IActionIntegrationEventService _actionIntegrationEventService;
 
-       
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="actionsRepository"></param>
+        /// <param name="logger"></param>
         public ActionsCommandHandler(IActionsRepository actionsRepository, ILogger<ActionsCommandHandler> logger)
         {
             _actionsRepository = actionsRepository ?? throw new ArgumentException(nameof(actionsRepository));
@@ -36,7 +43,7 @@ namespace eRewards.Services.Transactions.API.Application.Commands
 
             var actionToUpdate =  _actionsRepository.Add(actions);
 
-            actionToUpdate.SetAwaitingValidationStatus();
+            actionToUpdate.SetAwaitingAccountValidationStatus();
          
             var result = await _actionsRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
 

@@ -10,24 +10,23 @@ using System.Threading.Tasks;
 
 namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
 {
-    
     /// <summary>
-    /// 
+    /// ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler
     /// </summary>
-    public class UpdateActionStatusChangedToAwaitingValidationDomainEvent
-                   : INotificationHandler<ActionStatusChangedToAwaitingAccountValidationDomainEvent>
+    public class ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler
+                   : INotificationHandler<ActionStatusChangedToAwaitingEligibilityValidationDomainEvent>
     {
         private readonly IActionsRepository _actionRepository;
         private readonly ILoggerFactory _logger;
         private readonly IActionIntegrationEventService _actionIntegrationEventService;
 
         /// <summary>
-        /// 
+        /// ctor
         /// </summary>
         /// <param name="actionsRepository"></param>
         /// <param name="logger"></param>
         /// <param name="actionIntegrationEventService"></param>
-        public UpdateActionStatusChangedToAwaitingValidationDomainEvent(
+        public ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler(
             IActionsRepository actionsRepository, ILoggerFactory logger, IActionIntegrationEventService actionIntegrationEventService)
         {
             _actionRepository = actionsRepository ?? throw new ArgumentNullException(nameof(actionsRepository));
@@ -37,24 +36,25 @@ namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
         }
 
         /// <summary>
-        /// 
+        /// Handle
+        /// ActionStatusChangedToAwaitingEligibilityValidationDomainEvent
         /// </summary>
-        /// <param name="actionStatusChangedToAwaitingValidationDomainEvent"></param>
+        /// <param name="actionStatusChangedToAwaitingEligibilityValidationDomainEvent"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task Handle(ActionStatusChangedToAwaitingAccountValidationDomainEvent actionStatusChangedToAwaitingValidationDomainEvent, CancellationToken cancellationToken)
+        public async Task Handle(ActionStatusChangedToAwaitingEligibilityValidationDomainEvent actionStatusChangedToAwaitingEligibilityValidationDomainEvent, CancellationToken cancellationToken)
         {
 
-            _logger.CreateLogger<ActionStatusChangedToAwaitingAccountValidationDomainEvent>()
+            _logger.CreateLogger<ActionStatusChangedToAwaitingEligibilityValidationDomainEvent>()
              .LogTrace("Action with Id: {ActionId} has been successfully updated to status {Status} ({Id})",
-                 actionStatusChangedToAwaitingValidationDomainEvent.ActionId, nameof(ActionStatus.AwaitingAccountValidation), ActionStatus.AwaitingAccountValidation.Id);
+                 actionStatusChangedToAwaitingEligibilityValidationDomainEvent.ActionId, nameof(ActionStatus.AwaitingEligibilityValidation), ActionStatus.AwaitingEligibilityValidation.Id);
 
-            var actionToUpdate = await _actionRepository.GetAsync(actionStatusChangedToAwaitingValidationDomainEvent.ActionId);
+            var actionToUpdate = await _actionRepository.GetAsync(actionStatusChangedToAwaitingEligibilityValidationDomainEvent.ActionId);
 
-            var actionStatusChangedToAwaitingValidationIntegrationEvent = new ActionStatusChangedToAwaitingValidationIntegrationEvent(
+            var actionStatusChangedToAwaitingEligibilityValidationIntegrationEvent = new ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(
                actionToUpdate.Id, actionToUpdate.AccountNo);
 
-            await _actionIntegrationEventService.AddAndSaveEventAsync(actionStatusChangedToAwaitingValidationIntegrationEvent);
+            await _actionIntegrationEventService.AddAndSaveEventAsync(actionStatusChangedToAwaitingEligibilityValidationIntegrationEvent);
         }
     }
 }
