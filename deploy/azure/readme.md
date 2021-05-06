@@ -8,17 +8,7 @@ Login into your azure subscription by typing `az login` (note that you maybe nee
 
 ## Deploying using CLI
 
-## Deploying Virtual machines to host the services
-
-1. [Deploying a Linux VM to run single-server development environment using docker-machine (**Recommended for development environments**)](az/vms/docker-machine.md)
-2. [Deploying a Linux VM or Windows Server 2016 to run a single-server development environment using ARM template (**Recommended for creating testing environments**)](az/vms/plain-vm.md)
-
-Using `docker-machine` is the recommended way to create a VM with docker installed. But it is limited to Linux based VMs.
-
 ## Deploying Azure resources used by the services
 
 1. [Deploying SQL Server and databases](az/sql/readme.md)
 2. [Deploying Azure Service Bus](az/servicebus/readme.md)
-3. [Deploying Redis Cache](az/redis/readme.md)
-4. [Deploying Cosmosdb](az/cosmos/readme.md)
-5. [Deploying Catalog Storage](az/storage/catalog/readme.md)

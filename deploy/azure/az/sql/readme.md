@@ -3,7 +3,7 @@
 The ARM template `sqldeploy.json` and its parameter file (`sqldeploy.parameters.json`) are used to deploy following resources:
 
 1. One SQL Server
-2. Three SQL databases (for ordering, catalog and identity) services.
+2. Three SQL databases (for accounts, actions) services.
 3. Firewall rules to **allow access from any IP to SQL Server**. This allows easy management, but is not desired in production environments.
 
 ## Editing sqldeploy.parameters.json file
