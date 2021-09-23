@@ -21,6 +21,7 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
 
         public DateTime CreatedAt { get; set; }
 
+        public ActionStatus ActionStatus { get; private set; }
 
         private int _actionStatusId;
 

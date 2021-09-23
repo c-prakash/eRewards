@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace eRewards.Services.Transactions.API.Application.Commands
 {
     [DataContract]
-    public class ActionsCommand : IRequest<bool>
+    public class NewActionCommand : IRequest<bool>
     {
         [DataMember]
         public string Name { get; set; }
@@ -24,11 +24,11 @@ namespace eRewards.Services.Transactions.API.Application.Commands
         [DataMember]
         public string Sender { get; set; }
 
-        public ActionsCommand()
+        public NewActionCommand()
         {
 
         }
-        public ActionsCommand(string actionName, string token, int accountNo, string userId, string payload, string sender)
+        public NewActionCommand(string actionName, string token, int accountNo, string userId, string payload, string sender)
         {
             Name = actionName;
             UniqueToken = token;

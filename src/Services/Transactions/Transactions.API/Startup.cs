@@ -11,7 +11,9 @@ using eRewards.Services.Transactions.API.Extensions;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using eRewards.Services.Transactions.API.Infrastructure.AutoFacModules;
-
+using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+using eRewards.Services.Transactions.API.Application.IntegrationEvents.Events;
+using eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling;
 
 namespace eRewards.Services.Transactions.API
 {
@@ -89,10 +91,15 @@ namespace eRewards.Services.Transactions.API
             ConfigureEventBus(app);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
         protected virtual void ConfigureEventBus(IApplicationBuilder app)
         {
-            //var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             //eventBus.Subscribe<ActionsPublishedIntegrationEvent, ActionsPublishedIntegrationEventHandler>();
+            eventBus.Subscribe<ActionAccountValidationCompleteIntegrationEvent, ActionAccountValidationCompleteIntegrationEventHandler>();
         }
     }
 }

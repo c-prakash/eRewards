@@ -5,9 +5,9 @@ using Microsoft.Extensions.Logging;
 namespace eRewards.Services.Transactions.API.Application.Validators
 {
 
-    public class ActionsCommandValidator : AbstractValidator<ActionsCommand>
+    public class ActionsCommandValidator : AbstractValidator<NewActionCommand>
     {
-        public ActionsCommandValidator(ILogger<ActionsCommand> logger)
+        public ActionsCommandValidator(ILogger<NewActionCommand> logger)
         {
             RuleFor(command => command.Name).NotEmpty();
             RuleFor(command => command.UniqueToken).NotEmpty();

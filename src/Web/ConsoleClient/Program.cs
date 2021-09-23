@@ -43,7 +43,7 @@ namespace eRewards.Host.ConsoleClient
                     actionName: "ChallengeSignup",
                     token: Guid.NewGuid().ToString(),
                     accountNo: 1,
-                    userId: "cxp8441",
+                    userId: "chandra",
                     payload: "{data:sampledata}",
                     sender: "Challenges"
                 );

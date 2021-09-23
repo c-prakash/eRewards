@@ -11,11 +11,11 @@ namespace eRewards.Services.Transactions.API.Application.Commands
     /// <summary>
     /// 
     /// </summary>
-    public class ActionsCommandHandler : IRequestHandler<ActionsCommand, bool>
+    public class NewActionCommandHandler : IRequestHandler<NewActionCommand, bool>
     {
         private readonly IMediator _mediator;
         private readonly IActionsRepository _actionsRepository;
-        private readonly ILogger<ActionsCommandHandler> _logger;
+        private readonly ILogger<NewActionCommandHandler> _logger;
 
         private readonly IActionIntegrationEventService _actionIntegrationEventService;
 
@@ -24,13 +24,13 @@ namespace eRewards.Services.Transactions.API.Application.Commands
         /// </summary>
         /// <param name="actionsRepository"></param>
         /// <param name="logger"></param>
-        public ActionsCommandHandler(IActionsRepository actionsRepository, ILogger<ActionsCommandHandler> logger)
+        public NewActionCommandHandler(IActionsRepository actionsRepository, ILogger<NewActionCommandHandler> logger)
         {
             _actionsRepository = actionsRepository ?? throw new ArgumentException(nameof(actionsRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<bool> Handle(ActionsCommand message, CancellationToken cancellationToken)
+        public async Task<bool> Handle(NewActionCommand message, CancellationToken cancellationToken)
         {
             _logger.LogInformation("----- Creating Actions - Actions: {@Message}", message);
 

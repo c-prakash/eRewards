@@ -157,7 +157,7 @@ namespace eRewards.Services.Accounts.API.Extensions
             }
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-            services.AddTransient<ActionStatusChangedToAwaitingValidationIntegrationEventHandler>();
+            services.AddTransient<ActionStatusChangedToAwaitingAccountValidationIntegrationEventHandler>();
 
             return services;
         }

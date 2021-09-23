@@ -52,7 +52,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
                 {
                     using (LogContext.PushProperty("IdentifiedCommandId", @event.Name))
                     {
-                        var actionsCommand = new ActionsCommand(@event.Name, @event.UniqueToken,@event.AccountNo, @event.UserID, @event.Payload, @event.Sender);
+                        var actionsCommand = new NewActionCommand(@event.Name, @event.UniqueToken,@event.AccountNo, @event.UserID, @event.Payload, @event.Sender);
 
                         _logger.LogInformation(
                             "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",

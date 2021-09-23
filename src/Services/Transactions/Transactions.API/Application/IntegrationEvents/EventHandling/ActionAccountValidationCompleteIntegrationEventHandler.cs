@@ -15,19 +15,19 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
     /// <summary>
     /// 
     /// </summary>
-    public class ActionAccountValidationIntegrationEventHandler : IIntegrationEventHandler<ActionAccountValidationIntegrationEvent>
+    public class ActionAccountValidationCompleteIntegrationEventHandler : IIntegrationEventHandler<ActionAccountValidationCompleteIntegrationEvent>
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<ActionAccountValidationIntegrationEventHandler> _logger;
+        private readonly ILogger<ActionAccountValidationCompleteIntegrationEventHandler> _logger;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="mediator"></param>
         /// <param name="logger"></param>
-        public ActionAccountValidationIntegrationEventHandler(
+        public ActionAccountValidationCompleteIntegrationEventHandler(
            IMediator mediator,
-           ILogger<ActionAccountValidationIntegrationEventHandler> logger)
+           ILogger<ActionAccountValidationCompleteIntegrationEventHandler> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -39,7 +39,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// </summary>
         /// <param name="event"></param>
         /// <returns></returns>
-        public async Task Handle(ActionAccountValidationIntegrationEvent @event)
+        public async Task Handle(ActionAccountValidationCompleteIntegrationEvent @event)
         {
             using (LogContext.PushProperty("IntegrationEventContext", $"{@event.Id}-{Program.AppName}"))
             {

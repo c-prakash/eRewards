@@ -1,4 +1,5 @@
 ﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,22 +26,25 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
     /// <summary>
     /// 
     /// </summary>
-    public record ActionAccountValidationIntegrationEvent 
+    public record ActionAccountValidationCompleteIntegrationEvent 
         : IntegrationEvent
     {
         /// <summary>
         /// 
         /// </summary>
+        [JsonProperty]
         public int AccountId { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
+        [JsonProperty]
         public int ActionId { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
+        [JsonProperty]
         public AccountValidationStatus Status { get; set; }
 
 
@@ -49,7 +53,8 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// </summary>
         /// <param name="accountId"></param>
         /// <param name="actionId"></param>
-        public ActionAccountValidationIntegrationEvent(int accountId, int actionId)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId)
+            :base()
         {
             AccountId = accountId;
             ActionId = actionId;
@@ -61,10 +66,10 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <param name="accountId"></param>
         /// <param name="actionId"></param>
         /// <param name="status"></param>
-        public ActionAccountValidationIntegrationEvent(int accountId, int actionId, AccountValidationStatus status)
+        [JsonConstructor]
+        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId, AccountValidationStatus status)
+            :this(accountId, actionId)
         {
-            AccountId = accountId;
-            ActionId = actionId;
             Status = status;
         }
     }

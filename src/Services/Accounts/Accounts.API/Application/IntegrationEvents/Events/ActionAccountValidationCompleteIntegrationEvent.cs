@@ -22,7 +22,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
     /// <summary>
     /// 
     /// </summary>
-    public record ActionAccountValidationIntegrationEvent : IntegrationEvent
+    public record ActionAccountValidationCompleteIntegrationEvent : IntegrationEvent
     {
         /// <summary>
         /// 
@@ -45,7 +45,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// </summary>
         /// <param name="accountId"></param>
         /// <param name="actionId"></param>
-        public ActionAccountValidationIntegrationEvent(int accountId, int actionId)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId)
         {
             AccountId = accountId;
             ActionId = actionId;
@@ -57,10 +57,9 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <param name="accountId"></param>
         /// <param name="actionId"></param>
         /// <param name="status"></param>
-        public ActionAccountValidationIntegrationEvent(int accountId, int actionId, AccountValidationStatus status)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId, AccountValidationStatus status)
+            :this(accountId, actionId)
         {
-            AccountId = accountId;
-            ActionId = actionId;
             Status = status;
         }
     }

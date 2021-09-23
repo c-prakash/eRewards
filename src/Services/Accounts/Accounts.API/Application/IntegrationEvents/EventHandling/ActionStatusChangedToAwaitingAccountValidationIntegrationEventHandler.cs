@@ -11,10 +11,10 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHand
     /// <summary>
     /// 
     /// </summary>
-    public class ActionStatusChangedToAwaitingValidationIntegrationEventHandler : IIntegrationEventHandler<ActionStatusChangedToAwaitingValidationIntegrationEvent>
+    public class ActionStatusChangedToAwaitingAccountValidationIntegrationEventHandler : IIntegrationEventHandler<ActionStatusChangedToAwaitingAccountValidationIntegrationEvent>
     {
         private readonly IAccountRepository _accountRepository;
-        private readonly ILogger<ActionStatusChangedToAwaitingValidationIntegrationEventHandler> _logger;
+        private readonly ILogger<ActionStatusChangedToAwaitingAccountValidationIntegrationEventHandler> _logger;
         private readonly IAccountIntegrationEventService _accountIntegrationEventService;
 
         /// <summary>
@@ -23,9 +23,9 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHand
         /// <param name="accountRepository"></param>
         /// <param name="logger"></param>
         /// <param name="accountIntegrationEventService"></param>
-        public ActionStatusChangedToAwaitingValidationIntegrationEventHandler(
+        public ActionStatusChangedToAwaitingAccountValidationIntegrationEventHandler(
            IAccountRepository accountRepository,
-           ILogger<ActionStatusChangedToAwaitingValidationIntegrationEventHandler> logger, IAccountIntegrationEventService accountIntegrationEventService)
+           ILogger<ActionStatusChangedToAwaitingAccountValidationIntegrationEventHandler> logger, IAccountIntegrationEventService accountIntegrationEventService)
         {
             _accountRepository = accountRepository ?? throw new ArgumentNullException(nameof(accountRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -37,7 +37,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHand
         /// </summary>
         /// <param name="event"></param>
         /// <returns></returns>
-        public async Task Handle(ActionStatusChangedToAwaitingValidationIntegrationEvent @event)
+        public async Task Handle(ActionStatusChangedToAwaitingAccountValidationIntegrationEvent @event)
         {
             using (LogContext.PushProperty("IntegrationEventContext", $"{@event.Id}-Accounts.Domain"))
             {
@@ -45,7 +45,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHand
 
                 var resultAccount = await _accountRepository.GetAsync(@event.AccountNo);
 
-                var accountValidationIntegrationEvent = new ActionAccountValidationIntegrationEvent(@event.AccountNo, @event.ActionId);
+                var accountValidationIntegrationEvent = new ActionAccountValidationCompleteIntegrationEvent(@event.AccountNo, @event.ActionId);
 
                 if (resultAccount == null || resultAccount.Id == 0)
                 {

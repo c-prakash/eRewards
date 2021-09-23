@@ -5,14 +5,9 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
     /// <summary>
     /// 
     /// </summary>
-    public record ActionStatusChangedToAwaitingValidationIntegrationEvent 
+    public record ActionStatusChangedToAwaitingAccountValidationIntegrationEvent
         : IntegrationEvent
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public int ActionId;
-
         /// <summary>
         /// 
         /// </summary>
@@ -21,12 +16,17 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="actionId"></param>
+        public int ActionId;
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="accountNo"></param>
-        public ActionStatusChangedToAwaitingValidationIntegrationEvent(int actionId, int accountNo)
+        /// <param name="actionId"></param>
+        public ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(int accountNo, int actionId)
         {
-            this.ActionId = actionId;
             this.AccountNo = accountNo;
+            this.ActionId = actionId;
         }
     }
 }

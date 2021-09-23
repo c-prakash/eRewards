@@ -47,7 +47,7 @@ namespace eRewards.Services.Transactions.API.Controllers
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> RecordAction([FromBody] ActionsCommand actionsCommand)
+        public async Task<IActionResult> RecordAction([FromBody] NewActionCommand actionsCommand)
         {
             bool commandResult = false;
 

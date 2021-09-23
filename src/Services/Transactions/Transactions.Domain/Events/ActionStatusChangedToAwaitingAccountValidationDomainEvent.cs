@@ -6,6 +6,7 @@ namespace eRewards.Services.Transactions.Domain.Events
              : INotification
     {
         public int AccountNo { get; private set; }
+
         public int ActionId { get; private set; }
 
         public ActionStatusChangedToAwaitingAccountValidationDomainEvent(int customerNo, int actionId)

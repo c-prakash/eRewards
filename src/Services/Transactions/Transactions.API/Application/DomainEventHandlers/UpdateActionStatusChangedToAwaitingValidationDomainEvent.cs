@@ -46,13 +46,13 @@ namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
         {
 
             _logger.CreateLogger<ActionStatusChangedToAwaitingAccountValidationDomainEvent>()
-             .LogTrace("Action with Id: {ActionId} has been successfully updated to status {Status} ({Id})",
+             .LogTrace("Action with Token: {ActionId} has been successfully updated to status {Status} ({Id})",
                  actionStatusChangedToAwaitingValidationDomainEvent.ActionId, nameof(ActionStatus.AwaitingAccountValidation), ActionStatus.AwaitingAccountValidation.Id);
 
             var actionToUpdate = await _actionRepository.GetAsync(actionStatusChangedToAwaitingValidationDomainEvent.ActionId);
 
-            var actionStatusChangedToAwaitingValidationIntegrationEvent = new ActionStatusChangedToAwaitingValidationIntegrationEvent(
-               actionToUpdate.Id, actionToUpdate.AccountNo);
+            var actionStatusChangedToAwaitingValidationIntegrationEvent = new ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(
+               actionToUpdate.AccountNo, actionToUpdate.Id);
 
             await _actionIntegrationEventService.AddAndSaveEventAsync(actionStatusChangedToAwaitingValidationIntegrationEvent);
         }

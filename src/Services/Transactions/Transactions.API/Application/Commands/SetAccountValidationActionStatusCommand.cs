@@ -45,9 +45,8 @@ namespace eRewards.Services.Transactions.API.Application.Commands
         /// <param name="actionId"></param>
         /// <param name="status"></param>
         public SetAccountValidationActionStatusCommand(int accountId, int actionId, bool status)
+            :this(accountId, actionId)
         {
-            AccountId = accountId;
-            ActionId = actionId;
             Status = status;
         }
     }

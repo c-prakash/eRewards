@@ -51,7 +51,35 @@ namespace eRewards.Services.Transactions.Infrastructure.Repositories
                             .Local
                             .FirstOrDefault(o => o.Id == actionId);
             }
-            
+
+            if (action != null)
+            {
+                await _context.Entry(action)
+                    .Reference(i => i.ActionStatus).LoadAsync();
+            }
+
+            return action;
+
+        }
+
+        public async Task<Actions> GetAsync(string token)
+        {
+            var action = await _context.Actions.FirstOrDefaultAsync(o => o.UniqueToken == token);
+
+            if (action == null)
+            {
+                action = _context
+                            .Actions
+                            .Local
+                            .FirstOrDefault(o => o.UniqueToken == token);
+            }
+
+            if (action != null)
+            {
+                await _context.Entry(action)
+                    .Reference(i => i.ActionStatus).LoadAsync();
+            }
+
             return action;
 
         }

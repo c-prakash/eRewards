@@ -16,5 +16,8 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         Task<IEnumerable<Actions>> GetByAccount(int accountNo);
 
         Task<Actions> GetAsync(int actionId);
+
+        Task<Actions> GetAsync(string token);
+
     }
 }

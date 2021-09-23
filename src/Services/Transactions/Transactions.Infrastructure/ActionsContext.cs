@@ -1,5 +1,6 @@
 ﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
 using eRewards.Services.Transactions.Domain.Seedwork;
+using eRewards.Services.Transactions.Infrastructure.EntityConfiguration;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -12,7 +13,9 @@ namespace eRewards.Services.Transactions.Infrastructure
 {
     public class ActionsDbContext : DbContext, IUnitOfWork
     {
+        public const string DEFAULT_SCHEMA = "dbo";
         public DbSet<Actions> Actions { get; set; }
+        public DbSet<ActionStatus> ActionStatus { get; set; }
 
         private readonly IMediator _mediator;
         private IDbContextTransaction _currentTransaction;
@@ -45,7 +48,14 @@ namespace eRewards.Services.Transactions.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplyConfiguration(new ActionsEntityTypeConfiguration());
+            modelBuilder.HasSequence<int>("actionseq", schema: "dbo")
+                .StartsAt(1)
+                .IncrementsBy(1);
+            modelBuilder.UseHiLo("actionseq", DEFAULT_SCHEMA);
+
+            modelBuilder.ApplyConfiguration(new ActionStatusEntityTypeConfiguration());
         }
 
         public async Task<IDbContextTransaction> BeginTransactionAsync()

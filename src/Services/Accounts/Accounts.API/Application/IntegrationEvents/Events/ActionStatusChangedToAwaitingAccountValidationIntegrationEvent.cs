@@ -5,7 +5,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
     /// <summary>
     /// 
     /// </summary>
-    public record ActionStatusChangedToAwaitingValidationIntegrationEvent : IntegrationEvent
+    public record ActionStatusChangedToAwaitingAccountValidationIntegrationEvent : IntegrationEvent
     {
         /// <summary>
         /// 
@@ -20,9 +20,9 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="actionId"></param>
         /// <param name="accountNo"></param>
-        public ActionStatusChangedToAwaitingValidationIntegrationEvent(int actionId, int accountNo)
+        /// <param name="actionId"></param>
+        public ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(int accountNo, int actionId)
         {
             this.ActionId = actionId;
             this.AccountNo = accountNo;

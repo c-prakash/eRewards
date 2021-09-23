@@ -16,7 +16,7 @@ namespace eRewards.Services.Transactions.API.Infrastructure.AutoFacModules
                 .AsImplementedInterfaces();
 
             // Register all the Command classes (they implement IRequestHandler) in assembly holding the Commands
-            builder.RegisterAssemblyTypes(typeof(ActionsCommand).GetTypeInfo().Assembly)
+            builder.RegisterAssemblyTypes(typeof(NewActionCommand).GetTypeInfo().Assembly)
                 .AsClosedTypesOf(typeof(IRequestHandler<,>));
 
             // Register the DomainEventHandler classes (they implement INotificationHandler<>) in assembly holding the Domain Events
