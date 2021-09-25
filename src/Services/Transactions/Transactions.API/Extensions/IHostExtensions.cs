@@ -53,7 +53,9 @@ namespace eRewards.Services.Transactions.API.Extensions
                 ActionStatus.Submitted,
                 ActionStatus.AwaitingAccountValidation,
                 ActionStatus.AwaitingEligibilityValidation,
-                ActionStatus.Rewarded
+                ActionStatus.Rewarded,
+                ActionStatus.AccountRejected,
+                ActionStatus.EligibilityRejected
             };
         }
     }

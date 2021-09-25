@@ -7,7 +7,8 @@
                 "name": "erewardssql",
                 "dbs": {
                     "actions": "actionsdb",
-                    "accounts": "accountsdb"
+                    "accounts": "accountsdb",
+		            "products": "productsdb"
                 }
             }
         },

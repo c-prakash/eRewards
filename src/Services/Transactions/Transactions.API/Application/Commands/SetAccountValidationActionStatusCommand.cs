@@ -14,7 +14,7 @@ namespace eRewards.Services.Transactions.API.Application.Commands
         /// <summary>
         /// 
         /// </summary>
-        public int AccountId { get; private set; }
+        public int AccountNo { get; private set; }
 
         /// <summary>
         /// 
@@ -30,22 +30,22 @@ namespace eRewards.Services.Transactions.API.Application.Commands
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
-        public SetAccountValidationActionStatusCommand(int accountId, int actionId)
+        public SetAccountValidationActionStatusCommand(int accountNo, int actionId)
         {
-            AccountId = accountId;
+            AccountNo = accountNo;
             ActionId = actionId;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
         /// <param name="status"></param>
-        public SetAccountValidationActionStatusCommand(int accountId, int actionId, bool status)
-            :this(accountId, actionId)
+        public SetAccountValidationActionStatusCommand(int accountNo, int actionId, bool status)
+            :this(accountNo, actionId)
         {
             Status = status;
         }

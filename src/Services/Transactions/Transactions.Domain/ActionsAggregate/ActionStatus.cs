@@ -14,13 +14,16 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         public static ActionStatus AwaitingEligibilityValidation = new (3, nameof(AwaitingEligibilityValidation).ToLowerInvariant());
         public static ActionStatus Rewarded = new(4, nameof(Rewarded).ToLowerInvariant());
 
+        public static ActionStatus AccountRejected = new(91, nameof(AccountRejected).ToLowerInvariant());
+        public static ActionStatus EligibilityRejected = new(92, nameof(EligibilityRejected).ToLowerInvariant());
+
         public ActionStatus(int id, string name)
             : base(id, name)
         {
         }
 
         public static IEnumerable<ActionStatus> List() =>
-            new[] { Submitted, AwaitingAccountValidation, AwaitingEligibilityValidation, Rewarded };
+            new[] { Submitted, AwaitingAccountValidation, AwaitingEligibilityValidation, Rewarded, AccountRejected, EligibilityRejected };
 
         public static ActionStatus FromName(string name)
         {

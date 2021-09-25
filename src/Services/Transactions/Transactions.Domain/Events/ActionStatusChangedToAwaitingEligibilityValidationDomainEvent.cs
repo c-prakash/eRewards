@@ -8,9 +8,9 @@ namespace eRewards.Services.Transactions.Domain.Events
         public int AccountNo { get; private set; }
         public int ActionId { get; private set; }
 
-        public ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(int customerNo, int actionId)
+        public ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(int accountNo, int actionId)
         {
-            AccountNo = customerNo;
+            AccountNo = accountNo;
             ActionId = actionId;
         }
      }

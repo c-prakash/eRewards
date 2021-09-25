@@ -27,7 +27,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        public int AccountId { get; private set; }
+        public int AccountNo { get; private set; }
 
         /// <summary>
         /// 
@@ -43,11 +43,11 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
-        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId)
         {
-            AccountId = accountId;
+            AccountNo = accountNo;
             ActionId = actionId;
         }
 
@@ -57,8 +57,8 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <param name="accountId"></param>
         /// <param name="actionId"></param>
         /// <param name="status"></param>
-        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId, AccountValidationStatus status)
-            :this(accountId, actionId)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId, AccountValidationStatus status)
+            :this(accountNo, actionId)
         {
             Status = status;
         }

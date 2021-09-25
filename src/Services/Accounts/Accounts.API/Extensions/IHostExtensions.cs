@@ -22,6 +22,7 @@ namespace eRewards.Services.Accounts.API.Extensions
             var accountDbContext = scope.ServiceProvider.GetRequiredService<AccountDbContext>();
             var integrationLogContext = scope.ServiceProvider.GetRequiredService<IntegrationEventLogContext>();
 
+            //accountDbContext.Database.EnsureDeleted();
             accountDbContext.Database.EnsureCreated();
             integrationLogContext.Database.EnsureCreated();
             //if (context.Database.EnsureCreated())

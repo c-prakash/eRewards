@@ -46,6 +46,8 @@ namespace eRewards.Services.Transactions.API.Application.Commands
 
             if (command.Status)
                 actionToUpdate.SetAwaitingEligibilityValidation();
+            else
+                actionToUpdate.SetAccountRejected();
 
             var result = await _actionsRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
 

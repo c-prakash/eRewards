@@ -100,6 +100,8 @@ namespace eRewards.Services.Transactions.API
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             //eventBus.Subscribe<ActionsPublishedIntegrationEvent, ActionsPublishedIntegrationEventHandler>();
             eventBus.Subscribe<ActionAccountValidationCompleteIntegrationEvent, ActionAccountValidationCompleteIntegrationEventHandler>();
+            eventBus.Subscribe<ProductEligibilityConfirmedIntegrationEvent, ProductEligibilityConfirmedIntegrationEventHandler>();
+            eventBus.Subscribe<ProductEligibilityRejectedIntegrationEvent, ProductEligibilityRejectedIntegrationEventHandler>();
         }
     }
 }

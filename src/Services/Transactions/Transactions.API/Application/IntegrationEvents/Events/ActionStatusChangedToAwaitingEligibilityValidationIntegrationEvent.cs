@@ -13,24 +13,32 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         : IntegrationEvent
     {
         /// <summary>
+        /// AccountId
+        /// </summary>
+        public int AccountNo { get; set; }
+
+        /// <summary>
         /// ActionId
         /// </summary>
         public int ActionId { get; set; }
-
+        
         /// <summary>
-        /// AccountId
+        /// 
         /// </summary>
-        public int AccountId { get; set; }
+        public int ProductId { get; private set; }
 
         /// <summary>
         /// ctor
         /// </summary>
+        /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
-        /// <param name="accountId"></param>
-        public ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(int actionId, int accountId)
+        /// <param name="productId"></param>
+        public ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(int accountNo, int actionId, int productId)
         {
+            
+            this.AccountNo = accountNo;
             this.ActionId = actionId;
-            this.AccountId = actionId;
+            this.ProductId = productId;
         }
     }
 }

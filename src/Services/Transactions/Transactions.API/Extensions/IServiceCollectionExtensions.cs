@@ -159,6 +159,8 @@ namespace eRewards.Services.Transactions.API.Extensions
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
             services.AddTransient<ActionsReceivedIntegrationEventHandler>();
             services.AddTransient<ActionAccountValidationCompleteIntegrationEventHandler>();
+            services.AddTransient<ProductEligibilityConfirmedIntegrationEventHandler>();
+            services.AddTransient<ProductEligibilityRejectedIntegrationEventHandler>();
 
             return services;
         }

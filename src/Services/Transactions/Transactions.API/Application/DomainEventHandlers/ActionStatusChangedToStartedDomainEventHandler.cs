@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
 {
-
-    public class UpdateActionStatusChangedToStartedDomainEvent
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ActionStatusChangedToStartedDomainEventHandler
                   : INotificationHandler<ActionsStartedDomainEvent>
     {
         private readonly IActionsRepository _actionRepository;
@@ -28,7 +30,7 @@ namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
             _actionIntegrationEventService = actionIntegrationEventService;
         }
         */
-        public UpdateActionStatusChangedToStartedDomainEvent(
+        public ActionStatusChangedToStartedDomainEventHandler(
             IActionsRepository actionsRepository, ILoggerFactory logger)
         {
             _actionRepository = actionsRepository ?? throw new ArgumentNullException(nameof(actionsRepository));

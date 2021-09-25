@@ -13,6 +13,6 @@ namespace eRewards.Services.Accounts.Domain.AccountsAggregate
         Task Update(Account account);
 
 
-        Task<Account> GetAsync(int accountId);
+        Task<Account> GetAsync(int accountNo);
     }
 }

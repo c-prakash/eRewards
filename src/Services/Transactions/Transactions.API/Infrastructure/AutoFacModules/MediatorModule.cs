@@ -20,7 +20,7 @@ namespace eRewards.Services.Transactions.API.Infrastructure.AutoFacModules
                 .AsClosedTypesOf(typeof(IRequestHandler<,>));
 
             // Register the DomainEventHandler classes (they implement INotificationHandler<>) in assembly holding the Domain Events
-             builder.RegisterAssemblyTypes(typeof(UpdateActionStatusChangedToAwaitingValidationDomainEvent).GetTypeInfo().Assembly)
+             builder.RegisterAssemblyTypes(typeof(ActionStatusChangedToAwaitingAccountValidationDomainEventHandler).GetTypeInfo().Assembly)
                  .AsClosedTypesOf(typeof(INotificationHandler<>));
 
             /*  // Register the Command's Validators (Validators based on FluentValidation library)

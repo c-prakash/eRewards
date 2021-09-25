@@ -48,6 +48,9 @@ namespace eRewards.Services.Accounts.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            modelBuilder.Entity<Account>().ToTable("Accounts");
+            modelBuilder.Entity<AccountMapping>().ToTable("AccountMappings");
         }
 
         public async Task<IDbContextTransaction> BeginTransactionAsync()

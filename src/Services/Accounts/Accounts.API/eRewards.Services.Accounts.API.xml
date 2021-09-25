@@ -72,7 +72,7 @@
             
             </summary>
         </member>
-        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.AccountId">
+        <member name="P:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.AccountNo">
             <summary>
             
             </summary>
@@ -91,7 +91,7 @@
             <summary>
             
             </summary>
-            <param name="accountId"></param>
+            <param name="accountNo"></param>
             <param name="actionId"></param>
         </member>
         <member name="M:eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.#ctor(System.Int32,System.Int32,eRewards.Services.Accounts.API.Application.IntegrationEvents.Events.AccountValidationStatus)">

@@ -45,7 +45,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
             {
                 _logger.LogInformation("----- Handling integration event: {IntegrationEventId} at {AppName} - ({@IntegrationEvent})", @event.Id, Program.AppName, @event);
 
-                var command = new SetAccountValidationActionStatusCommand(@event.AccountId, @event.ActionId, @event.Status == AccountValidationStatus.Found);
+                var command = new SetAccountValidationActionStatusCommand(@event.AccountNo, @event.ActionId, @event.Status == AccountValidationStatus.Found);
 
                 _logger.LogInformation(
                     "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",

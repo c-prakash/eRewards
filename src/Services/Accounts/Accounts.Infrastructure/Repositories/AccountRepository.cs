@@ -36,16 +36,16 @@ namespace eRewards.Services.Accounts.Infrastructure.Repositories
 
          
 
-        public async Task<Account> GetAsync(int accountId)
+        public async Task<Account> GetAsync(int accountNo)
         {
-            var action = await _context.Accounts.FirstOrDefaultAsync(o => o.Id == accountId);
+            var action = await _context.Accounts.FirstOrDefaultAsync(o => o.Id == accountNo);
             
             if (action == null)
             {
                 action = _context
                             .Accounts
                             .Local
-                            .FirstOrDefault(o => o.Id == accountId);
+                            .FirstOrDefault(o => o.Id == accountNo);
             }
             
             return action;

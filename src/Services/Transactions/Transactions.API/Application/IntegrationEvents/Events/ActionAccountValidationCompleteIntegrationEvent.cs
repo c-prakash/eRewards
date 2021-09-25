@@ -33,7 +33,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// 
         /// </summary>
         [JsonProperty]
-        public int AccountId { get; private set; }
+        public int AccountNo { get; private set; }
 
         /// <summary>
         /// 
@@ -51,24 +51,24 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
-        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId)
             :base()
         {
-            AccountId = accountId;
+            AccountNo = accountNo;
             ActionId = actionId;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
         /// <param name="status"></param>
         [JsonConstructor]
-        public ActionAccountValidationCompleteIntegrationEvent(int accountId, int actionId, AccountValidationStatus status)
-            :this(accountId, actionId)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId, AccountValidationStatus status)
+            :this(accountNo, actionId)
         {
             Status = status;
         }

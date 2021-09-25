@@ -52,7 +52,7 @@ namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
             var actionToUpdate = await _actionRepository.GetAsync(actionStatusChangedToAwaitingEligibilityValidationDomainEvent.ActionId);
 
             var actionStatusChangedToAwaitingEligibilityValidationIntegrationEvent = new ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(
-               actionToUpdate.Id, actionToUpdate.AccountNo);
+               actionToUpdate.AccountNo, actionToUpdate.Id,  0);
 
             await _actionIntegrationEventService.AddAndSaveEventAsync(actionStatusChangedToAwaitingEligibilityValidationIntegrationEvent);
         }

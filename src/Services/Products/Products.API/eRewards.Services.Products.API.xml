@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>eRewards.Services.Products.API</name>
+    </assembly>
+    <members>
+        <member name="T:eRewards.Services.Products.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEventHandler.#ctor(eRewards.Services.Products.Domain.ProductsAggregate.IProductRepository,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Products.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEventHandler},eRewards.Services.Products.API.Application.IntegrationEvents.IProductIntegrationEventService)">
+            <summary>
+            
+            </summary>
+            <param name="productRepository"></param>
+            <param name="logger"></param>
+            <param name="productIntegrationEventService"></param>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.EventHandling.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEventHandler.Handle(eRewards.Services.Products.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="event"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.ProductId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+            <param name="productId"></param>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityConfirmedIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityConfirmedIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityConfirmedIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityConfirmedIntegrationEvent.Points">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityConfirmedIntegrationEvent.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountId"></param>
+            <param name="actionId"></param>
+            <param name="points"></param>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityRejectedIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityRejectedIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityRejectedIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.Events.ProductEligibilityRejectedIntegrationEvent.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Application.IntegrationEvents.IProductIntegrationEventService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.IProductIntegrationEventService.PublishThroughEventBusAsync(Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events.IntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.IProductIntegrationEventService.SaveEventAndAccountContextChangesAsync(Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events.IntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Application.IntegrationEvents.ProductIntegrationEventService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.ProductIntegrationEventService.#ctor(Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions.IEventBus,eRewards.Services.Products.Infrastructure.ProductDbContext,System.Func{System.Data.Common.DbConnection,IntegrationEventLogEF.Services.IIntegrationEventLogService},Microsoft.Extensions.Logging.ILogger{eRewards.Services.Products.API.Application.IntegrationEvents.ProductIntegrationEventService})">
+            <summary>
+            
+            </summary>
+            <param name="eventBus"></param>
+            <param name="productContext"></param>
+            <param name="integrationEventLogServiceFactory"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.ProductIntegrationEventService.PublishThroughEventBusAsync(Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events.IntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Application.IntegrationEvents.ProductIntegrationEventService.SaveEventAndAccountContextChangesAsync(Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events.IntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="evt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Controllers.HomeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Controllers.HomeController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Controllers.ProductsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Controllers.ProductsController.#ctor(eRewards.Services.Products.Domain.ProductsAggregate.IProductRepository,Microsoft.Extensions.Logging.ILogger{eRewards.Services.Products.API.Controllers.ProductsController})">
+            <summary>
+            
+            </summary>
+            <param name="productRepository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Controllers.ProductsController.CreateProduct(eRewards.Services.Products.Domain.ProductsAggregate.Product)">
+            <summary>
+            
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Controllers.ProductsController.GetProduct(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Extensions.IHostExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Extensions.IHostExtensions.SeedDatabase(Microsoft.AspNetCore.Hosting.IWebHost)">
+            <summary>
+            
+            </summary>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Extensions.IServiceCollectionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Extensions.IServiceCollectionExtensions.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Extensions.IServiceCollectionExtensions.AddAppInsights(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Extensions.IServiceCollectionExtensions.AddCustomDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Extensions.IServiceCollectionExtensions.AddIntegrationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Extensions.IServiceCollectionExtensions.AddEventBus(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Extensions.IServiceCollectionExtensions.AddGenerics(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="targetAssembly"></param>
+            <param name="handlerInterface"></param>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Infrastructure.AutoFacModules.ApplicationModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Infrastructure.AutoFacModules.ApplicationModule.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Infrastructure.AutoFacModules.ApplicationModule.Load(Autofac.ContainerBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Infrastructure.AutoFacModules.MediatorModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Infrastructure.IntegrationEventMigrations.IntegrationEventLogContextDesignTimeFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Infrastructure.IntegrationEventMigrations.IntegrationEventLogContextModelSnapshot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:eRewards.Services.Products.API.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:eRewards.Services.Products.API.Program.CreateHostBuilder(Microsoft.Extensions.Configuration.IConfiguration,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

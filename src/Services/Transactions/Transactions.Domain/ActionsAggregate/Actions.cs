@@ -64,12 +64,30 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
             }
         }
 
-        public void SetRewardedStatus()
+        public void SetRewardedStatus(int points)
         {
             if (_actionStatusId == ActionStatus.AwaitingEligibilityValidation.Id)
             {
                 AddDomainEvent(new ActionStatusChangedToRewardedDomainEvent(this.AccountNo, this.Id));
                 _actionStatusId = ActionStatus.Rewarded.Id;
+            }
+        }
+
+        public void SetAccountRejected()
+        {
+            if (_actionStatusId == ActionStatus.AwaitingAccountValidation.Id)
+            {
+                //AddDomainEvent(new ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(this.AccountNo, this.Id));
+                _actionStatusId = ActionStatus.AccountRejected.Id;
+            }
+        }
+
+        public void SetEligibilityRejectedStatus()
+        {
+            if (_actionStatusId == ActionStatus.AwaitingEligibilityValidation.Id)
+            {
+                //AddDomainEvent(new ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(this.AccountNo, this.Id));
+                _actionStatusId = ActionStatus.EligibilityRejected.Id;
             }
         }
 

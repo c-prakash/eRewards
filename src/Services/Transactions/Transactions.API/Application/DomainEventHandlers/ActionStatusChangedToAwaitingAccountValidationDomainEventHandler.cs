@@ -14,7 +14,7 @@ namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
     /// <summary>
     /// 
     /// </summary>
-    public class UpdateActionStatusChangedToAwaitingValidationDomainEvent
+    public class ActionStatusChangedToAwaitingAccountValidationDomainEventHandler
                    : INotificationHandler<ActionStatusChangedToAwaitingAccountValidationDomainEvent>
     {
         private readonly IActionsRepository _actionRepository;
@@ -27,7 +27,7 @@ namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
         /// <param name="actionsRepository"></param>
         /// <param name="logger"></param>
         /// <param name="actionIntegrationEventService"></param>
-        public UpdateActionStatusChangedToAwaitingValidationDomainEvent(
+        public ActionStatusChangedToAwaitingAccountValidationDomainEventHandler(
             IActionsRepository actionsRepository, ILoggerFactory logger, IActionIntegrationEventService actionIntegrationEventService)
         {
             _actionRepository = actionsRepository ?? throw new ArgumentNullException(nameof(actionsRepository));
