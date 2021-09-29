@@ -69,7 +69,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPortal.Web.Server.Infr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPortal.Web.Server.Infrastructure.Shared", "src\Web\AdminPortal.Web\Server.Infrastructure.Shared\AdminPortal.Web.Server.Infrastructure.Shared.csproj", "{77722687-CEB7-4210-B3E1-7F2BFA4EDE77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPortal.Web.Application", "src\Web\AdminPortal.Web\Application\AdminPortal.Web.Application.csproj", "{1F5CEE13-6FA6-4D5A-B341-22F8C8D0C37A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPortal.Web.Application", "src\Web\AdminPortal.Web\Application\AdminPortal.Web.Application.csproj", "{1F5CEE13-6FA6-4D5A-B341-22F8C8D0C37A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
