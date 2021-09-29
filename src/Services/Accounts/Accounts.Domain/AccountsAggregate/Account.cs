@@ -5,16 +5,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eRewards.Services.Accounts.Domain.AccountsAggregate
 {
-    public class Account
-        : Entity, IAggregateRoot
+    public class Account : IAggregateRoot
+    //: Entity, IAggregateRoot
     {
         
-        public List<AccountMapping> Mappings { get; set; }
-
-        public int? Balance { get; set; }
-
-        public int? LifetimePoints { get; set; }
-
+        //public List<AccountMapping> Mappings { get; set; }
+        [Key]
+        public int Id { get; set; }
         public string CustomerId { get; set; }
 
         public DateTime CreatedAt { get; set; }
@@ -24,20 +21,21 @@ namespace eRewards.Services.Accounts.Domain.AccountsAggregate
         public Account() 
         {
             this.CreatedAt = DateTime.UtcNow;
-            this.Mappings = new List<AccountMapping>();
         }
 
     }
 
-    public class AccountMapping
+    public class AccountMapping 
     {
         [Key]
-        public int Id { get; set; }
+        public int MappingId { get; set; }
         public string Type { get; set; }
 
         public string Value { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        public int Id { get; set; }
 
         public Account Account { get; set; }
 

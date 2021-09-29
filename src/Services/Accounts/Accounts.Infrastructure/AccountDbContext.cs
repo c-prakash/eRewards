@@ -14,8 +14,6 @@ namespace eRewards.Services.Accounts.Infrastructure
     {
         public DbSet<Account> Accounts { get; set; }
 
-        public DbSet<AccountMapping> AccountMappings { get; set; }
-
         private readonly IMediator _mediator;
         private IDbContextTransaction _currentTransaction;
 
@@ -50,7 +48,7 @@ namespace eRewards.Services.Accounts.Infrastructure
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             modelBuilder.Entity<Account>().ToTable("Accounts");
-            modelBuilder.Entity<AccountMapping>().ToTable("AccountMappings");
+            //modelBuilder.Entity<AccountMapping>().ToTable("AccountMappings");
         }
 
         public async Task<IDbContextTransaction> BeginTransactionAsync()

@@ -1,4 +1,5 @@
 ﻿using eRewards.Services.Accounts.Domain.Seedwork;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace eRewards.Services.Accounts.Domain.AccountsAggregate
@@ -12,7 +13,12 @@ namespace eRewards.Services.Accounts.Domain.AccountsAggregate
 
         Task Update(Account account);
 
+        Task<IEnumerable<Account>> GetAllAsync(string searchString, string orderBy, int pageNumber = 0, int pageSize = 10);
 
         Task<Account> GetAsync(int accountNo);
+
+        Task<int> DeleteAsync(int accountNo);
+
+        Task<long> Count(string searchString);
     }
 }

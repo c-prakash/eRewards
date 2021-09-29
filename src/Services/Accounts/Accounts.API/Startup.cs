@@ -42,6 +42,11 @@ namespace eRewards.Services.Accounts.API
               .AddHealthChecks()
               .AddCheck("self", () => HealthCheckResult.Healthy());
 
+            services.AddCors(c =>
+              {
+                  c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+              });
+
             var container = new ContainerBuilder();
             container.Populate(services);
 
@@ -72,6 +77,13 @@ namespace eRewards.Services.Accounts.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Todo -- fix this to selected origins only
+            app.UseCors(cors => cors
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials());
 
             app.UseEndpoints(endpoints =>
             {

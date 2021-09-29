@@ -162,7 +162,27 @@
             <param name="account"></param>
             <returns></returns>
         </member>
+        <member name="M:eRewards.Services.Accounts.API.Controllers.AccountsController.UpdateAccount(eRewards.Services.Accounts.Domain.AccountsAggregate.Account)">
+            <summary>
+            
+            </summary>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Accounts.API.Controllers.AccountsController.GetAccounts(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:eRewards.Services.Accounts.API.Controllers.AccountsController.GetAccount(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:eRewards.Services.Accounts.API.Controllers.AccountsController.DeleteAccount(System.Int32)">
             <summary>
             
             </summary>
@@ -293,6 +313,41 @@
             <param name="configuration"></param>
             <param name="args"></param>
             <returns></returns>
+        </member>
+        <member name="T:eRewards.Services.Accounts.API.ViewModel.PaginatedItemsViewModel`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:eRewards.Services.Accounts.API.ViewModel.PaginatedItemsViewModel`1.PageIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Accounts.API.ViewModel.PaginatedItemsViewModel`1.PageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Accounts.API.ViewModel.PaginatedItemsViewModel`1.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:eRewards.Services.Accounts.API.ViewModel.PaginatedItemsViewModel`1.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:eRewards.Services.Accounts.API.ViewModel.PaginatedItemsViewModel`1.#ctor(System.Int32,System.Int32,System.Int64,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="count"></param>
+            <param name="data"></param>
         </member>
     </members>
 </doc>
