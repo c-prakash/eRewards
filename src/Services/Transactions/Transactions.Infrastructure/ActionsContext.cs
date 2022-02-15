@@ -1,20 +1,19 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
-using eRewards.Services.Transactions.Domain.Seedwork;
-using eRewards.Services.Transactions.Infrastructure.EntityConfiguration;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
+using ezLoyalty.Services.Actions.Domain.Seedwork;
+using ezLoyalty.Services.Actions.Infrastructure.EntityConfiguration;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using System;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.Infrastructure
+namespace ezLoyalty.Services.Actions.Infrastructure
 {
     public class ActionsDbContext : DbContext, IUnitOfWork
     {
         public const string DEFAULT_SCHEMA = "dbo";
-        public DbSet<Actions> Actions { get; set; }
+        public DbSet<Action> Actions { get; set; }
         public DbSet<ActionStatus> ActionStatus { get; set; }
 
         private readonly IMediator _mediator;
@@ -24,15 +23,15 @@ namespace eRewards.Services.Transactions.Infrastructure
 
         public bool HasActiveTransaction => _currentTransaction != null;
 
-        public ActionsDbContext(DbContextOptions<ActionsDbContext> options, IMediator mediator) 
-            : base(options) 
+        public ActionsDbContext(DbContextOptions<ActionsDbContext> options, IMediator mediator)
+            : base(options)
         {
 
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _mediator = mediator ?? throw new System.ArgumentNullException(nameof(mediator));
 
-            System.Diagnostics.Debug.WriteLine("ActionsDbContext::ctor ->" + this.GetHashCode());
+            System.Diagnostics.Debug.WriteLine("ActionsDbContext::ctor ->" + GetHashCode());
         }
-               
+
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
         {
             await _mediator.DispatchDomainEventsAsync(this);
@@ -69,8 +68,8 @@ namespace eRewards.Services.Transactions.Infrastructure
 
         public async Task CommitTransactionAsync(IDbContextTransaction transaction)
         {
-            if (transaction == null) throw new ArgumentNullException(nameof(transaction));
-            if (transaction != _currentTransaction) throw new InvalidOperationException($"Transaction {transaction.TransactionId} is not current");
+            if (transaction == null) throw new System.ArgumentNullException(nameof(transaction));
+            if (transaction != _currentTransaction) throw new System.InvalidOperationException($"Transaction {transaction.TransactionId} is not current");
 
             try
             {

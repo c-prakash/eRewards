@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{ED3AF94D-E487-4A60-AD77-61E2C11C04DF}"
 EndProject
@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus", "src\BuildingBlo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusServiceBus", "src\BuildingBlocks\EventBusServiceBus\EventBusServiceBus.csproj", "{721A2984-8DCC-4EEC-ABA9-3C01FABBF9A5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transactions", "Transactions", "{3200D42A-94AB-443E-A362-12CAE4FA5BCB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Actions", "Actions", "{3200D42A-94AB-443E-A362-12CAE4FA5BCB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Accounts", "Accounts", "{290D1545-DBF9-4603-8747-FE6D24140A6D}"
 EndProject
@@ -37,13 +37,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.UnitTests", "src\Services\Accounts\Accounts.UnitTests\Accounts.UnitTests.csproj", "{CAAC675A-E21F-4B97-8C3C-AE07E22055FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.API", "src\Services\Transactions\Transactions.API\Transactions.API.csproj", "{02331A04-9808-427A-8888-574928828EE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actions.API", "src\Services\Transactions\Transactions.API\Actions.API.csproj", "{02331A04-9808-427A-8888-574928828EE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.Domain", "src\Services\Transactions\Transactions.Domain\Transactions.Domain.csproj", "{4AB7A8FC-0379-46C2-B854-0EE5521CACD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actions.Domain", "src\Services\Transactions\Transactions.Domain\Actions.Domain.csproj", "{4AB7A8FC-0379-46C2-B854-0EE5521CACD7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.Infrastructure", "src\Services\Transactions\Transactions.Infrastructure\Transactions.Infrastructure.csproj", "{87DFD16B-2F03-412E-8CFE-E20C728FAE56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actions.Infrastructure", "src\Services\Transactions\Transactions.Infrastructure\Actions.Infrastructure.csproj", "{87DFD16B-2F03-412E-8CFE-E20C728FAE56}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.UnitTests", "src\Services\Transactions\Transactions.UnitTests\Transactions.UnitTests.csproj", "{2686AF80-9320-415E-A57C-9A27A3B0DB8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actions.UnitTests", "src\Services\Transactions\Transactions.UnitTests\Actions.UnitTests.csproj", "{2686AF80-9320-415E-A57C-9A27A3B0DB8B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{38FCD020-AE02-4A5E-B9A5-3AAC1D385480}"
 EndProject
@@ -70,6 +70,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPortal.Web.Server.Infrastructure.Shared", "src\Web\AdminPortal.Web\Server.Infrastructure.Shared\AdminPortal.Web.Server.Infrastructure.Shared.csproj", "{77722687-CEB7-4210-B3E1-7F2BFA4EDE77}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPortal.Web.Application", "src\Web\AdminPortal.Web\Application\AdminPortal.Web.Application.csproj", "{1F5CEE13-6FA6-4D5A-B341-22F8C8D0C37A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Incentive", "Incentive", "{BB68D5D6-A3E6-493A-9CC4-F94E163A31E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Incentive.API", "src\Services\Incentive\Incentive.API\Incentive.API.csproj", "{0BE7010C-7742-42E5-BCCE-A5BA8B77C475}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Incentive.Domain", "src\Services\Incentive\Incentive.Domain\Incentive.Domain.csproj", "{DEC1E63C-20AA-4731-B214-61B4AF71CB98}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Incentive.Infrastructure", "src\Services\Incentive\Incentive.Infrastructure\Incentive.Infrastructure.csproj", "{0AAC1FDA-01BA-470B-920A-853E45CBB5B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Incentive.UnitTests", "src\Services\Incentive\Incentive.UnitTests\Incentive.UnitTests.csproj", "{AE63A235-055A-4CCC-8CB7-3BA27B9B050A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -142,11 +152,9 @@ Global
 		{43900435-274E-4FF0-B305-0F0E3FF75406}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43900435-274E-4FF0-B305-0F0E3FF75406}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4EBF4FC-CE29-4D48-8337-A3BF38999F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4EBF4FC-CE29-4D48-8337-A3BF38999F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4EBF4FC-CE29-4D48-8337-A3BF38999F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4EBF4FC-CE29-4D48-8337-A3BF38999F72}.Release|Any CPU.Build.0 = Release|Any CPU
 		{199B624E-4E3C-4428-9A0B-7482B3C67D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{199B624E-4E3C-4428-9A0B-7482B3C67D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{199B624E-4E3C-4428-9A0B-7482B3C67D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{199B624E-4E3C-4428-9A0B-7482B3C67D58}.Release|Any CPU.Build.0 = Release|Any CPU
 		{245D7064-35A2-4C5A-B960-A7B2D7D9A478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -169,6 +177,22 @@ Global
 		{1F5CEE13-6FA6-4D5A-B341-22F8C8D0C37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F5CEE13-6FA6-4D5A-B341-22F8C8D0C37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F5CEE13-6FA6-4D5A-B341-22F8C8D0C37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE7010C-7742-42E5-BCCE-A5BA8B77C475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE7010C-7742-42E5-BCCE-A5BA8B77C475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE7010C-7742-42E5-BCCE-A5BA8B77C475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE7010C-7742-42E5-BCCE-A5BA8B77C475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC1E63C-20AA-4731-B214-61B4AF71CB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC1E63C-20AA-4731-B214-61B4AF71CB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC1E63C-20AA-4731-B214-61B4AF71CB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC1E63C-20AA-4731-B214-61B4AF71CB98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AAC1FDA-01BA-470B-920A-853E45CBB5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAC1FDA-01BA-470B-920A-853E45CBB5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAC1FDA-01BA-470B-920A-853E45CBB5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAC1FDA-01BA-470B-920A-853E45CBB5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE63A235-055A-4CCC-8CB7-3BA27B9B050A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE63A235-055A-4CCC-8CB7-3BA27B9B050A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE63A235-055A-4CCC-8CB7-3BA27B9B050A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE63A235-055A-4CCC-8CB7-3BA27B9B050A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -204,6 +228,11 @@ Global
 		{5D59E71A-E02F-4B35-8304-8B0DD1107B34} = {E71E721A-C44A-4CFE-AD34-A03E8992D9E9}
 		{77722687-CEB7-4210-B3E1-7F2BFA4EDE77} = {E71E721A-C44A-4CFE-AD34-A03E8992D9E9}
 		{1F5CEE13-6FA6-4D5A-B341-22F8C8D0C37A} = {E71E721A-C44A-4CFE-AD34-A03E8992D9E9}
+		{BB68D5D6-A3E6-493A-9CC4-F94E163A31E5} = {ED3AF94D-E487-4A60-AD77-61E2C11C04DF}
+		{0BE7010C-7742-42E5-BCCE-A5BA8B77C475} = {BB68D5D6-A3E6-493A-9CC4-F94E163A31E5}
+		{DEC1E63C-20AA-4731-B214-61B4AF71CB98} = {BB68D5D6-A3E6-493A-9CC4-F94E163A31E5}
+		{0AAC1FDA-01BA-470B-920A-853E45CBB5B0} = {BB68D5D6-A3E6-493A-9CC4-F94E163A31E5}
+		{AE63A235-055A-4CCC-8CB7-3BA27B9B050A} = {BB68D5D6-A3E6-493A-9CC4-F94E163A31E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {060A5FC9-7D2A-4A7E-BC1C-71A117BFE247}

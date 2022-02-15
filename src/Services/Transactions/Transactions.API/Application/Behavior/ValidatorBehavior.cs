@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.Behavior
+namespace ezLoyalty.Services.Actions.API.Application.Behavior
 {
     public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

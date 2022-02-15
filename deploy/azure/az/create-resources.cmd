@@ -7,7 +7,7 @@ echo Creating resource group %2 in '%4'
 call az group create --name %2 --location %4
 :deployresources
 echo Deploying ARM template '%1.json' in resource group %2
-call az group deployment create --resource-group %2 --parameters @%1.parameters.json --template-file %1.json
+call az deployment group create --resource-group %2 --parameters @%1.parameters.json --template-file %1.json
 GOTO end
 :error
 echo.

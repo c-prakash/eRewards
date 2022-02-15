@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.Commands
+namespace ezLoyalty.Services.Actions.API.Application.Commands
 {
     /// <summary>
     /// 
@@ -24,19 +24,12 @@ namespace eRewards.Services.Transactions.API.Application.Commands
         /// <summary>
         /// 
         /// </summary>
-        public int Points { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
-        /// <param name="points"></param>
-        public SetProductEligibilityConfirmedActionStatusCommand(int accountNo, int actionId, int points)
+        public SetProductEligibilityConfirmedActionStatusCommand(int accountNo, int actionId)
         {
-            this.AccountNo = accountNo;
-            this.ActionId = actionId;
-            this.Points = points;
+            AccountNo = accountNo;
+            ActionId = actionId;
         }
     }
 }

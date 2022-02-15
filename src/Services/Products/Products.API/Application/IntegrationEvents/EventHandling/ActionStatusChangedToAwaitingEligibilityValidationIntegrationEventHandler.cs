@@ -54,10 +54,9 @@ namespace eRewards.Services.Products.API.Application.IntegrationEvents.EventHand
                 */
 
                 // temp add account id based validation and dummy points - needs to be removed,
-                var points = 10;
                 var eligibilityValidationIntegrationEvent = @event.AccountNo != 1
                     ? (IntegrationEvent) new ProductEligibilityRejectedIntegrationEvent(@event.AccountNo, @event.ActionId)
-                    : new ProductEligibilityConfirmedIntegrationEvent(@event.AccountNo, @event.ActionId, points);
+                    : new ProductEligibilityConfirmedIntegrationEvent(@event.AccountNo, @event.ActionId);
 
 
                 await _productIntegrationEventService.SaveEventAndAccountContextChangesAsync(eligibilityValidationIntegrationEvent);

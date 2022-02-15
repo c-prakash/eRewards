@@ -1,12 +1,12 @@
-using eRewards.Services.Transactions.Domain.ActionsAggregate;
-using eRewards.Services.Transactions.Infrastructure;
+using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
+using ezLoyalty.Services.Actions.Infrastructure;
 using IntegrationEventLogEF;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eRewards.Services.Transactions.API.Extensions
+namespace ezLoyalty.Services.Actions.API.Extensions
 {
     /// <summary>
     /// 

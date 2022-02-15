@@ -1,6 +1,4 @@
 ﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Extensions;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents;
-using eRewards.Services.Transactions.Infrastructure;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
@@ -8,8 +6,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Serilog.Context;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents;
+using ezLoyalty.Services.Actions.Infrastructure;
 
-namespace eRewards.Services.Transactions.API.Application.Behavior
+namespace ezLoyalty.Services.Actions.API.Application.Behavior
 {
     /// <summary>
     /// 

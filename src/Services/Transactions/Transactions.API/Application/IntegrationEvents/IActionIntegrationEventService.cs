@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents
 {
 
     public interface IActionIntegrationEventService

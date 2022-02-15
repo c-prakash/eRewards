@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System.Runtime.Serialization;
 
-namespace eRewards.Services.Transactions.API.Application.Commands
+namespace ezLoyalty.Services.Actions.API.Application.Commands
 {
     [DataContract]
     public class NewActionCommand : IRequest<bool>

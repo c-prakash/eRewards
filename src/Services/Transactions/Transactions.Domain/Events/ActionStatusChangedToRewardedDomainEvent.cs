@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace eRewards.Services.Transactions.Domain.Events
+namespace ezLoyalty.Services.Actions.Domain.Events
 {
     public class ActionStatusChangedToRewardedDomainEvent : INotification
     {

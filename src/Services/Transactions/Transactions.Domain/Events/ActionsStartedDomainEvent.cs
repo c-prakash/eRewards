@@ -1,15 +1,15 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
 using MediatR;
 
-namespace eRewards.Services.Transactions.Domain.Events
+namespace ezLoyalty.Services.Actions.Domain.Events
 {
     public class ActionsStartedDomainEvent : INotification
     {
-        public Actions Action { get; private set; }
+        public Action Action { get; private set; }
 
-        public ActionsStartedDomainEvent(Actions action)
+        public ActionsStartedDomainEvent(Action action)
         {
-            this.Action = action;
+            Action = action;
         }
     }
 }

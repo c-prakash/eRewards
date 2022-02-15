@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 
 
-namespace eRewards.Services.Transactions.API.Infrastructure.IntegrationEventMigrations
+namespace ezLoyalty.Services.Actions.API.Infrastructure.IntegrationEventMigrations
 {
     /// <summary>
     /// 

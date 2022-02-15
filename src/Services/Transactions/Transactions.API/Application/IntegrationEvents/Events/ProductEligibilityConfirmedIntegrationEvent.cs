@@ -1,7 +1,6 @@
-﻿
-using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
+﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// 
@@ -18,22 +17,16 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// </summary>
         public int ActionId { get; private set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Points { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
-        /// <param name="points"></param>
-        public ProductEligibilityConfirmedIntegrationEvent(int accountNo, int actionId, int points)
+        public ProductEligibilityConfirmedIntegrationEvent(int accountNo, int actionId)
         {
             AccountNo = accountNo;
             ActionId = actionId;
-            Points = points;
         }
     }
 }

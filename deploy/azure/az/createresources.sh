@@ -11,7 +11,7 @@ CreateGroup()
 deployresources()
 {
 	echo Deploying ARM template '$path_and_filename.json' in resource group $resource_group
-	az group deployment create --resource-group $resource_group --parameters @$path_and_filename.parameters.json --template-file $path_and_filename.json
+	az deployment group create --resource-group $resource_group --parameters @$path_and_filename.parameters.json --template-file $path_and_filename.json
 }   # end of deployresources
 
 Error_Usage()
@@ -76,3 +76,4 @@ fi
 deployresources
 
 echo "all resources finished successfully"
+read

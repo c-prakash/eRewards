@@ -1,7 +1,7 @@
 using Autofac;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling;
-using eRewards.Services.Transactions.Infrastructure;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling;
+using ezLoyalty.Services.Actions.Infrastructure;
 using IntegrationEventLogEF;
 using IntegrationEventLogEF.Services;
 using Microsoft.Azure.ServiceBus;
@@ -20,7 +20,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace eRewards.Services.Transactions.API.Extensions
+namespace ezLoyalty.Services.Actions.API.Extensions
 {
     /// <summary>
     /// 
@@ -38,9 +38,9 @@ namespace eRewards.Services.Transactions.API.Extensions
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "eRewards - Transactions HTTP API",
+                    Title = "ezLoyalty - Actions HTTP API",
                     Version = "v1",
-                    Description = "The Transactions Microservice HTTP API. This is a Data-Driven/CRUD microservice sample"
+                    Description = "The Actions Microservice HTTP API. This is a Data-Driven/CRUD microservice sample"
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
@@ -110,7 +110,7 @@ namespace eRewards.Services.Transactions.API.Extensions
         public static IServiceCollection AddIntegrationServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<Func<DbConnection, IIntegrationEventLogService>>(
-                sp => (DbConnection c) => new IntegrationEventLogService(c));
+                sp => (c) => new IntegrationEventLogService(c));
 
             services.AddTransient<IActionIntegrationEventService, ActionIntegrationEventService>();
 

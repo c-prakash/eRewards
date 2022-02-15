@@ -1,12 +1,12 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
-using eRewards.Services.Transactions.Domain.Seedwork;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
+using ezLoyalty.Services.Actions.Domain.Seedwork;
+using ezLoyalty.Services.Actions.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.Infrastructure.Repositories
+namespace ezLoyalty.Services.Actions.Infrastructure.Repositories
 {
 
     public class ActionsRepository
@@ -24,26 +24,26 @@ namespace eRewards.Services.Transactions.Infrastructure.Repositories
 
         public ActionsRepository(ActionsDbContext context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _context = context ?? throw new System.ArgumentNullException(nameof(context));
         }
 
-        public Actions Add(Actions actions)
+        public Action Add(Action actions)
         {
             return _context.Actions.Add(actions).Entity;
         }
 
-        public async Task<IEnumerable<Actions>> GetByAccount(int accountNo)
+        public async Task<IEnumerable<Action>> GetByAccount(int accountNo)
         {
             var allActions = _context.Actions.Where(o => o.AccountNo == accountNo);
-                       
+
 
             return await allActions.ToListAsync();
         }
 
-        public async Task<Actions> GetAsync(int actionId)
+        public async Task<Action> GetAsync(int actionId)
         {
             var action = await _context.Actions.FirstOrDefaultAsync(o => o.Id == actionId);
-            
+
             if (action == null)
             {
                 action = _context
@@ -62,7 +62,7 @@ namespace eRewards.Services.Transactions.Infrastructure.Repositories
 
         }
 
-        public async Task<Actions> GetAsync(string token)
+        public async Task<Action> GetAsync(string token)
         {
             var action = await _context.Actions.FirstOrDefaultAsync(o => o.UniqueToken == token);
 
@@ -84,7 +84,7 @@ namespace eRewards.Services.Transactions.Infrastructure.Repositories
 
         }
 
-        public void Update(Actions actions)
+        public void Update(Action actions)
         {
             _context.Entry(actions).State = EntityState.Modified;
         }

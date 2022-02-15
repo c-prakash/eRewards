@@ -1,5 +1,5 @@
-﻿using eRewards.Services.Transactions.API.Application.Commands;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents.Events;
+﻿using ezLoyalty.Services.Actions.API.Application.Commands;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events;
 using MediatR;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Extensions;
@@ -8,7 +8,7 @@ using Serilog.Context;
 using System;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling
 {
     /// <summary>
     /// 
@@ -52,7 +52,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
                 {
                     using (LogContext.PushProperty("IdentifiedCommandId", @event.Name))
                     {
-                        var actionsCommand = new NewActionCommand(@event.Name, @event.UniqueToken,@event.AccountNo, @event.UserID, @event.Payload, @event.Sender);
+                        var actionsCommand = new NewActionCommand(@event.Name, @event.UniqueToken, @event.AccountNo, @event.UserID, @event.Payload, @event.Sender);
 
                         _logger.LogInformation(
                             "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",

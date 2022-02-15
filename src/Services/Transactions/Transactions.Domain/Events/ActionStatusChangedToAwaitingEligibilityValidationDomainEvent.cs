@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace eRewards.Services.Transactions.Domain.Events
+namespace ezLoyalty.Services.Actions.Domain.Events
 {
-    public class ActionStatusChangedToAwaitingEligibilityValidationDomainEvent 
+    public class ActionStatusChangedToAwaitingEligibilityValidationDomainEvent
         : INotification
     {
         public int AccountNo { get; private set; }
@@ -13,5 +13,5 @@ namespace eRewards.Services.Transactions.Domain.Events
             AccountNo = accountNo;
             ActionId = actionId;
         }
-     }
+    }
 }

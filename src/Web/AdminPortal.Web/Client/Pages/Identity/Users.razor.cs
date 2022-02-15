@@ -115,7 +115,7 @@ namespace AdminPortal.Web.Client.Pages.Identity
 
         private void ManageRoles(string userId, string email)
         {
-            if (email == "cprakash@erewards.com") _snackBar.Add(_localizer["Not Allowed."], Severity.Error);
+            if (email == "cprakash@ezloyalty.com") _snackBar.Add(_localizer["Not Allowed."], Severity.Error);
             else _navigationManager.NavigateTo($"/identity/user-roles/{userId}");
         }
     }

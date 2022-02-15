@@ -60,7 +60,7 @@ namespace AdminPortal.Web.Infrastructure
             {
                 FirstName = "Chandra",
                 LastName = "Prakash",
-                Email = "cprakash@erewards.com",
+                Email = "cprakash@ezloyalty.com",
                 UserName = "cprakash",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
@@ -105,7 +105,7 @@ namespace AdminPortal.Web.Infrastructure
             {
                 FirstName = "John",
                 LastName = "Doe",
-                Email = "john@erewards.com",
+                Email = "john@ezloyalty.com",
                 UserName = "johndoe",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,

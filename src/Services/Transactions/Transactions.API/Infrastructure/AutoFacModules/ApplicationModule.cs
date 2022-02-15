@@ -1,15 +1,15 @@
 ﻿using Autofac;
-using eRewards.Services.Transactions.API.Application.Queries;
-using eRewards.Services.Transactions.Domain.ActionsAggregate;
-using eRewards.Services.Transactions.Infrastructure.Repositories;
+using ezLoyalty.Services.Actions.API.Application.Queries;
+using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
+using ezLoyalty.Services.Actions.Infrastructure.Repositories;
 
-namespace eRewards.Services.Transactions.API.Infrastructure.AutoFacModules
+namespace ezLoyalty.Services.Actions.API.Infrastructure.AutoFacModules
 {
     /// <summary>
     /// 
     /// </summary>
     public class ApplicationModule
-         : Autofac.Module
+         : Module
     {
 
         public ApplicationModule()

@@ -1,4 +1,4 @@
-using eRewards.Services.Transactions.API.Extensions;
+using ezLoyalty.Services.Actions.API.Extensions;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,14 +7,22 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using System.IO;
 
-namespace eRewards.Services.Transactions.API
+namespace ezLoyalty.Services.Actions.API
 {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static readonly string Namespace = typeof(Program).Namespace;
         //public static readonly string AppName = Namespace.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
-        public static readonly string AppName = "TemplateAPI";
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly string AppName = "Actions.API";
 
         public static void Main(string[] args)
         {

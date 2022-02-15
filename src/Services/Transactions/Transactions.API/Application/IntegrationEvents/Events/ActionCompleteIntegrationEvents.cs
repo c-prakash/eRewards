@@ -1,7 +1,7 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// 
@@ -11,15 +11,15 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <summary>
         /// 
         /// </summary>
-        public Actions Actions { get; set; }
+        public Action Action { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="actions"></param>
-        public ActionCompleteIntegrationEvents(Actions actions)
+        public ActionCompleteIntegrationEvents(Action action)
         {
-            this.Actions = actions;
+            Action = action;
         }
     }
 }

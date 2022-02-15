@@ -1,9 +1,8 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
-using System;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.Queries
+namespace ezLoyalty.Services.Actions.API.Application.Queries
 {
     /// <summary>
     /// IActionsQueries
@@ -15,7 +14,7 @@ namespace eRewards.Services.Transactions.API.Application.Queries
         /// </summary>
         /// <param name="accountNo"></param>
         /// <returns></returns>
-        Task<IEnumerable<Actions>> GetActionsAsync(int accountNo);
+        Task<IEnumerable<Action>> GetActionsAsync(int accountNo);
     }
 
     /// <summary>
@@ -31,7 +30,7 @@ namespace eRewards.Services.Transactions.API.Application.Queries
         /// <param name="actionsRepository"></param>
         public ActionsQueries(IActionsRepository actionsRepository)
         {
-            _actionsRepository = actionsRepository ?? throw new ArgumentException(nameof(actionsRepository));
+            _actionsRepository = actionsRepository ?? throw new System.ArgumentException(nameof(actionsRepository));
         }
 
         /// <summary>
@@ -39,7 +38,7 @@ namespace eRewards.Services.Transactions.API.Application.Queries
         /// </summary>
         /// <param name="accountNo"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<Actions>> GetActionsAsync(int accountNo)
+        public async Task<IEnumerable<Action>> GetActionsAsync(int accountNo)
         {
             return await _actionsRepository.GetByAccount(accountNo);
         }

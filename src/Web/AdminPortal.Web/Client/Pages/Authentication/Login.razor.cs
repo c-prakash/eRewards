@@ -56,13 +56,13 @@ namespace AdminPortal.Web.Client.Pages.Authentication
 
         private void FillAdministratorCredentials()
         {
-            _tokenModel.Email = "cprakash@erewards.com";
+            _tokenModel.Email = "cprakash@ezloyalty.com";
             _tokenModel.Password = "123Pa$$word!";
         }
 
         private void FillBasicUserCredentials()
         {
-            _tokenModel.Email = "john@erewards.com";
+            _tokenModel.Email = "john@ezloyalty.com";
             _tokenModel.Password = "123Pa$$word!";
         }
     }

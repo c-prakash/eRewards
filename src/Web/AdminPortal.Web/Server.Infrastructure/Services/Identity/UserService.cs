@@ -98,7 +98,7 @@ namespace AdminPortal.Web.Infrastructure.Services.Identity
                         var verificationUri = await SendVerificationEmail(user, origin);
                         var mailRequest = new MailRequest
                         {
-                            From = "mail@erewards.com",
+                            From = "mail@ezloyalty.com",
                             To = user.Email,
                             Body = string.Format(_localizer["Please confirm your account by <a href='{0}'>clicking here</a>."], verificationUri),
                             Subject = _localizer["Confirm Registration"]
@@ -183,7 +183,7 @@ namespace AdminPortal.Web.Infrastructure.Services.Identity
         public async Task<IResult> UpdateRolesAsync(UpdateUserRolesRequest request)
         {
             var user = await _userManager.FindByIdAsync(request.UserId);
-            if (user.Email == "cprakash@erewards.com")
+            if (user.Email == "cprakash@ezloyalty.com")
             {
                 return await Result.FailAsync(_localizer["Not Allowed."]);
             }

@@ -1,23 +1,23 @@
-﻿using eRewards.Services.Transactions.Domain.Seedwork;
+﻿using ezLoyalty.Services.Actions.Domain.Seedwork;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.Domain.ActionsAggregate
+namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
 {
     //This is just the RepositoryContracts or Interface defined at the Domain Layer
     //as requisite for the Order Aggregate
 
-    public interface IActionsRepository : IRepository<Actions>
+    public interface IActionsRepository : IRepository<Action>
     {
-        Actions Add(Actions actions);
+        Action Add(Action actions);
 
-        void Update(Actions actions);
+        void Update(Action actions);
 
-        Task<IEnumerable<Actions>> GetByAccount(int accountNo);
+        Task<IEnumerable<Action>> GetByAccount(int accountNo);
 
-        Task<Actions> GetAsync(int actionId);
+        Task<Action> GetAsync(int actionId);
 
-        Task<Actions> GetAsync(string token);
+        Task<Action> GetAsync(string token);
 
     }
 }

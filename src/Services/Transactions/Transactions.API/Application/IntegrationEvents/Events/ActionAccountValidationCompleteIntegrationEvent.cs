@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// 
@@ -26,7 +26,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
     /// <summary>
     /// 
     /// </summary>
-    public record ActionAccountValidationCompleteIntegrationEvent 
+    public record ActionAccountValidationCompleteIntegrationEvent
         : IntegrationEvent
     {
         /// <summary>
@@ -54,7 +54,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
         public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId)
-            :base()
+            : base()
         {
             AccountNo = accountNo;
             ActionId = actionId;
@@ -68,7 +68,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <param name="status"></param>
         [JsonConstructor]
         public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId, AccountValidationStatus status)
-            :this(accountNo, actionId)
+            : this(accountNo, actionId)
         {
             Status = status;
         }

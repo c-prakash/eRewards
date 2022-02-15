@@ -1,7 +1,6 @@
-﻿
-using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
+﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// 
@@ -29,4 +28,5 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
             ActionId = actionId;
         }
     }
+
 }

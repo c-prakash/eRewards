@@ -152,6 +152,17 @@ namespace AdminPortal.Web.Shared.Constants.Permission
             public const string Search = "Permissions.Members.Search";
         }
 
+        [DisplayName("Activities")]
+        [Description("Activities Permissions")]
+        public static class Activities
+        {
+            public const string View = "Permissions.Activities.View";
+            public const string Create = "Permissions.Activities.Create";
+            public const string Edit = "Permissions.Activities.Edit";
+            public const string Delete = "Permissions.Activities.Delete";
+            public const string Search = "Permissions.Activities.Search";
+        }
+
         /// <summary>
         /// Returns a list of Permissions.
         /// </summary>

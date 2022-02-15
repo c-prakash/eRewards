@@ -1,21 +1,20 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.Infrastructure.EntityConfiguration
+namespace ezLoyalty.Services.Actions.Infrastructure.EntityConfiguration
 {
-    class ActionsEntityTypeConfiguration : IEntityTypeConfiguration<Actions>
+    class ActionsEntityTypeConfiguration : IEntityTypeConfiguration<Action>
     {
-        public void Configure(EntityTypeBuilder<Actions> actionsConfiguration)
+        public void Configure(EntityTypeBuilder<Action> actionsConfiguration)
         {
             actionsConfiguration.ToTable("Actions", ActionsDbContext.DEFAULT_SCHEMA);
-            
+
             actionsConfiguration.HasKey(o => o.Id);
             actionsConfiguration.Property(o => o.Id)
                 .ValueGeneratedOnAdd();
@@ -59,7 +58,7 @@ namespace eRewards.Services.Transactions.Infrastructure.EntityConfiguration
                 .IsRequired(false);
 
             actionsConfiguration
-                .Property<DateTime>("CreatedAt")
+                .Property<System.DateTime>("CreatedAt")
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("CreatedAt")
                 .IsRequired();

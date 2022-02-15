@@ -1,4 +1,4 @@
-﻿namespace eRewards.Services.Transactions.Domain.Seedwork
+﻿namespace ezLoyalty.Services.Actions.Domain.Seedwork
 {
     public interface IAggregateRoot { }
 }

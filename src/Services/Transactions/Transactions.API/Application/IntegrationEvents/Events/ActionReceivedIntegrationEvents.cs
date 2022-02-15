@@ -1,7 +1,7 @@
 ﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
 using System;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// 
@@ -54,12 +54,12 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <param name="sender"></param>
         public ActionReceivedIntegrationEvents(string actionName, string token, int accountNo, string userId, string payload, string sender)
         {
-            this.Name = actionName;
-            this.UniqueToken = token;
-            this.AccountNo = accountNo;
-            this.UserID = userId;
-            this.Payload = payload;
-            this.Sender = sender;
+            Name = actionName;
+            UniqueToken = token;
+            AccountNo = accountNo;
+            UserID = userId;
+            Payload = payload;
+            Sender = sender;
         }
     }
 }

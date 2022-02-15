@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using eRewards.Services.Transactions.Domain.Seedwork;
 using System.Linq;
+using ezLoyalty.Services.Actions.Domain.Seedwork;
 
-namespace eRewards.Services.Transactions.Domain.ActionsAggregate
+namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
 {
 
     public class ActionStatus
         : Enumeration
     {
-        public static ActionStatus Submitted = new (1, nameof(Submitted).ToLowerInvariant());
-        public static ActionStatus AwaitingAccountValidation = new (2, nameof(AwaitingAccountValidation).ToLowerInvariant());
-        public static ActionStatus AwaitingEligibilityValidation = new (3, nameof(AwaitingEligibilityValidation).ToLowerInvariant());
-        public static ActionStatus Rewarded = new(4, nameof(Rewarded).ToLowerInvariant());
+        public static ActionStatus Submitted = new(1, nameof(Submitted).ToLowerInvariant());
+        public static ActionStatus AwaitingAccountValidation = new(2, nameof(AwaitingAccountValidation).ToLowerInvariant());
+        public static ActionStatus AwaitingEligibilityValidation = new(3, nameof(AwaitingEligibilityValidation).ToLowerInvariant());
+        public static ActionStatus AwaitingRewards = new(4, nameof(AwaitingRewards).ToLowerInvariant());
+        public static ActionStatus Rewarded = new(5, nameof(Rewarded).ToLowerInvariant());
 
         public static ActionStatus AccountRejected = new(91, nameof(AccountRejected).ToLowerInvariant());
         public static ActionStatus EligibilityRejected = new(92, nameof(EligibilityRejected).ToLowerInvariant());
+        public static ActionStatus RewardsRejected = new(92, nameof(RewardsRejected).ToLowerInvariant());
 
         public ActionStatus(int id, string name)
             : base(id, name)
@@ -23,16 +25,16 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         }
 
         public static IEnumerable<ActionStatus> List() =>
-            new[] { Submitted, AwaitingAccountValidation, AwaitingEligibilityValidation, Rewarded, AccountRejected, EligibilityRejected };
+            new[] { Submitted, AwaitingAccountValidation, AwaitingEligibilityValidation, AwaitingRewards, Rewarded, AccountRejected, EligibilityRejected, RewardsRejected };
 
         public static ActionStatus FromName(string name)
         {
             var state = List()
-                .SingleOrDefault(s => String.Equals(s.Name, name, StringComparison.CurrentCultureIgnoreCase));
+                .SingleOrDefault(s => string.Equals(s.Name, name, StringComparison.CurrentCultureIgnoreCase));
 
             if (state == null)
             {
-                throw new Exception($"Possible values for ActionStatus: {String.Join(",", List().Select(s => s.Name))}");
+                throw new Exception($"Possible values for ActionStatus: {string.Join(",", List().Select(s => s.Name))}");
             }
 
             return state;
@@ -44,7 +46,7 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
 
             if (state == null)
             {
-                throw new Exception($"Possible values for ActionStatus: {String.Join(",", List().Select(s => s.Name))}");
+                throw new Exception($"Possible values for ActionStatus: {string.Join(",", List().Select(s => s.Name))}");
             }
 
             return state;

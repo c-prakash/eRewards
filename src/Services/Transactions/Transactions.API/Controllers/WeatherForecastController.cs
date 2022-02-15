@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eRewards.Services.Transactions.API.Controllers
+namespace ezLoyalty.Services.Actions.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

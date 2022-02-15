@@ -7,15 +7,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using eRewards.Services.Transactions.API.Extensions;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using eRewards.Services.Transactions.API.Infrastructure.AutoFacModules;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents.Events;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events;
+using ezLoyalty.Services.Actions.API.Extensions;
+using ezLoyalty.Services.Actions.API.Infrastructure.AutoFacModules;
 
-namespace eRewards.Services.Transactions.API
+namespace ezLoyalty.Services.Actions.API
 {
     public class Startup
     {

@@ -1,12 +1,18 @@
-﻿using eRewards.Services.Transactions.API.Application.Commands;
+﻿using ezLoyalty.Services.Actions.API.Application.Commands;
 using FluentValidation;
 using Microsoft.Extensions.Logging;
 
-namespace eRewards.Services.Transactions.API.Application.Validators
+namespace ezLoyalty.Services.Actions.API.Application.Validators
 {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class ActionsCommandValidator : AbstractValidator<NewActionCommand>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
         public ActionsCommandValidator(ILogger<NewActionCommand> logger)
         {
             RuleFor(command => command.Name).NotEmpty();

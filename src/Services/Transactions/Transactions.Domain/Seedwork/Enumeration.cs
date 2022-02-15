@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace eRewards.Services.Transactions.Domain.Seedwork
+namespace ezLoyalty.Services.Actions.Domain.Seedwork
 {
     public abstract class Enumeration : IComparable
     {

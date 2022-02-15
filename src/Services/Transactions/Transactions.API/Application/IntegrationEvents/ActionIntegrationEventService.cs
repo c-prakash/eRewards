@@ -1,4 +1,4 @@
-﻿using eRewards.Services.Transactions.Infrastructure;
+﻿using ezLoyalty.Services.Actions.Infrastructure;
 using IntegrationEventLogEF.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
@@ -8,7 +8,7 @@ using System;
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents
 {
 
     public class ActionIntegrationEventService : IActionIntegrationEventService

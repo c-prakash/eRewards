@@ -55,12 +55,14 @@ else
                     <MudMenu Label="@_localizer["Actions"]" Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" Direction="Direction.Left" OffsetX="true">
                         @if (_canEditMembers)
                             {
-                            <MudMenuItem @onclick="@(() => InvokeModal(@context.Id))">@_localizer["Edit"]</MudMenuItem>}
+                            <MudMenuItem @onclick="@(() => InvokeModal(@context.Id))">@_localizer["Edit"]</MudMenuItem>
+                            }
                         @if (_canDeleteMembers)
                             {
                             <MudMenuItem @onclick="@(() => Delete(@context.Id))">@_localizer["Delete"]</MudMenuItem>
                             }
-                    </MudMenu> 
+                        <MudMenuItem @onclick="@(() => ManageActivites(@context.Id))">@_localizer["Manage Activities"]</MudMenuItem>
+                    </MudMenu>
                     }
                     else
                     {
@@ -71,7 +73,8 @@ else
                                Size="Size.Small"
                                Color="Color.Surface">
                         @_localizer["No Allowed Actions"]
-                    </MudButton>}
+                    </MudButton>
+                    }
             </MudTd>
         </RowTemplate>
         <FooterContent>

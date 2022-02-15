@@ -120,19 +120,19 @@ namespace AdminPortal.Web.Client.Pages.MemberAdmin
             }
         }
 
-        private async Task Delete(int id)
+        private async Task Delete(int accountNo)
         {
             string deleteContent = _localizer["Delete Content"];
             var parameters = new DialogParameters
             {
-                {nameof(Shared.Dialogs.DeleteConfirmation.ContentText), string.Format(deleteContent, id)}
+                {nameof(Shared.Dialogs.DeleteConfirmation.ContentText), string.Format(deleteContent, accountNo)}
             };
             var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true, DisableBackdropClick = true };
             var dialog = _dialogService.Show<Shared.Dialogs.DeleteConfirmation>(_localizer["Delete"], parameters, options);
             var result = await dialog.Result;
             if (!result.Cancelled)
             {
-                var response = await MemberAdminManager.DeleteAsync(id);
+                var response = await MemberAdminManager.DeleteAsync(accountNo);
                 if (response.Succeeded)
                 {
                     OnSearch("");
@@ -147,6 +147,11 @@ namespace AdminPortal.Web.Client.Pages.MemberAdmin
                     }
                 }
             }
+        }
+
+        private void ManageActivites(int accountNo)
+        {
+            _navigationManager.NavigateTo($"/memberadmin/activities/{accountNo}");
         }
     }
 }

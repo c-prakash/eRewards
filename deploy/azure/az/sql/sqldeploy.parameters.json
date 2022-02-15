@@ -1,22 +1,23 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sql_server": {
-            "value": {
-                "name": "erewardssql",
-                "dbs": {
-                    "actions": "actionsdb",
-                    "accounts": "accountsdb",
-		            "products": "productsdb"
-                }
-            }
-        },
-        "admin": {
-            "value": "rewardsadmin"
-        },
-        "adminpwd": {
-            "value": "[]"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sql_server": {
+      "value": {
+        "name": "erewardssql",
+        "dbs": {
+          "actions": "actionsdb",
+          "accounts": "accountsdb",
+          "products": "productsdb",
+          "incentives": "incentivesdb"
         }
+      }
+    },
+    "admin": {
+      "value": "rewardsadmin"
+    },
+    "adminpwd": {
+      "value": "[]"
     }
+  }
 }

@@ -1,10 +1,10 @@
-﻿using eRewards.Services.Transactions.Domain.Events;
-using eRewards.Services.Transactions.Domain.Seedwork;
+﻿using ezLoyalty.Services.Actions.Domain.Events;
+using ezLoyalty.Services.Actions.Domain.Seedwork;
 using System;
 
-namespace eRewards.Services.Transactions.Domain.ActionsAggregate
+namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
 {
-    public class Actions
+    public class Action
         : Entity, IAggregateRoot
     {
         public string Name { get; set; }
@@ -26,22 +26,22 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         private int _actionStatusId;
 
 
-        public Actions()
+        public Action()
         {
-            this.CreatedAt = DateTime.Now;
+            CreatedAt = DateTime.Now;
         }
 
-        public Actions(string actionName, string token, int accountNo, string userId, string payload, string sender)
+        public Action(string actionName, string token, int accountNo, string userId, string payload, string sender)
         {
-            this.Name = actionName;
-            this.UniqueToken = token;
-            this.AccountNo = accountNo;
-            this.UserID = userId;
-            this.Payload = payload;
-            this.Sender = sender;
+            Name = actionName;
+            UniqueToken = token;
+            AccountNo = accountNo;
+            UserID = userId;
+            Payload = payload;
+            Sender = sender;
             _actionStatusId = ActionStatus.Submitted.Id;
 
-            this.CreatedAt = DateTime.Now;
+            CreatedAt = DateTime.Now;
 
             AddActionsStartedDomainEvent();
         }
@@ -50,7 +50,7 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         {
             if (_actionStatusId == ActionStatus.Submitted.Id)
             {
-                AddDomainEvent(new ActionStatusChangedToAwaitingAccountValidationDomainEvent(this.AccountNo, this.Id));
+                AddDomainEvent(new ActionStatusChangedToAwaitingAccountValidationDomainEvent(AccountNo, Id));
                 _actionStatusId = ActionStatus.AwaitingAccountValidation.Id;
             }
         }
@@ -59,16 +59,25 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
         {
             if (_actionStatusId == ActionStatus.AwaitingAccountValidation.Id)
             {
-                AddDomainEvent(new ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(this.AccountNo, this.Id));
+                AddDomainEvent(new ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(AccountNo, Id));
                 _actionStatusId = ActionStatus.AwaitingEligibilityValidation.Id;
             }
         }
 
-        public void SetRewardedStatus(int points)
+        public void SetAwaitingRewardsStatus()
         {
             if (_actionStatusId == ActionStatus.AwaitingEligibilityValidation.Id)
             {
-                AddDomainEvent(new ActionStatusChangedToRewardedDomainEvent(this.AccountNo, this.Id));
+                AddDomainEvent(new ActionStatusChangedToAwaitingRewardsDomainEvent(AccountNo, Id));
+                _actionStatusId = ActionStatus.AwaitingRewards.Id;
+            }
+        }
+
+        public void SetRewardedStatus()
+        {
+            if (_actionStatusId == ActionStatus.AwaitingRewards.Id)
+            {
+                AddDomainEvent(new ActionStatusChangedToRewardedDomainEvent(AccountNo, Id));
                 _actionStatusId = ActionStatus.Rewarded.Id;
             }
         }
@@ -91,11 +100,20 @@ namespace eRewards.Services.Transactions.Domain.ActionsAggregate
             }
         }
 
+        public void SetRewardsRejectedStatus()
+        {
+            if (_actionStatusId == ActionStatus.AwaitingRewards.Id)
+            {
+                //AddDomainEvent(new ActionStatusChangedToRewardsRejectedDomainEvent(this.AccountNo, this.Id));
+                _actionStatusId = ActionStatus.RewardsRejected.Id;
+            }
+        }
+
         private void AddActionsStartedDomainEvent()
         {
             var orderStartedDomainEvent = new ActionsStartedDomainEvent(this);
 
-            this.AddDomainEvent(orderStartedDomainEvent);
+            AddDomainEvent(orderStartedDomainEvent);
         }
     }
 }

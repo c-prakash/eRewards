@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent
     /// </summary>
-    public record ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent 
+    public record ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent
         : IntegrationEvent
     {
         /// <summary>
@@ -21,7 +21,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// ActionId
         /// </summary>
         public int ActionId { get; set; }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -35,10 +35,10 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
         /// <param name="productId"></param>
         public ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(int accountNo, int actionId, int productId)
         {
-            
-            this.AccountNo = accountNo;
-            this.ActionId = actionId;
-            this.ProductId = productId;
+
+            AccountNo = accountNo;
+            ActionId = actionId;
+            ProductId = productId;
         }
     }
 }

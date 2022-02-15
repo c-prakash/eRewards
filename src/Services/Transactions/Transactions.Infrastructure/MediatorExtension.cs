@@ -1,9 +1,9 @@
-﻿using eRewards.Services.Transactions.Domain.Seedwork;
+﻿using ezLoyalty.Services.Actions.Domain.Seedwork;
 using MediatR;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.Infrastructure
+namespace ezLoyalty.Services.Actions.Infrastructure
 {
     static class MediatorExtension
     {

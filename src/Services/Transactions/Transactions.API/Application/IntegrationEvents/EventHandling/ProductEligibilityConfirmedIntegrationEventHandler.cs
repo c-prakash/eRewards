@@ -1,5 +1,5 @@
-﻿using eRewards.Services.Transactions.API.Application.Commands;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents.Events;
+﻿using ezLoyalty.Services.Actions.API.Application.Commands;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events;
 using MediatR;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Extensions;
@@ -10,10 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.EventHandling
+namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling
 {
     /// <summary>
-    /// 
+    /// ProductEligibilityConfirmedIntegrationEventHandler
     /// </summary>
     public class ProductEligibilityConfirmedIntegrationEventHandler : IIntegrationEventHandler<ProductEligibilityConfirmedIntegrationEvent>
     {
@@ -44,7 +44,7 @@ namespace eRewards.Services.Transactions.API.Application.IntegrationEvents.Event
             {
                 _logger.LogInformation("----- Handling integration event: {IntegrationEventId} at {AppName} - ({@IntegrationEvent})", @event.Id, Program.AppName, @event);
 
-                var command = new SetProductEligibilityConfirmedActionStatusCommand(@event.AccountNo, @event.ActionId, @event.Points);
+                var command = new SetProductEligibilityConfirmedActionStatusCommand(@event.AccountNo, @event.ActionId);
 
                 _logger.LogInformation(
                     "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",

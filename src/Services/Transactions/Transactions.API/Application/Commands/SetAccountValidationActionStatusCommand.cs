@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.Commands
+namespace ezLoyalty.Services.Actions.API.Application.Commands
 {
     /// <summary>
     /// 
@@ -45,7 +45,7 @@ namespace eRewards.Services.Transactions.API.Application.Commands
         /// <param name="actionId"></param>
         /// <param name="status"></param>
         public SetAccountValidationActionStatusCommand(int accountNo, int actionId, bool status)
-            :this(accountNo, actionId)
+            : this(accountNo, actionId)
         {
             Status = status;
         }

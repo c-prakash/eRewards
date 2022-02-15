@@ -1,4 +1,4 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.Commands
+namespace ezLoyalty.Services.Actions.API.Application.Commands
 {
     /// <summary>
     /// 

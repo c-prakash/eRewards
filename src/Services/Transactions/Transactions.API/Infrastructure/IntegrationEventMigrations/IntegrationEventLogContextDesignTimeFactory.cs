@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace eRewards.Services.Transactions.API.Infrastructure.IntegrationEventMigrations
+namespace ezLoyalty.Services.Actions.API.Infrastructure.IntegrationEventMigrations
 {
     /// <summary>
     /// 

@@ -1,14 +1,14 @@
-﻿using eRewards.Services.Transactions.API.Application.IntegrationEvents;
-using eRewards.Services.Transactions.API.Application.IntegrationEvents.Events;
-using eRewards.Services.Transactions.Domain.ActionsAggregate;
-using eRewards.Services.Transactions.Domain.Events;
+﻿using ezLoyalty.Services.Actions.API.Application.IntegrationEvents;
+using ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events;
+using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
+using ezLoyalty.Services.Actions.Domain.Events;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
+namespace ezLoyalty.Services.Actions.API.Application.DomainEventHandlers
 {
     /// <summary>
     /// ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler
@@ -52,7 +52,7 @@ namespace eRewards.Services.Transactions.API.Application.DomainEventHandlers
             var actionToUpdate = await _actionRepository.GetAsync(actionStatusChangedToAwaitingEligibilityValidationDomainEvent.ActionId);
 
             var actionStatusChangedToAwaitingEligibilityValidationIntegrationEvent = new ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(
-               actionToUpdate.AccountNo, actionToUpdate.Id,  0);
+               actionToUpdate.AccountNo, actionToUpdate.Id, 0);
 
             await _actionIntegrationEventService.AddAndSaveEventAsync(actionStatusChangedToAwaitingEligibilityValidationIntegrationEvent);
         }

@@ -2,11 +2,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.Domain.Seedwork
+namespace ezLoyalty.Services.Actions.Domain.Seedwork
 {
     public interface IUnitOfWork : IDisposable
     {
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
-        Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default);
     }
 }

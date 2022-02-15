@@ -3,7 +3,7 @@ using Serilog;
 using Serilog.Core;
 using System.IO;
 
-namespace eRewards.Services.Transactions.API.Extensions
+namespace ezLoyalty.Services.Actions.API.Extensions
 {
     public static class IConfigurationExtensions
     {

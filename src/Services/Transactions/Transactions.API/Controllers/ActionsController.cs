@@ -6,11 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using eRewards.Services.Transactions.Domain.ActionsAggregate;
-using eRewards.Services.Transactions.API.Application.Queries;
-using eRewards.Services.Transactions.API.Application.Commands;
+using ezLoyalty.Services.Actions.API.Application.Commands;
+using ezLoyalty.Services.Actions.API.Application.Queries;
 
-namespace eRewards.Services.Transactions.API.Controllers
+namespace ezLoyalty.Services.Actions.API.Controllers
 {
     /// <summary>
     /// 
@@ -70,9 +69,9 @@ namespace eRewards.Services.Transactions.API.Controllers
 
         [Route("{accountNo:int}")]
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<Actions>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<Action>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<IEnumerable<Actions>>> GetActionsAsync(int accountNo)
+        public async Task<ActionResult<IEnumerable<Action>>> GetActionsAsync(int accountNo)
         {
             try
             {

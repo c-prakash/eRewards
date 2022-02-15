@@ -21,19 +21,12 @@ namespace eRewards.Services.Products.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        public int Points { get; private set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountNo"></param>
         /// <param name="actionId"></param>
-        /// <param name="points"></param>
-        public ProductEligibilityConfirmedIntegrationEvent(int accountNo, int actionId, int points)
+        public ProductEligibilityConfirmedIntegrationEvent(int accountNo, int actionId)
         {
             AccountNo = accountNo;
             ActionId = actionId;
-            Points = points;
         }
     }
 }

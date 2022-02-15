@@ -1,4 +1,5 @@
-﻿using eRewards.Services.Transactions.Domain.ActionsAggregate;
+﻿using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
+using ezLoyalty.Services.Actions.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Transactions.Infrastructure.EntityConfiguration
+namespace ezLoyalty.Services.Actions.Infrastructure.EntityConfiguration
 {
     class ActionStatusEntityTypeConfiguration
     : IEntityTypeConfiguration<ActionStatus>

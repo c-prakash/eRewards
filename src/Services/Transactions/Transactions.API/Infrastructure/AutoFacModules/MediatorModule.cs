@@ -1,12 +1,12 @@
 ﻿using Autofac;
-using eRewards.Services.Transactions.API.Application.Behavior;
-using eRewards.Services.Transactions.API.Application.Commands;
-using eRewards.Services.Transactions.API.Application.DomainEventHandlers;
+using ezLoyalty.Services.Actions.API.Application.Behavior;
+using ezLoyalty.Services.Actions.API.Application.Commands;
+using ezLoyalty.Services.Actions.API.Application.DomainEventHandlers;
 using MediatR;
 using System;
 using System.Reflection;
 
-namespace eRewards.Services.Transactions.API.Infrastructure.AutoFacModules
+namespace ezLoyalty.Services.Actions.API.Infrastructure.AutoFacModules
 {
     public class MediatorModule : Autofac.Module
     {
@@ -20,8 +20,8 @@ namespace eRewards.Services.Transactions.API.Infrastructure.AutoFacModules
                 .AsClosedTypesOf(typeof(IRequestHandler<,>));
 
             // Register the DomainEventHandler classes (they implement INotificationHandler<>) in assembly holding the Domain Events
-             builder.RegisterAssemblyTypes(typeof(ActionStatusChangedToAwaitingAccountValidationDomainEventHandler).GetTypeInfo().Assembly)
-                 .AsClosedTypesOf(typeof(INotificationHandler<>));
+            builder.RegisterAssemblyTypes(typeof(ActionStatusChangedToAwaitingAccountValidationDomainEventHandler).GetTypeInfo().Assembly)
+                .AsClosedTypesOf(typeof(INotificationHandler<>));
 
             /*  // Register the Command's Validators (Validators based on FluentValidation library)
              builder
@@ -33,22 +33,23 @@ namespace eRewards.Services.Transactions.API.Infrastructure.AutoFacModules
             builder.Register<ServiceFactory>(context =>
              {
                  var componentContext = context.Resolve<IComponentContext>();
-                 return t => {
+                 return t =>
+                 {
                      try
                      {
                          object o;
                          return componentContext.TryResolve(t, out o) ? o : null;
                      }
-                     catch(Exception ex)
+                     catch (Exception ex)
                      {
                          return null;
                      }
                  };
              });
-             
-             builder.RegisterGeneric(typeof(LoggingBehavior<,>)).As(typeof(IPipelineBehavior<,>));
-             builder.RegisterGeneric(typeof(ValidatorBehavior<,>)).As(typeof(IPipelineBehavior<,>));
-             builder.RegisterGeneric(typeof(TransactionBehaviour<,>)).As(typeof(IPipelineBehavior<,>));
+
+            builder.RegisterGeneric(typeof(LoggingBehavior<,>)).As(typeof(IPipelineBehavior<,>));
+            builder.RegisterGeneric(typeof(ValidatorBehavior<,>)).As(typeof(IPipelineBehavior<,>));
+            builder.RegisterGeneric(typeof(TransactionBehaviour<,>)).As(typeof(IPipelineBehavior<,>));
         }
     }
 }
