@@ -35,4 +35,8 @@
 		<ProjectReference Include="..\Incentive.Domain\Incentive.Domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Infrastructure\IntegrationEventMigrations\" />
+	</ItemGroup>
+
 </Project>
