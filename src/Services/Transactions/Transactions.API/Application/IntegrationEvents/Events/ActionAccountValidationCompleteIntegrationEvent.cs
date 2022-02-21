@@ -39,7 +39,7 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// 
         /// </summary>
         [JsonProperty]
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
         /// <summary>
         /// 
@@ -52,23 +52,23 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
-        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId)
+        /// <param name="actionRecordId"></param>
+        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionRecordId)
             : base()
         {
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = actionRecordId;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
+        /// <param name="actionRecordId"></param>
         /// <param name="status"></param>
         [JsonConstructor]
-        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionId, AccountValidationStatus status)
-            : this(accountNo, actionId)
+        public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionRecordId, AccountValidationStatus status)
+            : this(accountNo, actionRecordId)
         {
             Status = status;
         }

@@ -37,7 +37,7 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
         public async Task<bool> Handle(SetProductEligibilityConfirmedActionStatusCommand command, CancellationToken cancellationToken)
         {
 
-            var actionToUpdate = await _actionsRepository.GetAsync(command.ActionId);
+            var actionToUpdate = await _actionsRepository.GetAsync(command.ActionRecordId);
             if (actionToUpdate == null)
             {
                 return false;

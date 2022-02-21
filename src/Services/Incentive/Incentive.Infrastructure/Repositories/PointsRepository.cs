@@ -22,8 +22,6 @@ namespace ezLoyalty.Services.Incentive.Infrastructure.Repositories
             }
         }
 
-        //IUnitOfWork IRepository<Points>.UnitOfWork => throw new NotImplementedException();
-
         public PointsRepository(IncentiveDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
@@ -32,6 +30,10 @@ namespace ezLoyalty.Services.Incentive.Infrastructure.Repositories
         public Points Add(Points point)
         {
             return _context.Points.Add(point).Entity;
+        }
+        public void Update(Points point)
+        {
+            _context.Entry(point).State = EntityState.Modified;
         }
 
         public async Task<IEnumerable<Points>> GetByAccount(int accountNo)
@@ -42,25 +44,30 @@ namespace ezLoyalty.Services.Incentive.Infrastructure.Repositories
             return await allPoints.ToListAsync();
         }
 
-        public async Task<Points> GetAsync(int accountNo, int actionId)
+        public async Task<IEnumerable<Points>> GetAsync(int accountNo, int actionId)
         {
-            var resultPoint = await _context.Points.FirstOrDefaultAsync(o => o.ActionId == actionId);
 
-            if (resultPoint == null)
+            var allPoints = _context.Points.Where(o => o.AccountNo == accountNo && o.ActionId == actionId);
+
+
+            return await allPoints.ToListAsync();
+        }
+
+      
+
+        public async Task<Points> GetAsync(int accountNo, int actionId, int actionRecordId)
+        {
+            var resultPoint = await _context.Points.FirstOrDefaultAsync(o => o.ActionId == actionId && o.AccountNo == accountNo && o.ActionRecordId == actionRecordId);
+
+            if (resultPoint is null)
             {
                 resultPoint = _context
                             .Points
                             .Local
-                            .FirstOrDefault(o => o.ActionId == actionId && o.AccountNo == accountNo );
+                            .FirstOrDefault(o => o.ActionId == actionId && o.AccountNo == accountNo && o.ActionRecordId == actionRecordId);
             }
 
             return resultPoint;
-
-        }
-                 
-        public void Update(Points point)
-        {
-            _context.Entry(point).State = EntityState.Modified;
         }
     }
 }

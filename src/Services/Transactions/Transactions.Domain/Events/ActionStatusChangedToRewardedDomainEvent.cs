@@ -5,12 +5,15 @@ namespace ezLoyalty.Services.Actions.Domain.Events
     public class ActionStatusChangedToRewardedDomainEvent : INotification
     {
         public int AccountNo { get; private set; }
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
-        public ActionStatusChangedToRewardedDomainEvent(int customerNo, int actionId)
+        public string Sender { get; private set; }
+
+        public ActionStatusChangedToRewardedDomainEvent(int customerNo, int recordId, string sender)
         {
             AccountNo = customerNo;
-            ActionId = actionId;
+            ActionRecordId = recordId;
+            Sender = sender;
         }
     }
 }

@@ -6,12 +6,12 @@ namespace ezLoyalty.Services.Actions.Domain.Events
         : INotification
     {
         public int AccountNo { get; private set; }
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
-        public ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(int accountNo, int actionId)
+        public ActionStatusChangedToAwaitingEligibilityValidationDomainEvent(int accountNo, int recordId)
         {
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = recordId;
         }
     }
 }

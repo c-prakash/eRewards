@@ -40,7 +40,15 @@ namespace ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.EventHa
             {
                 _logger.LogInformation("----- Handling integration event: {IntegrationEventId} at {AppName} - ({@IntegrationEvent})", @event.Id, Program.AppName, @event);
 
-                var command = new AddPointsCommand(); // (@event.AccountNo, @event.ActionId);
+                var command = new AddPointsCommand()
+                {
+                    AccountNo = @event.AccountNo,
+                    ActionId = @event.ActionId,
+                    ActionRecordId = @event.ActionRecordId,
+                    EarnedPoints = @event.EarnedPoints,
+                    EarnedDate = @event.EarnedDate,
+                    Sender = @event.Sender
+                }; 
 
                 _logger.LogInformation(
                     "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",

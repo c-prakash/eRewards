@@ -15,16 +15,16 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
-        public ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(int accountNo, int actionId)
+        /// <param name="actionRecordId"></param>
+        public ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(int accountNo, int actionRecordId)
         {
-            this.ActionId = actionId;
+            this.ActionRecordId = actionRecordId;
             this.AccountNo = accountNo;
         }
     }

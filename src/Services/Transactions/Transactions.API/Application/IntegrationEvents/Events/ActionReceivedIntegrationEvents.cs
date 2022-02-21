@@ -11,7 +11,7 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        public string Name { get; set; }
+        public int ActionId { get; set; }
 
         /// <summary>
         /// 
@@ -38,6 +38,8 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// </summary>
         public string Sender { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -46,20 +48,21 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="actionName"></param>
+        /// <param name="actionId"></param>
         /// <param name="token"></param>
         /// <param name="accountNo"></param>
         /// <param name="userId"></param>
         /// <param name="payload"></param>
         /// <param name="sender"></param>
-        public ActionReceivedIntegrationEvents(string actionName, string token, int accountNo, string userId, string payload, string sender)
+        public ActionReceivedIntegrationEvents(int actionId, string token, int accountNo, string userId, string payload, string sender, DateTime createdAt)
         {
-            Name = actionName;
+            ActionId = actionId;
             UniqueToken = token;
             AccountNo = accountNo;
             UserID = userId;
             Payload = payload;
             Sender = sender;
+            CreatedAt = createdAt;
         }
     }
 }

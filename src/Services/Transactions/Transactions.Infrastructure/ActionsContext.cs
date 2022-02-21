@@ -13,7 +13,11 @@ namespace ezLoyalty.Services.Actions.Infrastructure
     public class ActionsDbContext : DbContext, IUnitOfWork
     {
         public const string DEFAULT_SCHEMA = "dbo";
+
+        public DbSet<ActionMetadata> ActionMetadata { get; set; }
+
         public DbSet<Action> Actions { get; set; }
+
         public DbSet<ActionStatus> ActionStatus { get; set; }
 
         private readonly IMediator _mediator;

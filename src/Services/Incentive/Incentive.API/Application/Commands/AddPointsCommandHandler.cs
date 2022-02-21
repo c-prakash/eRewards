@@ -5,19 +5,16 @@ using ezLoyalty.Services.Incentive.API.Application.IntegrationEvents;
 
 namespace ezLoyalty.Services.Incentive.API.Application.Commands
 {
-     
+
     public class AddPointsCommandHandler : IRequestHandler<AddPointsCommand, bool>
     {
-        private readonly IMediator _mediator;
         private readonly IPointsRepository _pointsRepository;
         private readonly ILogger<AddPointsCommandHandler> _logger;
-
-        private readonly IIncentiveIntegrationEventService _actionIntegrationEventService;
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="actionsRepository"></param>
+        /// <param name="pointsRepository"></param>
         /// <param name="logger"></param>
         public AddPointsCommandHandler(IPointsRepository pointsRepository, ILogger<AddPointsCommandHandler> logger)
         {
@@ -29,14 +26,15 @@ namespace ezLoyalty.Services.Incentive.API.Application.Commands
         {
             _logger.LogInformation("----- Adding points - points: {@Message}", message);
 
-            var actionPoints = new Points { 
-                AccountNo = message.AccountNo, 
-                ActionId = message.ActionId, 
-                EarnedPoints = message.EarnedPoints, 
+            var actionPoints = new Points
+            {
+                AccountNo = message.AccountNo,
+                ActionRecordId = message.ActionRecordId,
+                ActionId = message.ActionId,
+                EarnedPoints = message.EarnedPoints,
                 EarnedDate = message.EarnedDate,
-                CreatedBy = message.User,
-                UpdatedBy = message.User
-               
+                CreatedBy = message.Sender,
+                CreatedDate = DateTime.Now
             };
 
             var pointsToUpdate = _pointsRepository.Add(actionPoints);

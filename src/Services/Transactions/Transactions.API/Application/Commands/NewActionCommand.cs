@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using System;
 using System.Runtime.Serialization;
 
 namespace ezLoyalty.Services.Actions.API.Application.Commands
@@ -7,7 +8,7 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
     public class NewActionCommand : IRequest<bool>
     {
         [DataMember]
-        public string Name { get; set; }
+        public int ActionId { get; set; }
 
         [DataMember]
         public string UniqueToken { get; set; }
@@ -24,18 +25,22 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
         [DataMember]
         public string Sender { get; set; }
 
+        [DataMember]
+        public DateTime CreatedAt { get; set; }
         public NewActionCommand()
         {
 
         }
-        public NewActionCommand(string actionName, string token, int accountNo, string userId, string payload, string sender)
+
+        public NewActionCommand(int actionId, string token, int accountNo, string userId, string payload, string sender, DateTime createdAt)
         {
-            Name = actionName;
+            ActionId = actionId;
             UniqueToken = token;
             AccountNo = accountNo;
             UserID = userId;
             Payload = payload;
             Sender = sender;
+            CreatedAt = createdAt;
         }
     }
 }

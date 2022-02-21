@@ -15,7 +15,7 @@ namespace eRewards.Services.Products.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
         /// <summary>
         /// 
@@ -26,12 +26,12 @@ namespace eRewards.Services.Products.API.Application.IntegrationEvents.Events
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
+        /// <param name="actionRecordId"></param>
         /// <param name="productId"></param>
-        public ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(int accountNo, int actionId, int productId)
+        public ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(int accountNo, int actionRecordId, int productId)
         {
             this.AccountNo = accountNo;
-            this.ActionId = actionId;
+            this.ActionRecordId = actionRecordId;
             this.ProductId = productId;
         }
     }

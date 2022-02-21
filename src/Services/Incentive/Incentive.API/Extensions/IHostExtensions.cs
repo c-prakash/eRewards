@@ -20,7 +20,7 @@ namespace ezLoyalty.Services.Incentive.API.Extensions
             var incentiveDbContext = scope.ServiceProvider.GetRequiredService<IncentiveDbContext>();
             var integrationLogContext = scope.ServiceProvider.GetRequiredService<IntegrationEventLogContext>();
 
-            //actionDbContext.Database.EnsureDeleted();
+            //incentiveDbContext.Database.EnsureDeleted();
             incentiveDbContext.Database.EnsureCreated();
             integrationLogContext.Database.EnsureCreated();
             //if (context.Database.EnsureCreated())

@@ -13,19 +13,19 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.EventHand
     /// <summary>
     /// 
     /// </summary>
-    public class ActionsReceivedIntegrationEventHandler : IIntegrationEventHandler<ActionReceivedIntegrationEvents>
+    public class ActionReceivedIntegrationEventHandler : IIntegrationEventHandler<ActionReceivedIntegrationEvents>
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<ActionsReceivedIntegrationEventHandler> _logger;
+        private readonly ILogger<ActionReceivedIntegrationEventHandler> _logger;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="mediator"></param>
         /// <param name="logger"></param>
-        public ActionsReceivedIntegrationEventHandler(
+        public ActionReceivedIntegrationEventHandler(
            IMediator mediator,
-           ILogger<ActionsReceivedIntegrationEventHandler> logger)
+           ILogger<ActionReceivedIntegrationEventHandler> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -50,9 +50,9 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.EventHand
 
                 if (@event.RequestId != Guid.Empty)
                 {
-                    using (LogContext.PushProperty("IdentifiedCommandId", @event.Name))
+                    using (LogContext.PushProperty("IdentifiedCommandId", @event.ActionId))
                     {
-                        var actionsCommand = new NewActionCommand(@event.Name, @event.UniqueToken, @event.AccountNo, @event.UserID, @event.Payload, @event.Sender);
+                        var actionsCommand = new NewActionCommand(@event.ActionId, @event.UniqueToken, @event.AccountNo, @event.UserID, @event.Payload, @event.Sender, @event.CreatedAt);
 
                         _logger.LogInformation(
                             "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",

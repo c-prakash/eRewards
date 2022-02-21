@@ -3,6 +3,7 @@ using ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.Events;
 using ezLoyalty.Services.Incentive.Domain.Events;
 using ezLoyalty.Services.Incentive.Domain.PointsAggregate;
 using MediatR;
+using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
 
 namespace ezLoyalty.Services.Incentive.API.Application.DomainEventHandlers
 {
@@ -33,22 +34,23 @@ namespace ezLoyalty.Services.Incentive.API.Application.DomainEventHandlers
         /// Handle
         /// ActionStatusChangedToAwaitingRewardDomainEvent
         /// </summary>
-        /// <param name="incentiveAwardedDomainEvent"></param>
+        /// <param name="pointsAwardedDomainEvent"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task Handle(PointsAwardedDomainEvent incentiveAwardedDomainEvent, CancellationToken cancellationToken)
+        public async Task Handle(PointsAwardedDomainEvent pointsAwardedDomainEvent, CancellationToken cancellationToken)
         {
 
             _logger.CreateLogger<PointsAwardedDomainEvent>()
              .LogTrace("Action with Id: {ActionId} has been successfully rewarded with points {points} ({Id})",
-                 incentiveAwardedDomainEvent.AwardedPoints.ActionId, incentiveAwardedDomainEvent.AwardedPoints.EarnedPoints, incentiveAwardedDomainEvent.AwardedPoints.Id);
+                 pointsAwardedDomainEvent.AwardedPoints.ActionId, pointsAwardedDomainEvent.AwardedPoints.EarnedPoints, pointsAwardedDomainEvent.AwardedPoints.Id);
 
-            var pointsToUpdate = await _pointsRepository.GetAsync(incentiveAwardedDomainEvent.AwardedPoints.AccountNo, incentiveAwardedDomainEvent.AwardedPoints.ActionId);
+            var pointsToUpdate = await _pointsRepository.GetAsync(pointsAwardedDomainEvent.AwardedPoints.AccountNo, pointsAwardedDomainEvent.AwardedPoints.ActionId, pointsAwardedDomainEvent.AwardedPoints.ActionRecordId);
 
-            var aActionRewardsConfirmedIntegrationEvent = new ActionRewardsConfirmedIntegrationEvent(
-               pointsToUpdate.AccountNo, pointsToUpdate.Id, pointsToUpdate.EarnedPoints);
+            var actionRewardsIntegrationEvent = (pointsToUpdate != null) ?
+                (IntegrationEvent) new ActionRewardsConfirmedIntegrationEvent(pointsToUpdate.AccountNo, pointsToUpdate.ActionRecordId)
+                : new ActionRewardsRejectedIntegrationEvent(pointsAwardedDomainEvent.AwardedPoints.AccountNo, pointsAwardedDomainEvent.AwardedPoints.ActionRecordId);
 
-            await _incentiveIntegrationEventService.AddAndSaveEventAsync(aActionRewardsConfirmedIntegrationEvent);
+            await _incentiveIntegrationEventService.AddAndSaveEventAsync(actionRewardsIntegrationEvent);
         }
     }
 }

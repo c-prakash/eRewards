@@ -36,13 +36,13 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
         public async Task<bool> Handle(SetRewardsRejectedActionStatusCommand command, CancellationToken cancellationToken)
         {
 
-            var actionToUpdate = await _actionsRepository.GetAsync(command.ActionId);
+            var actionToUpdate = await _actionsRepository.GetAsync(command.ActionRecordId);
             if (actionToUpdate == null)
             {
                 return false;
             }
 
-            actionToUpdate.SetRewardedStatus();
+            actionToUpdate.SetRewardsRejectedStatus();
 
             var result = await _actionsRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
 

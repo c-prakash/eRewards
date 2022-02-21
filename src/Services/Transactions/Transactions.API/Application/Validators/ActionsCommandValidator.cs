@@ -15,7 +15,7 @@ namespace ezLoyalty.Services.Actions.API.Application.Validators
         /// <param name="logger"></param>
         public ActionsCommandValidator(ILogger<NewActionCommand> logger)
         {
-            RuleFor(command => command.Name).NotEmpty();
+            RuleFor(command => command.ActionId).NotEmpty();
             RuleFor(command => command.UniqueToken).NotEmpty();
             RuleFor(command => command.UserID).NotEmpty();
             RuleFor(command => command.AccountNo).NotEmpty();

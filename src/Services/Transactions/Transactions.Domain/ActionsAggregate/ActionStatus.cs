@@ -17,7 +17,7 @@ namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
 
         public static ActionStatus AccountRejected = new(91, nameof(AccountRejected).ToLowerInvariant());
         public static ActionStatus EligibilityRejected = new(92, nameof(EligibilityRejected).ToLowerInvariant());
-        public static ActionStatus RewardsRejected = new(92, nameof(RewardsRejected).ToLowerInvariant());
+        public static ActionStatus RewardsRejected = new(93, nameof(RewardsRejected).ToLowerInvariant());
 
         public ActionStatus(int id, string name)
             : base(id, name)

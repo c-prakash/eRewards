@@ -43,13 +43,13 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.EventHand
             {
                 _logger.LogInformation("----- Handling integration event: {IntegrationEventId} at {AppName} - ({@IntegrationEvent})", @event.Id, Program.AppName, @event);
 
-                var command = new SetRewardsRejectedActionStatusCommand(@event.AccountNo, @event.ActionId);
+                var command = new SetRewardsRejectedActionStatusCommand(@event.AccountNo, @event.ActionRecordId);
 
                 _logger.LogInformation(
                     "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
                     command.GetGenericTypeName(),
-                    nameof(command.ActionId),
-                    command.ActionId,
+                    nameof(command.ActionRecordId),
+                    command.ActionRecordId,
                     command);
 
                 await _mediator.Send(command);

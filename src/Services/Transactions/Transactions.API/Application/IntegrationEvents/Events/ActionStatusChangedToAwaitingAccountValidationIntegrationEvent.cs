@@ -16,17 +16,17 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        public int ActionId;
+        public int ActionRecordId;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
-        public ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(int accountNo, int actionId)
+        /// <param name="actionRecordId"></param>
+        public ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(int accountNo, int actionRecordId)
         {
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = actionRecordId;
         }
     }
 }

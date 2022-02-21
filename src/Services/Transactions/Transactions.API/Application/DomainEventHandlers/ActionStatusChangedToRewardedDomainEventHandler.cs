@@ -47,12 +47,12 @@ namespace ezLoyalty.Services.Actions.API.Application.DomainEventHandlers
 
             _logger.CreateLogger<ActionStatusChangedToAwaitingEligibilityValidationDomainEvent>()
              .LogTrace("Action with Id: {ActionId} has been successfully updated to status {Status} ({Id})",
-                 actionStatusChangedToRewardedDomainEvent.ActionId, nameof(ActionStatus.AwaitingRewards), ActionStatus.AwaitingRewards.Id);
+                 actionStatusChangedToRewardedDomainEvent.ActionRecordId, nameof(ActionStatus.AwaitingRewards), ActionStatus.AwaitingRewards.Id);
 
-            var actionToUpdate = await _actionRepository.GetAsync(actionStatusChangedToRewardedDomainEvent.ActionId);
+            var actionToUpdate = await _actionRepository.GetAsync(actionStatusChangedToRewardedDomainEvent.ActionRecordId);
 
             var actionStatusChangedToRewardedIntegrationEvent = new ActionStatusChangedToRewardedIntegrationEvent(
-               actionToUpdate.AccountNo, actionToUpdate.Id);
+               actionToUpdate.AccountNo, actionToUpdate.Id, actionToUpdate.CreatedBy);
 
             await _actionIntegrationEventService.AddAndSaveEventAsync(actionStatusChangedToRewardedIntegrationEvent);
         }

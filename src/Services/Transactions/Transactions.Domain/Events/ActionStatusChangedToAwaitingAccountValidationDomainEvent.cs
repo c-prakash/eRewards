@@ -7,12 +7,12 @@ namespace ezLoyalty.Services.Actions.Domain.Events
     {
         public int AccountNo { get; private set; }
 
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
-        public ActionStatusChangedToAwaitingAccountValidationDomainEvent(int customerNo, int actionId)
+        public ActionStatusChangedToAwaitingAccountValidationDomainEvent(int customerNo, int recordId)
         {
             AccountNo = customerNo;
-            ActionId = actionId;
+            ActionRecordId = recordId;
         }
     }
 }

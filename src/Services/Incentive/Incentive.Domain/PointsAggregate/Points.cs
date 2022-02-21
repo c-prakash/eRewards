@@ -19,8 +19,12 @@ namespace ezLoyalty.Services.Incentive.Domain.PointsAggregate
         }
 
         [Key]
-        public int PointsId { get; set; }
+        public override int Id { get; protected set; }
+        
         public int AccountNo { get; set; }
+
+        public int ActionRecordId { get; set; }
+
         public int ActionId { get; set; }
 
         public decimal EarnedPoints { get; set; }

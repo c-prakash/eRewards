@@ -2,10 +2,7 @@
 
 namespace ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.Events
 {
-    /// <summary>
-    /// ActionRewardsConfirmedIntegrationEvent
-    /// </summary>
-    public record ActionRewardsConfirmedIntegrationEvent : IntegrationEvent
+    public record ActionRewardsRejectedIntegrationEvent : IntegrationEvent
     {
         /// <summary>
         /// 
@@ -17,13 +14,12 @@ namespace ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.Events
         /// </summary>
         public int ActionRecordId { get; private set; }
 
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
         /// <param name="actionRecordId"></param>
-        public ActionRewardsConfirmedIntegrationEvent(int accountNo, int actionRecordId)
+        public ActionRewardsRejectedIntegrationEvent(int accountNo, int actionRecordId)
         {
             AccountNo = accountNo;
             ActionRecordId = actionRecordId;

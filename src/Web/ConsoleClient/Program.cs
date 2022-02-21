@@ -40,12 +40,13 @@ namespace eRewards.Host.ConsoleClient
                 // Create a new product
                 Actions product = new Actions
                 (
-                    actionName: "ChallengeSignup",
+                    actionId: 2,
                     token: Guid.NewGuid().ToString(),
                     accountNo: 1,
                     userId: "chandra",
                     payload: "{data:sampledata}",
-                    sender: "Challenges"
+                    sender: "CLI-Client",
+                    createdAt: DateTime.Now
                 );
 
                 var statusCode = await CreateActions(product);
@@ -61,9 +62,9 @@ namespace eRewards.Host.ConsoleClient
     }
 
 
-    public class Actions 
+    public class Actions
     {
-        public string Name { get; set; }
+        public int ActionId { get; set; }
 
         public string UniqueToken { get; set; }
 
@@ -75,14 +76,22 @@ namespace eRewards.Host.ConsoleClient
 
         public string Sender { get; set; }
 
-        public Actions(string actionName, string token, int accountNo, string userId, string payload, string sender)
+        public DateTime CreatedAt { get; set; }
+
+        public Actions(int actionId, string token, int accountNo, string userId, string payload, string sender)
         {
-            this.Name = actionName;
+            this.ActionId = actionId;
             this.UniqueToken = token;
             this.AccountNo = accountNo;
             this.UserID = userId;
             this.Payload = payload;
             this.Sender = sender;
+        }
+        public Actions(int actionId, string token, int accountNo, string userId, string payload, string sender, DateTime createdAt)
+            : this(actionId, token, accountNo, userId, payload, sender)
+        {
+
+            this.CreatedAt = createdAt;
         }
     }
 }

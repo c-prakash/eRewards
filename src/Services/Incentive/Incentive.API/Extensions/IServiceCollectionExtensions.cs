@@ -1,6 +1,7 @@
 using Autofac;
 using ezLoyalty.Services.Incentive.API;
 using ezLoyalty.Services.Incentive.API.Application.IntegrationEvents;
+using ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.EventHandling;
 using ezLoyalty.Services.Incentive.Infrastructure;
 using IntegrationEventLogEF;
 using IntegrationEventLogEF.Services;
@@ -157,7 +158,7 @@ namespace ezLoyalty.Services.Incentive.API.Extensions
             }
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-            //services.AddTransient<ActionsReceivedIntegrationEventHandler>();
+            services.AddTransient<ActionStatusChangedToAwaitingRewardsIntegrationEventHandler>();
 
             return services;
         }

@@ -20,7 +20,7 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// <summary>
         /// ActionId
         /// </summary>
-        public int ActionId { get; set; }
+        public int ActionRecordId { get; set; }
 
         /// <summary>
         /// 
@@ -31,13 +31,13 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// ctor
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
+        /// <param name="actionRecordId"></param>
         /// <param name="productId"></param>
-        public ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(int accountNo, int actionId, int productId)
+        public ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent(int accountNo, int actionRecordId, int productId)
         {
 
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = actionRecordId;
             ProductId = productId;
         }
     }

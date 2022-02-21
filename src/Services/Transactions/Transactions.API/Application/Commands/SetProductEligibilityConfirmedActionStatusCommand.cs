@@ -19,17 +19,17 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
         /// <summary>
         /// 
         /// </summary>
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
-        public SetProductEligibilityConfirmedActionStatusCommand(int accountNo, int actionId)
+        /// <param name="recordId"></param>
+        public SetProductEligibilityConfirmedActionStatusCommand(int accountNo, int recordId)
         {
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = recordId;
         }
     }
 }

@@ -88,9 +88,6 @@ namespace ezLoyalty.Services.Incentive.API
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
             eventBus.Subscribe<ActionStatusChangedToAwaitingRewardsIntegrationEvent, ActionStatusChangedToAwaitingRewardsIntegrationEventHandler>();
-            //eventBus.Subscribe<ActionAccountValidationCompleteIntegrationEvent, ActionAccountValidationCompleteIntegrationEventHandler>();
-            //eventBus.Subscribe<ProductEligibilityConfirmedIntegrationEvent, ProductEligibilityConfirmedIntegrationEventHandler>();
-            //eventBus.Subscribe<ProductEligibilityRejectedIntegrationEvent, ProductEligibilityRejectedIntegrationEventHandler>();
         }
     }
 }

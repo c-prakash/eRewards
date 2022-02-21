@@ -98,10 +98,12 @@ namespace ezLoyalty.Services.Actions.API
         protected virtual void ConfigureEventBus(IApplicationBuilder app)
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            //eventBus.Subscribe<ActionsPublishedIntegrationEvent, ActionsPublishedIntegrationEventHandler>();
+            eventBus.Subscribe<ActionReceivedIntegrationEvents, ActionReceivedIntegrationEventHandler>();
             eventBus.Subscribe<ActionAccountValidationCompleteIntegrationEvent, ActionAccountValidationCompleteIntegrationEventHandler>();
             eventBus.Subscribe<ProductEligibilityConfirmedIntegrationEvent, ProductEligibilityConfirmedIntegrationEventHandler>();
             eventBus.Subscribe<ProductEligibilityRejectedIntegrationEvent, ProductEligibilityRejectedIntegrationEventHandler>();
+            eventBus.Subscribe<ActionRewardsConfirmedIntegrationEvent, ActionRewardsConfirmedIntegrationEventHandler>();
+            eventBus.Subscribe<ActionRewardsRejectedIntegrationEvent, ActionRewardsRejectedIntegrationEventHandler>();
         }
     }
 }

@@ -16,19 +16,21 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// <summary>
         /// ActionId
         /// </summary>
-        public int ActionId { get; set; }
+        public int ActionRecordId { get; set; }
 
+        public string Sender { get; set; }
 
         /// <summary>
         /// ctor
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
-        public ActionStatusChangedToRewardedIntegrationEvent(int accountNo, int actionId)
+        /// <param name="actionRecordId"></param>
+        public ActionStatusChangedToRewardedIntegrationEvent(int accountNo, int actionRecordId, string sender)
         {
 
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = actionRecordId;
+            Sender = sender;
         }
     }
 }

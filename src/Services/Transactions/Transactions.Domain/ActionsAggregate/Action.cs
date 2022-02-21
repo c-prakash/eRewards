@@ -5,9 +5,9 @@ using System;
 namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
 {
     public class Action
-        : Entity, IAggregateRoot
+        : BaseAuditableEntity, IAggregateRoot
     {
-        public string Name { get; set; }
+        public int ActionId { get; set; }
 
         public string UniqueToken { get; set; }
 
@@ -31,9 +31,9 @@ namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
             CreatedAt = DateTime.Now;
         }
 
-        public Action(string actionName, string token, int accountNo, string userId, string payload, string sender)
+        public Action(int actionId, string token, int accountNo, string userId, string payload, string sender, DateTime createdAt)
         {
-            Name = actionName;
+            ActionId = actionId;
             UniqueToken = token;
             AccountNo = accountNo;
             UserID = userId;
@@ -41,7 +41,9 @@ namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
             Sender = sender;
             _actionStatusId = ActionStatus.Submitted.Id;
 
-            CreatedAt = DateTime.Now;
+            CreatedAt = createdAt;
+            this.CreatedDate = DateTime.Now;
+            this.CreatedBy = sender;
 
             AddActionsStartedDomainEvent();
         }
@@ -68,7 +70,7 @@ namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
         {
             if (_actionStatusId == ActionStatus.AwaitingEligibilityValidation.Id)
             {
-                AddDomainEvent(new ActionStatusChangedToAwaitingRewardsDomainEvent(AccountNo, Id));
+                AddDomainEvent(new ActionStatusChangedToAwaitingRewardsDomainEvent(AccountNo, Id, Sender));
                 _actionStatusId = ActionStatus.AwaitingRewards.Id;
             }
         }
@@ -77,7 +79,7 @@ namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
         {
             if (_actionStatusId == ActionStatus.AwaitingRewards.Id)
             {
-                AddDomainEvent(new ActionStatusChangedToRewardedDomainEvent(AccountNo, Id));
+                AddDomainEvent(new ActionStatusChangedToRewardedDomainEvent(AccountNo, Id, Sender));
                 _actionStatusId = ActionStatus.Rewarded.Id;
             }
         }

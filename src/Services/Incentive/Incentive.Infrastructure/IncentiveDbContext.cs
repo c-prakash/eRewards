@@ -43,6 +43,9 @@ namespace ezLoyalty.Services.Incentive.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Points>()
+                .HasKey(p => new { p.AccountNo, p.ActionId, p.ActionRecordId });
+
             base.OnModelCreating(modelBuilder);
         }
 

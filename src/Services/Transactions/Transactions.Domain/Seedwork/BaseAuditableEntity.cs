@@ -6,12 +6,12 @@ namespace ezLoyalty.Services.Actions.Domain.Seedwork
     {
         private string createdBy;
         private DateTime createdDate;
-        private string updatedBy;
+        private string? updatedBy;
         private DateTime? updatedDate;
 
         public string CreatedBy { get => createdBy; set => createdBy = value; }
         public DateTime CreatedDate { get => createdDate; set => createdDate = value; }
-        public string UpdatedBy { get => updatedBy; set => updatedBy = value; }
+        public string? UpdatedBy { get => updatedBy; set => updatedBy = value; }
         public DateTime? UpdatedDate { get => updatedDate; set => updatedDate = value; }
 
         public override bool Equals(object obj)

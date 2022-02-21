@@ -15,8 +15,8 @@ namespace ezLoyalty.Services.Incentive.Domain.PointsAggregate
 
         Task<IEnumerable<Points>> GetByAccount(int accountNo);
 
-         Task<Points> GetAsync(int accountNo, int actionId);
+        Task<IEnumerable<Points>> GetAsync(int accountNo, int actionId);
 
-
+        Task<Points> GetAsync(int accountNo, int actionId, int actionRecordId);
     }
 }

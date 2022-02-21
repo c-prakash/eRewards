@@ -19,7 +19,7 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
         /// <summary>
         /// 
         /// </summary>
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
         /// <summary>
         /// 
@@ -31,21 +31,21 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
-        public SetAccountValidationActionStatusCommand(int accountNo, int actionId)
+        /// <param name="recordId"></param>
+        public SetAccountValidationActionStatusCommand(int accountNo, int recordId)
         {
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = recordId;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
+        /// <param name="recordId"></param>
         /// <param name="status"></param>
-        public SetAccountValidationActionStatusCommand(int accountNo, int actionId, bool status)
-            : this(accountNo, actionId)
+        public SetAccountValidationActionStatusCommand(int accountNo, int recordId, bool status)
+            : this(accountNo, recordId)
         {
             Status = status;
         }

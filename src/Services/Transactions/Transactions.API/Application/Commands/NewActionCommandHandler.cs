@@ -33,12 +33,13 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
         {
             _logger.LogInformation("----- Creating Actions - Actions: {@Message}", message);
 
-            var action = new Action(actionName: message.Name,
+            var action = new Action(actionId: message.ActionId,
                 token: message.UniqueToken,
                 accountNo: message.AccountNo,
                 userId: message.UserID,
                 payload: message.Payload,
-                sender: message.Sender);
+                sender: message.Sender,
+                createdAt: message.CreatedAt);
 
             var actionToUpdate = _actionsRepository.Add(action);
 

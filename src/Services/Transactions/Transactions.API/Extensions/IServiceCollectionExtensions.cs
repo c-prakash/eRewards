@@ -44,9 +44,9 @@ namespace ezLoyalty.Services.Actions.API.Extensions
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                options.IncludeXmlComments(xmlPath);
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //options.IncludeXmlComments(xmlPath);
             });
 
             return services;
@@ -157,10 +157,12 @@ namespace ezLoyalty.Services.Actions.API.Extensions
             }
 
             services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
-            services.AddTransient<ActionsReceivedIntegrationEventHandler>();
+            services.AddTransient<ActionReceivedIntegrationEventHandler>();
             services.AddTransient<ActionAccountValidationCompleteIntegrationEventHandler>();
             services.AddTransient<ProductEligibilityConfirmedIntegrationEventHandler>();
             services.AddTransient<ProductEligibilityRejectedIntegrationEventHandler>();
+            services.AddTransient<ActionRewardsConfirmedIntegrationEventHandler>();
+            services.AddTransient<ActionRewardsRejectedIntegrationEventHandler>();
 
             return services;
         }

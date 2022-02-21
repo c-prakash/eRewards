@@ -15,18 +15,18 @@ namespace ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events
         /// <summary>
         /// 
         /// </summary>
-        public int ActionId { get; private set; }
+        public int ActionRecordId { get; private set; }
 
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="accountNo"></param>
-        /// <param name="actionId"></param>
-        public ProductEligibilityConfirmedIntegrationEvent(int accountNo, int actionId)
+        /// <param name="actionRecordId"></param>
+        public ProductEligibilityConfirmedIntegrationEvent(int accountNo, int actionRecordId)
         {
             AccountNo = accountNo;
-            ActionId = actionId;
+            ActionRecordId = actionRecordId;
         }
     }
 }

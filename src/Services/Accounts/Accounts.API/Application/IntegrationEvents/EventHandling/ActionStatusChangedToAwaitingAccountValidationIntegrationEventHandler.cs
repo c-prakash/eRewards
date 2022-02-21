@@ -45,7 +45,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHand
 
                 var resultAccount = await _accountRepository.GetAsync(@event.AccountNo);
 
-                var accountValidationIntegrationEvent = new ActionAccountValidationCompleteIntegrationEvent(@event.AccountNo, @event.ActionId);
+                var accountValidationIntegrationEvent = new ActionAccountValidationCompleteIntegrationEvent(@event.AccountNo, @event.ActionRecordId);
 
                 if (resultAccount == null || resultAccount.Id == 0)
                 {
