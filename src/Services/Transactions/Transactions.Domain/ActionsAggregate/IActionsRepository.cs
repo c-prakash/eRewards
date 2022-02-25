@@ -10,9 +10,9 @@ namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
     public interface IActionsRepository : IRepository<Action>
     {
         // Metadata
-        ActionMetadata Create(ActionMetadata action);
+        Task<ActionMetadata> Add(ActionMetadata action);
 
-        void Update(ActionMetadata action);
+        Task Update(ActionMetadata action);
 
         Task<IEnumerable<ActionMetadata>> GetAllActionMetadataAsync();
 

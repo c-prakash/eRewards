@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using eRewards.Services.Accounts.Domain.AccountsAggregate;
-using eRewards.Services.Accounts.API.ViewModel;
+using ezLoyalty.Services.Accounts.Domain.AccountsAggregate;
+using ezLoyalty.Services.Accounts.API.ViewModel;
 
-namespace eRewards.Services.Accounts.API.Controllers
+namespace ezLoyalty.Services.Accounts.API.Controllers
 {
     /// <summary>
     /// 
@@ -19,11 +19,11 @@ namespace eRewards.Services.Accounts.API.Controllers
         private readonly IAccountRepository _accountRepository;
         private readonly ILogger<AccountsController> _logger;
 
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="accountRepository"></param>
-       /// <param name="logger"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="accountRepository"></param>
+        /// <param name="logger"></param>
         public AccountsController(
             IAccountRepository accountRepository,
             ILogger<AccountsController> logger)
@@ -41,7 +41,7 @@ namespace eRewards.Services.Accounts.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.Created)]
         public async Task<IActionResult> CreateAccount([FromBody] Account account)
         {
-            
+
             var item = await _accountRepository.Add(account);
 
             return CreatedAtAction(nameof(GetAccount), new { id = item.Id }, null);

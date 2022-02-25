@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>eRewards.Services.Accounts.Infrastructure</AssemblyName>
-    <RootNamespace>eRewards.Services.Accounts.Infrastructure</RootNamespace>
+    <AssemblyName>ezLoyalty.Services.Accounts.Infrastructure</AssemblyName>
+    <RootNamespace>ezLoyalty.Services.Accounts.Infrastructure</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

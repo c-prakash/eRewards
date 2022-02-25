@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Accounts.API.Application.Behavior
+namespace ezLoyalty.Services.Accounts.API.Application.Behavior
 {
     public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

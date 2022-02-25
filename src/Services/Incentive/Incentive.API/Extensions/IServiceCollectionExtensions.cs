@@ -41,12 +41,12 @@ namespace ezLoyalty.Services.Incentive.API.Extensions
                 {
                     Title = "ezLoyalty - Incentive HTTP API",
                     Version = "v1",
-                    Description = "The Incentive Microservice HTTP API. This is a Data-Driven/CRUD microservice sample"
+                    Description = "The Incentive Microservice HTTP API."
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 //options.IncludeXmlComments(xmlPath);
             });
 

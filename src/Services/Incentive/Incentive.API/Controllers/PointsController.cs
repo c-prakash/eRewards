@@ -29,6 +29,18 @@ namespace ezLoyalty.Services.Incentive.API.Controllers
                 OperationId = "Points.GetPoints", Tags = new[] { "Earn & Burn" })]
         [ProducesResponseType(typeof(IEnumerable<Points>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<IActionResult> GetPoints(int accountNo)
+        {
+            var result = await _mediator.Send(new GetPointsCommand() { AccountNo= accountNo});
+            return Ok(result);
+
+        }
+
+        [HttpGet]
+        [SwaggerOperation(Summary = "Get points to the Account", Description = "Get points to the Account",
+                OperationId = "Points.GetPoints", Tags = new[] { "Earn & Burn" })]
+        [ProducesResponseType(typeof(IEnumerable<Points>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetPoints([FromQuery] GetPointsCommand getPointsCommand)
         {
             var result = await _mediator.Send(getPointsCommand);

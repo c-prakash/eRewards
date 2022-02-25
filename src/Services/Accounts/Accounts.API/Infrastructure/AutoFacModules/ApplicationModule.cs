@@ -1,14 +1,14 @@
 ﻿using Autofac;
-using eRewards.Services.Accounts.Domain.AccountsAggregate;
-using eRewards.Services.Accounts.Infrastructure.Repositories;
+using ezLoyalty.Services.Accounts.Domain.AccountsAggregate;
+using ezLoyalty.Services.Accounts.Infrastructure.Repositories;
 
-namespace eRewards.Services.Accounts.API.Infrastructure.AutoFacModules
+namespace ezLoyalty.Services.Accounts.API.Infrastructure.AutoFacModules
 {
     /// <summary>
     /// 
     /// </summary>
     public class ApplicationModule
-         : Autofac.Module
+         : Module
     {
         /// <summary>
         /// 

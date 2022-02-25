@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>eRewards.Services.Accounts.API</AssemblyName>
-    <RootNamespace>eRewards.Services.Accounts.API</RootNamespace>
+    <AssemblyName>ezLoyalty.Services.Accounts.API</AssemblyName>
+    <RootNamespace>ezLoyalty.Services.Accounts.API</RootNamespace>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..\..\..</DockerfileContext>
     <UserSecretsId>367d3361-b0da-419e-958d-abf6849c74f1</UserSecretsId>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

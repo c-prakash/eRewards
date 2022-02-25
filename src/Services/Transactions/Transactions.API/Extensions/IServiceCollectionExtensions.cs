@@ -40,7 +40,7 @@ namespace ezLoyalty.Services.Actions.API.Extensions
                 {
                     Title = "ezLoyalty - Actions HTTP API",
                     Version = "v1",
-                    Description = "The Actions Microservice HTTP API. This is a Data-Driven/CRUD microservice sample"
+                    Description = "The Actions Microservice HTTP API."
                 });
 
                 // Set the comments path for the Swagger JSON and UI.

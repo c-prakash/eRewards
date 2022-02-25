@@ -51,6 +51,4 @@ namespace ezLoyalty.Services.Actions.API.Application.Commands
 
         }
     }
-
-
 }

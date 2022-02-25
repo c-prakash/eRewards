@@ -1,4 +1,4 @@
-﻿using eRewards.Services.Accounts.Infrastructure;
+﻿using ezLoyalty.Services.Accounts.Infrastructure;
 using IntegrationEventLogEF.Services;
 using IntegrationEventLogEF.Utilities;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using System;
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Accounts.API.Application.IntegrationEvents
+namespace ezLoyalty.Services.Accounts.API.Application.IntegrationEvents
 {
     /// <summary>
     /// 

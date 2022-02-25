@@ -1,9 +1,9 @@
-using eRewards.Services.Accounts.Infrastructure;
+using ezLoyalty.Services.Accounts.Infrastructure;
 using IntegrationEventLogEF;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace eRewards.Services.Accounts.API.Extensions
+namespace ezLoyalty.Services.Accounts.API.Extensions
 {
     /// <summary>
     /// 

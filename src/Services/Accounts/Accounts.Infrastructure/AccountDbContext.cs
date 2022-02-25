@@ -1,5 +1,5 @@
-﻿using eRewards.Services.Accounts.Domain.AccountsAggregate;
-using eRewards.Services.Accounts.Domain.Seedwork;
+﻿using ezLoyalty.Services.Accounts.Domain.AccountsAggregate;
+using ezLoyalty.Services.Accounts.Domain.Seedwork;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Accounts.Infrastructure
+namespace ezLoyalty.Services.Accounts.Infrastructure
 {
     public class AccountDbContext : DbContext, IUnitOfWork
     {
@@ -21,15 +21,15 @@ namespace eRewards.Services.Accounts.Infrastructure
 
         public bool HasActiveTransaction => _currentTransaction != null;
 
-        public AccountDbContext(DbContextOptions<AccountDbContext> options, IMediator mediator) 
-            : base(options) 
+        public AccountDbContext(DbContextOptions<AccountDbContext> options, IMediator mediator)
+            : base(options)
         {
 
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
 
-            System.Diagnostics.Debug.WriteLine("ActionsDbContext::ctor ->" + this.GetHashCode());
+            System.Diagnostics.Debug.WriteLine("ActionsDbContext::ctor ->" + GetHashCode());
         }
-               
+
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
         {
             await _mediator.DispatchDomainEventsAsync(this);

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using eRewards.Services.Accounts.Domain.Seedwork;
 using System.Linq;
+using ezLoyalty.Services.Accounts.Domain.Seedwork;
 
-namespace eRewards.Services.Accounts.Domain.AccountsAggregate
+namespace ezLoyalty.Services.Accounts.Domain.AccountsAggregate
 {
 
     public class AccountStatus
@@ -24,11 +24,11 @@ namespace eRewards.Services.Accounts.Domain.AccountsAggregate
         public static AccountStatus FromName(string name)
         {
             var state = List()
-                .SingleOrDefault(s => String.Equals(s.Name, name, StringComparison.CurrentCultureIgnoreCase));
+                .SingleOrDefault(s => string.Equals(s.Name, name, StringComparison.CurrentCultureIgnoreCase));
 
             if (state == null)
             {
-                throw new Exception($"Possible values for ActionStatus: {String.Join(",", List().Select(s => s.Name))}");
+                throw new Exception($"Possible values for ActionStatus: {string.Join(",", List().Select(s => s.Name))}");
             }
 
             return state;
@@ -40,7 +40,7 @@ namespace eRewards.Services.Accounts.Domain.AccountsAggregate
 
             if (state == null)
             {
-                throw new Exception($"Possible values for ActionStatus: {String.Join(",", List().Select(s => s.Name))}");
+                throw new Exception($"Possible values for ActionStatus: {string.Join(",", List().Select(s => s.Name))}");
             }
 
             return state;

@@ -3,10 +3,10 @@ using MediatR;
 
 namespace ezLoyalty.Services.Incentive.API.Application.Commands
 {
-    public class GetPointsCommand : IRequest<Points>
+    public class GetPointsCommand : IRequest<IEnumerable<Points>>
     {
         public int AccountNo    { get; set; }
         public int ActionId { get; set; }
-        public DateOnly earnedDate { get; set; }
+        public DateTime EarnedDate { get; set; }
     }
 }

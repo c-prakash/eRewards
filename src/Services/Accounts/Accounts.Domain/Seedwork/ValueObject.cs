@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eRewards.Services.Accounts.Domain.Seedwork
+namespace ezLoyalty.Services.Accounts.Domain.Seedwork
 {
     public abstract class ValueObject
     {
@@ -17,7 +17,7 @@ namespace eRewards.Services.Accounts.Domain.Seedwork
 
         protected static bool NotEqualOperator(ValueObject left, ValueObject right)
         {
-            return !(EqualOperator(left, right));
+            return !EqualOperator(left, right);
         }
 
         protected abstract IEnumerable<object> GetEqualityComponents();
@@ -31,7 +31,7 @@ namespace eRewards.Services.Accounts.Domain.Seedwork
 
             var other = (ValueObject)obj;
 
-            return this.GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+            return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }
 
         public override int GetHashCode()
@@ -43,7 +43,7 @@ namespace eRewards.Services.Accounts.Domain.Seedwork
 
         public ValueObject GetCopy()
         {
-            return this.MemberwiseClone() as ValueObject;
+            return MemberwiseClone() as ValueObject;
         }
     }
 }

@@ -1,14 +1,14 @@
-﻿using eRewards.Services.Accounts.Domain.Seedwork;
+﻿using ezLoyalty.Services.Accounts.Domain.Seedwork;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace eRewards.Services.Accounts.Domain.AccountsAggregate
+namespace ezLoyalty.Services.Accounts.Domain.AccountsAggregate
 {
     public class Account : IAggregateRoot
     //: Entity, IAggregateRoot
     {
-        
+
         //public List<AccountMapping> Mappings { get; set; }
         [Key]
         public int Id { get; set; }
@@ -18,14 +18,14 @@ namespace eRewards.Services.Accounts.Domain.AccountsAggregate
 
         public DateTime UpdatedAt { get; set; }
 
-        public Account() 
+        public Account()
         {
-            this.CreatedAt = DateTime.UtcNow;
+            CreatedAt = DateTime.UtcNow;
         }
 
     }
 
-    public class AccountMapping 
+    public class AccountMapping
     {
         [Key]
         public int MappingId { get; set; }

@@ -1,12 +1,12 @@
-﻿using eRewards.Services.Accounts.Domain.AccountsAggregate;
-using eRewards.Services.Accounts.Domain.Seedwork;
+﻿using ezLoyalty.Services.Accounts.Domain.AccountsAggregate;
+using ezLoyalty.Services.Accounts.Domain.Seedwork;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Accounts.Infrastructure.Repositories
+namespace ezLoyalty.Services.Accounts.Infrastructure.Repositories
 {
 
     public class AccountRepository

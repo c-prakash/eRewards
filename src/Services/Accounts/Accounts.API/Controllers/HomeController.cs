@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace eRewards.Services.Accounts.API.Controllers
+namespace ezLoyalty.Services.Accounts.API.Controllers
 {
     /// <summary>
     /// 

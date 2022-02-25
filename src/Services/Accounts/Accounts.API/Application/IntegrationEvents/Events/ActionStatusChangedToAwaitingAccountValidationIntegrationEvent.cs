@@ -1,6 +1,6 @@
 ﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
 
-namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Accounts.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// 
@@ -24,8 +24,8 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <param name="actionRecordId"></param>
         public ActionStatusChangedToAwaitingAccountValidationIntegrationEvent(int accountNo, int actionRecordId)
         {
-            this.ActionRecordId = actionRecordId;
-            this.AccountNo = accountNo;
+            ActionRecordId = actionRecordId;
+            AccountNo = accountNo;
         }
     }
 }

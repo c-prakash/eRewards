@@ -1,7 +1,6 @@
-﻿
-using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
+﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
 
-namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
+namespace ezLoyalty.Services.Accounts.API.Application.IntegrationEvents.Events
 {
     /// <summary>
     /// 
@@ -58,7 +57,7 @@ namespace eRewards.Services.Accounts.API.Application.IntegrationEvents.Events
         /// <param name="actionRecordId"></param>
         /// <param name="status"></param>
         public ActionAccountValidationCompleteIntegrationEvent(int accountNo, int actionRecordId, AccountValidationStatus status)
-            :this(accountNo, actionRecordId)
+            : this(accountNo, actionRecordId)
         {
             Status = status;
         }

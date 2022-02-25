@@ -38,15 +38,15 @@ namespace eRewards.Services.Products.API.Extensions
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "eRewards - Product HTTP API",
+                    Title = "eRewards - Products HTTP API",
                     Version = "v1",
-                    Description = "The Products Microservice HTTP API. This is a Data-Driven/CRUD microservice sample"
+                    Description = "The Products Microservice HTTP API."
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                options.IncludeXmlComments(xmlPath);
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //options.IncludeXmlComments(xmlPath);
             });
 
             return services;

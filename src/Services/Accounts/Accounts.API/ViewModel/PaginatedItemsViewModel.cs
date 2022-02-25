@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace eRewards.Services.Accounts.API.ViewModel
+namespace ezLoyalty.Services.Accounts.API.ViewModel
 {
     /// <summary>
     /// 

@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using eRewards.Services.Accounts.API.Application.Behavior;
+using ezLoyalty.Services.Accounts.API.Application.Behavior;
 using MediatR;
 using System;
 using System.Reflection;
 
-namespace eRewards.Services.Accounts.API.Infrastructure.AutoFacModules
+namespace ezLoyalty.Services.Accounts.API.Infrastructure.AutoFacModules
 {
     /// <summary>
     /// 

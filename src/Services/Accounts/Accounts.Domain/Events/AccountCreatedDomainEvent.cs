@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System;
 
-namespace eRewards.Services.Accounts.Domain.Events
+namespace ezLoyalty.Services.Accounts.Domain.Events
 {
     public class AccountCreatedDomainEvent : INotification
     {
@@ -12,7 +12,7 @@ namespace eRewards.Services.Accounts.Domain.Events
 
         public AccountCreatedDomainEvent()
         {
-           
+
         }
     }
 }

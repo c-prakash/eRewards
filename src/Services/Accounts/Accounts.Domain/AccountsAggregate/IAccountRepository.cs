@@ -1,8 +1,8 @@
-﻿using eRewards.Services.Accounts.Domain.Seedwork;
+﻿using ezLoyalty.Services.Accounts.Domain.Seedwork;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace eRewards.Services.Accounts.Domain.AccountsAggregate
+namespace ezLoyalty.Services.Accounts.Domain.AccountsAggregate
 {
     //This is just the RepositoryContracts or Interface defined at the Domain Layer
     //as requisite for the Order Aggregate

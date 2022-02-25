@@ -1,6 +1,7 @@
 ﻿using ezLoyalty.Services.Actions.Domain.Events;
 using ezLoyalty.Services.Actions.Domain.Seedwork;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
 {
@@ -25,6 +26,8 @@ namespace ezLoyalty.Services.Actions.Domain.ActionsAggregate
 
         private int _actionStatusId;
 
+        [NotMapped]
+        public int Status { get { return _actionStatusId; } }
 
         public Action()
         {

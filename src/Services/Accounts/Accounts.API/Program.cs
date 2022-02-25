@@ -1,4 +1,4 @@
-using eRewards.Services.Accounts.API.Extensions;
+using ezLoyalty.Services.Accounts.API.Extensions;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using System.IO;
 
-namespace eRewards.Services.Accounts.API
+namespace ezLoyalty.Services.Accounts.API
 {
     /// <summary>
     /// 

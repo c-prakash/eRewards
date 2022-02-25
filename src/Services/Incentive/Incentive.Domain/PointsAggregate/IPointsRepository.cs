@@ -13,9 +13,11 @@ namespace ezLoyalty.Services.Incentive.Domain.PointsAggregate
 
         void Update(Points point);
 
-        Task<IEnumerable<Points>> GetByAccount(int accountNo);
+        //Task<IEnumerable<Points>> GetAsync(int accountNo);
 
-        Task<IEnumerable<Points>> GetAsync(int accountNo, int actionId);
+        //Task<IEnumerable<Points>> GetAsync(int accountNo, int actionId);
+
+        Task<IEnumerable<Points>> GetAsync(int accountNo, int actionId, DateTime dateCondition);
 
         Task<Points> GetAsync(int accountNo, int actionId, int actionRecordId);
     }

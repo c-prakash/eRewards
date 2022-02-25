@@ -1,7 +1,7 @@
 using Autofac;
-using eRewards.Services.Accounts.API.Application.IntegrationEvents;
-using eRewards.Services.Accounts.API.Application.IntegrationEvents.EventHandling;
-using eRewards.Services.Accounts.Infrastructure;
+using ezLoyalty.Services.Accounts.API.Application.IntegrationEvents;
+using ezLoyalty.Services.Accounts.API.Application.IntegrationEvents.EventHandling;
+using ezLoyalty.Services.Accounts.Infrastructure;
 using IntegrationEventLogEF;
 using IntegrationEventLogEF.Services;
 using Microsoft.Azure.ServiceBus;
@@ -20,7 +20,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace eRewards.Services.Accounts.API.Extensions
+namespace ezLoyalty.Services.Accounts.API.Extensions
 {
     /// <summary>
     /// 
@@ -38,15 +38,15 @@ namespace eRewards.Services.Accounts.API.Extensions
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "eRewards - Transactions HTTP API",
+                    Title = "ezLoyalty - Accounts HTTP API",
                     Version = "v1",
-                    Description = "The Accounts Microservice HTTP API. This is a Data-Driven/CRUD microservice sample"
+                    Description = "The Accounts Microservice HTTP API."
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                options.IncludeXmlComments(xmlPath);
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //options.IncludeXmlComments(xmlPath);
             });
 
             return services;

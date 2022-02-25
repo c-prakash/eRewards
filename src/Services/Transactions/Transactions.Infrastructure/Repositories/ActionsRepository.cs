@@ -29,14 +29,18 @@ namespace ezLoyalty.Services.Actions.Infrastructure.Repositories
 
         // ActionMetadata
 
-        public ActionMetadata Create(ActionMetadata action)
+        public async Task<ActionMetadata> Add(ActionMetadata action)
         {
-            return _context.ActionMetadata.Add(action).Entity;
+            var result = _context.ActionMetadata.Add(action).Entity;
+            await _context.SaveChangesAsync();
+
+            return result;
         }
 
-        public void Update(ActionMetadata action)
+        public async Task Update(ActionMetadata action)
         {
             _context.Entry(action).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<ActionMetadata>> GetAllActionMetadataAsync()

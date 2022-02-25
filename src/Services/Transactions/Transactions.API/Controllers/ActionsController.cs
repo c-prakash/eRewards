@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ezLoyalty.Services.Actions.API.Application.Commands;
 using ezLoyalty.Services.Actions.API.Application.Queries;
 using ezLoyalty.Services.Actions.Domain.ActionsAggregate;
+using ezLoyalty.Services.Actions.API.Application.Commands.ActionMetadataCommands;
 
 namespace ezLoyalty.Services.Actions.API.Controllers
 {
@@ -110,6 +111,8 @@ namespace ezLoyalty.Services.Actions.API.Controllers
             }
         }
 
+        // ActionMetadata
+
         [Route("{actionId:int}")]
         [HttpGet]
         [ProducesResponseType(typeof(ActionMetadata), (int)HttpStatusCode.OK)]
@@ -147,6 +150,52 @@ namespace ezLoyalty.Services.Actions.API.Controllers
             {
                 return NotFound();
             }
+        }
+
+        [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> UpdateActionMetadata([FromBody] UpdateActionMetadataCommand updateActionMetadataCommand)
+        {
+            bool commandResult = false;
+
+            _logger.LogInformation(
+               "----- Sending command: {CommandName} - {sender}: {Id} ({@Command})",
+               updateActionMetadataCommand.GetGenericTypeName(),
+               nameof(updateActionMetadataCommand.Sender),
+               updateActionMetadataCommand.Id,
+               updateActionMetadataCommand);
+
+            commandResult = await _mediator.Send(updateActionMetadataCommand);
+
+            if (!commandResult)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [Route("create")]
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> CreateActionMetadata([FromBody] NewActionMetadataCommand newActionMetadataCommand)
+        {
+            _logger.LogInformation(
+               "----- Sending command: {CommandName} - {sender}: ({@Command})",
+               newActionMetadataCommand.GetGenericTypeName(),
+               nameof(newActionMetadataCommand.Sender),
+               newActionMetadataCommand);
+
+            var commandResult = await _mediator.Send(newActionMetadataCommand);
+
+            if (commandResult is null)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
         }
     }
 }
