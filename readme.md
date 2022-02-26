@@ -1,4 +1,4 @@
-# ezLoyalty .NET Microservices Sample Reference Application
+# ezLoyalty .NET Microservices Application
 
 ezLoyalty is a .NET Core application, based on a simplified microservices architecture and Docker containers. 
 
