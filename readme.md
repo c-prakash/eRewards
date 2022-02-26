@@ -93,7 +93,7 @@ This service publishes the following events:
 
 ### Domain Model
 
-![Domainmodel](img/domainmodel.png)
+![Domainmodel](img/domain-model.png)
 
 
 ## Getting Started
