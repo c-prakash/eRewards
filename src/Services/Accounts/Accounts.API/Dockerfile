@@ -7,20 +7,20 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["src/Rewards/Services/Transactions/Transactions.API/Transactions.API.csproj", "src/Rewards/Services/Transactions/Transactions.API/"]
-COPY ["src/Rewards/Services/Transactions/Transactions.Domain/Transactions.Domain.csproj", "src/Rewards/Services/Transactions/Transactions.Domain/"]
+COPY ["src/ezloyalty/Services/Actions/Actions.API/Actions.API.csproj", "src/ezloyalty/Services/Actions/Actions.API/"]
+COPY ["src/ezloyalty/Services/Actions/Actions.Domain/Actions.Domain.csproj", "src/ezloyalty/Services/Actions/Actions.Domain/"]
 COPY ["src/BuildingBlocks/EventBus/EventBus.csproj", "src/BuildingBlocks/EventBus/"]
-COPY ["src/Rewards/Services/Transactions/Transactions.Infrastructure/Transactions.Infrastructure.csproj", "src/Rewards/Services/Transactions/Transactions.Infrastructure/"]
+COPY ["src/ezloyalty/Services/Actions/Actions.Infrastructure/Actions.Infrastructure.csproj", "src/ezloyalty/Services/Actions/Actions.Infrastructure/"]
 COPY ["src/BuildingBlocks/EventBusServiceBus/EventBusServiceBus.csproj", "src/BuildingBlocks/EventBusServiceBus/"]
-RUN dotnet restore "src/Rewards/Services/Transactions/Transactions.API/Transactions.API.csproj"
+RUN dotnet restore "src/ezloyalty/Services/Actions/Actions.API/Actions.API.csproj"
 COPY . .
-WORKDIR "/src/src/Rewards/Services/Transactions/Transactions.API"
-RUN dotnet build "Transactions.API.csproj" -c Release -o /app/build
+WORKDIR "/src/src/ezloyalty/Services/Actions/Actions.API"
+RUN dotnet build "Actions.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Transactions.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "Actions.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "eRewards.Services.Transactions.API.dll"]
+ENTRYPOINT ["dotnet", "ezloyalty.Services.Actions.API.dll"]

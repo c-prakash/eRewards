@@ -13,7 +13,7 @@
     "serviceBusTopicName": "erewards_event_bus",
     "ActionsSubscriptionName": "actions",
     "AccountsSubscriptionName": "accounts",
-    "ProductsSubscriptionName": "products",
+    "ProgramsSubscriptionName": "programs",
     "IncentivesSubscriptionName": "incentives",
     "location": "[resourceGroup().location]",
     "sbVersion": "2015-08-01",
@@ -114,7 +114,7 @@
             },
             {
               "apiVersion": "[variables('sbVersion')]",
-              "name": "[variables('ProductsSubscriptionName')]",
+              "name": "[variables('ProgramsSubscriptionName')]",
               "type": "Subscriptions",
               "dependsOn": [
                 "[variables('serviceBusTopicName')]"

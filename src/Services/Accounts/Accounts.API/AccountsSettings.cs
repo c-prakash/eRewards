@@ -1,6 +1,6 @@
 ﻿namespace ezLoyalty.Services.Accounts.API
 {
-    public class TransactionsSettings
+    public class ActionsSettings
     {
         public string EventBusConnection { get; set; }
     }

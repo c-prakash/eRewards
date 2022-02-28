@@ -118,7 +118,7 @@ namespace ezLoyalty.Services.Accounts.API.Extensions
             {
                 services.AddSingleton<IServiceBusPersisterConnection>(sp =>
                 {
-                    var settings = sp.GetRequiredService<IOptions<TransactionsSettings>>().Value;
+                    var settings = sp.GetRequiredService<IOptions<ActionsSettings>>().Value;
                     settings.EventBusConnection = configuration["ServiceBusConnectionString"];
                     var logger = sp.GetRequiredService<ILogger<DefaultServiceBusPersisterConnection>>();
 

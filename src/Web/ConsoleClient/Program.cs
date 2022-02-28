@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace eRewards.Host.ConsoleClient
+namespace ezloyalty.Host.ConsoleClient
 {
     class Program
     {
@@ -37,8 +37,8 @@ namespace eRewards.Host.ConsoleClient
 
             try
             {
-                // Create a new product
-                Actions product = new Actions
+                // Create a new action
+                Actions action = new Actions
                 (
                     actionId: 2,
                     token: Guid.NewGuid().ToString(),
@@ -49,7 +49,7 @@ namespace eRewards.Host.ConsoleClient
                     createdAt: DateTime.Now
                 );
 
-                var statusCode = await CreateActions(product);
+                var statusCode = await CreateActions(action);
                 Console.WriteLine($"Create (HTTP Status = {(int)statusCode})");
             }
             catch (Exception e)

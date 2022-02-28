@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>eRewards.Services.Accounts.UnitTests</AssemblyName>
+    <AssemblyName>ezloyalty.Services.Accounts.UnitTests</AssemblyName>
 
-    <RootNamespace>eRewards.Services.Accounts.UnitTests</RootNamespace>
+    <RootNamespace>ezloyalty.Services.Accounts.UnitTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

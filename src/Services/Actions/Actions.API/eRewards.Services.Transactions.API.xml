@@ -1,0 +1,677 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ezloyalty.Services.Actions.API</name>
+    </assembly>
+    <members>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Behavior.TransactionBehaviour`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TRequest"></typeparam>
+            <typeparam name="TResponse"></typeparam>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Behavior.TransactionBehaviour`2.#ctor(ezloyalty.Services.Actions.Infrastructure.ActionsDbContext,ezloyalty.Services.Actions.API.Application.IntegrationEvents.IActionIntegrationEventService,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.Behavior.TransactionBehaviour{`0,`1}})">
+            <summary>
+            
+            </summary>
+            <param name="dbContext"></param>
+            <param name="actionIntegrationEventService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Behavior.TransactionBehaviour`2.Handle(`0,System.Threading.CancellationToken,MediatR.RequestHandlerDelegate{`1})">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Commands.NewActionCommandHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.NewActionCommandHandler.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.Commands.NewActionCommandHandler})">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommand.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommand.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommand.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommand.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommand.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+            <param name="status"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler})">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommandHandler.Handle(ezloyalty.Services.Actions.API.Application.Commands.SetAccountValidationActionStatusCommand,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommand.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommand.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommand.Points">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommand.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+            <param name="points"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommandHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommandHandler.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommandHandler})">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommandHandler.Handle(ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityConfirmedActionStatusCommand,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommand.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommand.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommand.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommandHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommandHandler.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommandHandler})">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommandHandler.Handle(ezloyalty.Services.Actions.API.Application.Commands.SetProgramEligibilityRejectedActionStatusCommand,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingAccountValidationDomainEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingAccountValidationDomainEventHandler.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILoggerFactory,ezloyalty.Services.Actions.API.Application.IntegrationEvents.IActionIntegrationEventService)">
+            <summary>
+            
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+            <param name="actionIntegrationEventService"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingAccountValidationDomainEventHandler.Handle(ezloyalty.Services.Actions.Domain.Events.ActionStatusChangedToAwaitingAccountValidationDomainEvent,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="actionStatusChangedToAwaitingValidationDomainEvent"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler">
+            <summary>
+            ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.IActionsRepository,Microsoft.Extensions.Logging.ILoggerFactory,ezloyalty.Services.Actions.API.Application.IntegrationEvents.IActionIntegrationEventService)">
+            <summary>
+            ctor
+            </summary>
+            <param name="actionsRepository"></param>
+            <param name="logger"></param>
+            <param name="actionIntegrationEventService"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.DomainEventHandlers.ActionStatusChangedToAwaitingEligibilityValidationDomainEventHandler.Handle(ezloyalty.Services.Actions.Domain.Events.ActionStatusChangedToAwaitingEligibilityValidationDomainEvent,System.Threading.CancellationToken)">
+            <summary>
+            Handle
+            ActionStatusChangedToAwaitingEligibilityValidationDomainEvent
+            </summary>
+            <param name="actionStatusChangedToAwaitingEligibilityValidationDomainEvent"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.DomainEventHandlers.ActionStatusChangedToStartedDomainEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationCompleteIntegrationEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationCompleteIntegrationEventHandler.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationCompleteIntegrationEventHandler})">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionAccountValidationCompleteIntegrationEventHandler.Handle(ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="event"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler})">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ActionsReceivedIntegrationEventHandler.Handle(ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents)">
+            <summary>
+            Integration event handler which starts the create order process
+            </summary>
+            <param name="@event">
+            Integration event message which is sent by the
+            basket.api once it has successfully process the 
+            order items.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityConfirmedIntegrationEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityConfirmedIntegrationEventHandler.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityConfirmedIntegrationEventHandler})">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityConfirmedIntegrationEventHandler.Handle(ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityConfirmedIntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="event"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityRejectedIntegrationEventHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityRejectedIntegrationEventHandler.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityRejectedIntegrationEventHandler})">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.EventHandling.ProgramEligibilityRejectedIntegrationEventHandler.Handle(ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityRejectedIntegrationEvent)">
+            <summary>
+            
+            </summary>
+            <param name="event"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.AccountValidationStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.AccountValidationStatus.NonFound">
+            <summary>
+            NonFound
+            </summary>
+        </member>
+        <member name="F:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.AccountValidationStatus.Found">
+            <summary>
+            Found
+            </summary>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionAccountValidationCompleteIntegrationEvent.#ctor(System.Int32,System.Int32,ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.AccountValidationStatus)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+            <param name="status"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionCompleteIntegrationEvents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionCompleteIntegrationEvents.Actions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionCompleteIntegrationEvents.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.Actions)">
+            <summary>
+            
+            </summary>
+            <param name="actions"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.UniqueToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.UserID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.Payload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.Sender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.RequestId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionReceivedIntegrationEvents.#ctor(System.String,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="actionName"></param>
+            <param name="token"></param>
+            <param name="accountNo"></param>
+            <param name="userId"></param>
+            <param name="payload"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingAccountValidationIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingAccountValidationIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingAccountValidationIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingAccountValidationIntegrationEvent.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent">
+            <summary>
+            ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.AccountNo">
+            <summary>
+            AccountId
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.ActionId">
+            <summary>
+            ActionId
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.ProgramId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ActionStatusChangedToAwaitingEligibilityValidationIntegrationEvent.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            ctor
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+            <param name="ProgramId"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityConfirmedIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityConfirmedIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityConfirmedIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityConfirmedIntegrationEvent.Points">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityConfirmedIntegrationEvent.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+            <param name="points"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityRejectedIntegrationEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityRejectedIntegrationEvent.AccountNo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityRejectedIntegrationEvent.ActionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.IntegrationEvents.Events.ProgramEligibilityRejectedIntegrationEvent.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <param name="actionId"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Queries.IActionsQueries">
+            <summary>
+            IActionsQueries
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Queries.IActionsQueries.GetActionsAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Application.Queries.ActionsQueries">
+            <summary>
+            ActionsQueries
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Queries.ActionsQueries.#ctor(ezloyalty.Services.Actions.Domain.ActionsAggregate.IActionsRepository)">
+            <summary>
+            ctor
+            </summary>
+            <param name="actionsRepository"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Application.Queries.ActionsQueries.GetActionsAsync(System.Int32)">
+            <summary>
+            GetActionsAsync
+            </summary>
+            <param name="accountNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Controllers.ActionsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Controllers.ActionsController.#ctor(MediatR.IMediator,ezloyalty.Services.Actions.API.Application.Queries.IActionsQueries,Microsoft.Extensions.Logging.ILogger{ezloyalty.Services.Actions.API.Controllers.ActionsController})">
+            <summary>
+            ctor
+            </summary>
+            <param name="mediator"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Controllers.ActionsController.RecordAction(ezloyalty.Services.Actions.API.Application.Commands.NewActionCommand)">
+            <summary>
+            RecordAction
+            Receive, record, validate the action
+            </summary>
+            <param name="actionsCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Extensions.IHostExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Extensions.IHostExtensions.SeedDatabase(Microsoft.AspNetCore.Hosting.IWebHost)">
+            <summary>
+            
+            </summary>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Extensions.IServiceCollectionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Extensions.IServiceCollectionExtensions.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Extensions.IServiceCollectionExtensions.AddAppInsights(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Extensions.IServiceCollectionExtensions.AddCustomDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Extensions.IServiceCollectionExtensions.AddIntegrationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Extensions.IServiceCollectionExtensions.AddEventBus(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Extensions.IServiceCollectionExtensions.AddGenerics(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="targetAssembly"></param>
+            <param name="handlerInterface"></param>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Infrastructure.AutoFacModules.ApplicationModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Infrastructure.IntegrationEventMigrations.IntegrationEventLogContextDesignTimeFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ezloyalty.Services.Actions.API.Infrastructure.IntegrationEventMigrations.IntegrationEventLogContextModelSnapshot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Program.CreateHostBuilder(Microsoft.Extensions.Configuration.IConfiguration,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ezloyalty.Services.Actions.API.Startup.ConfigureEventBus(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+        </member>
+    </members>
+</doc>
