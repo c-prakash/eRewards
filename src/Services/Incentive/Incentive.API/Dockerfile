@@ -2,21 +2,26 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 56666
+EXPOSE 44306
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["src/Services/Points/Points.API/Points.API.csproj", "src/Services/Points/Points.API/"]
-RUN dotnet restore "src/Services/Points/Points.API/Points.API.csproj"
+COPY ["src/Services/Incentive/Incentive.API/Incentive.API.csproj", "src/Services/Incentive/Incentive.API/"]
+COPY ["src/Services/Incentive/Incentive.Infrastructure/Incentive.Infrastructure.csproj", "src/Services/Incentive/Incentive.Infrastructure/"]
+COPY ["src/Services/Incentive/Incentive.Domain/Incentive.Domain.csproj", "src/Services/Incentive/Incentive.Domain/"]
+COPY ["src/BuildingBlocks/IntegrationEventLogEF/IntegrationEventLogEF.csproj", "src/BuildingBlocks/IntegrationEventLogEF/"]
+COPY ["src/BuildingBlocks/EventBus/EventBus.csproj", "src/BuildingBlocks/EventBus/"]
+COPY ["src/BuildingBlocks/EventBusServiceBus/EventBusServiceBus.csproj", "src/BuildingBlocks/EventBusServiceBus/"]
+RUN dotnet restore "src/Services/Incentive/Incentive.API/Incentive.API.csproj"
 COPY . .
-WORKDIR "/src/src/Services/Points/Points.API"
-RUN dotnet build "Points.API.csproj" -c Release -o /app/build
+WORKDIR "/src/src/Services/Incentive/Incentive.API"
+RUN dotnet build "Incentive.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Points.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "Incentive.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Points.API.dll"]
+ENTRYPOINT ["dotnet", "ezLoyalty.Services.Incentive.API.dll"]

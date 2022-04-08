@@ -35,10 +35,10 @@
           "apiVersion": "2014-04-01-preview",
           "location": "[resourceGroup().location]",
           "properties": {
-            "edition": "Standard",
+            "edition": "Basic",
             "collation": "SQL_Latin1_General_CP1_CI_AS",
-            "maxSizeBytes": "1073741824",
-            "requestedServiceObjectiveName": "S1"
+            "maxSizeBytes": "2147483648",
+            "requestedServiceObjectiveName": "Basic"
           },
           "dependsOn": [
             "[concat('Microsoft.Sql/servers/', variables('sql_server_name'))]"
@@ -50,10 +50,10 @@
           "apiVersion": "2014-04-01-preview",
           "location": "[resourceGroup().location]",
           "properties": {
-            "edition": "Standard",
+            "edition": "Basic",
             "collation": "SQL_Latin1_General_CP1_CI_AS",
-            "maxSizeBytes": "1073741824",
-            "requestedServiceObjectiveName": "S1"
+            "maxSizeBytes": "2147483648",
+            "requestedServiceObjectiveName": "Basic"
           },
           "dependsOn": [
             "[concat('Microsoft.Sql/servers/', variables('sql_server_name'))]"
@@ -65,10 +65,10 @@
           "apiVersion": "2014-04-01-preview",
           "location": "[resourceGroup().location]",
           "properties": {
-            "edition": "Standard",
+            "edition": "Basic",
             "collation": "SQL_Latin1_General_CP1_CI_AS",
-            "maxSizeBytes": "1073741824",
-            "requestedServiceObjectiveName": "S1"
+            "maxSizeBytes": "2147483648",
+            "requestedServiceObjectiveName": "Basic"
           },
           "dependsOn": [
             "[concat('Microsoft.Sql/servers/', variables('sql_server_name'))]"
@@ -80,10 +80,10 @@
           "apiVersion": "2014-04-01-preview",
           "location": "[resourceGroup().location]",
           "properties": {
-            "edition": "Standard",
+            "edition": "Basic",
             "collation": "SQL_Latin1_General_CP1_CI_AS",
-            "maxSizeBytes": "1073741824",
-            "requestedServiceObjectiveName": "S1"
+            "maxSizeBytes": "2147483648",
+            "requestedServiceObjectiveName": "Basic"
           },
           "dependsOn": [
             "[concat('Microsoft.Sql/servers/', variables('sql_server_name'))]"

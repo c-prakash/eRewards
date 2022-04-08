@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using System;
 using System.IO;
 
 namespace ezLoyalty.Services.Accounts.API
@@ -48,6 +49,7 @@ namespace ezLoyalty.Services.Accounts.API
                  {
                      // Add other providers for JSON, etc.
                      builder.AddConfiguration(configuration);
+                     builder.AddEnvironmentVariables();
                      if (hostContext.HostingEnvironment.IsDevelopment())
                      {
                          builder.AddUserSecrets<Program>();

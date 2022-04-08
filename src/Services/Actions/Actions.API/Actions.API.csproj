@@ -7,7 +7,7 @@
     <RootNamespace>ezLoyalty.Services.Actions.API</RootNamespace>
     <UserSecretsId>d0170b13-05af-40ec-82e5-748c04475e54</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..\..\..</DockerfileContext>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
 

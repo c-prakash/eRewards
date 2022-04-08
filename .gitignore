@@ -362,3 +362,10 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /deploy/azure/az/sql/sql.info
+/deploy/k8s/helm/ezLoyalty/values - Copy.yaml
+/deploy/k8s/helm/ezLoyalty/values.yaml.old
+/deploy/k8s/helm/deploy-all.ps1
+/src/Services/Accounts/Accounts.API/Dockerfile.original
+/src/Services/Actions/Actions.API/Dockerfile.original
+/src/Services/Incentive/Incentive.API/Dockerfile.original
+/src/Services/Programs/Programs.API/Dockerfile.original

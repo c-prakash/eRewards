@@ -5,6 +5,7 @@ using ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.Events;
 using ezLoyalty.Services.Incentive.API.Extensions;
 using ezLoyalty.Services.Incentive.API.Infrastructure.AutoFacModules;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Serilog;
@@ -28,6 +29,11 @@ namespace ezLoyalty.Services.Incentive.API
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             //builder.Services.AddDbContext<IncentiveDbContext>(options => options.UseInMemoryDatabase("items"));
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
             services.AddCustomDbContext(Configuration);
             services
                 .AddIntegrationServices(Configuration)
@@ -57,9 +63,10 @@ namespace ezLoyalty.Services.Incentive.API
             app.UseSwagger()
              .UseSwaggerUI(c =>
              {
-                 c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "TemplateAPI V1");
+                 c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "IncentivesAPI V1");
              });
 
+            app.UseForwardedHeaders();
             app.UseHttpsRedirection();
 
             app.UseRouting();

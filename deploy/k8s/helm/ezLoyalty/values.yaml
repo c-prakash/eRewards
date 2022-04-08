@@ -1,0 +1,133 @@
+# global config
+global:
+  env: 
+    "ASPNETCORE_ENVIRONMENT": "Development"
+    "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true"
+
+accounts-api:
+  replicaCount: 1
+  
+  env:
+    "PATH_BASE": "/accountsapi"
+
+  image:
+    repository: accountsapi
+    pullPolicy: Never
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 56660
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - host: ezloyalty.local
+        paths: 
+        - path: /accountsapi(/|$)(.*)
+          pathType: Prefix
+
+  autoscaling:
+    enabled: false
+
+  serviceAccount:
+    create: false
+
+programs-api:
+  replicaCount: 1
+
+  env:
+    "PATH_BASE": "/programsapi"
+  image:
+    repository: programsapi
+    pullPolicy: Never
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 56662
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - host: ezloyalty.local
+        paths: 
+        - path: /programsapi(/|$)(.*)
+          pathType: Prefix
+
+  autoscaling:
+    enabled: false
+
+  serviceAccount:
+    create: false
+
+
+actions-api:
+  replicaCount: 1
+
+  env:
+   "PATH_BASE": "/actionsapi"
+
+  image:
+    repository: actionsapi
+    pullPolicy: Never
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 56664
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - host: ezloyalty.local
+        paths: 
+        - path: /actionsapi(/|$)(.*)
+          pathType: Prefix
+
+  autoscaling:
+    enabled: false
+
+  serviceAccount:
+    create: false
+
+incentive-api:
+  replicaCount: 1
+
+  env:
+   "PATH_BASE": "/incentiveapi"
+
+  image:
+    repository: incentiveapi
+    pullPolicy: Never
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 56666
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+    hosts:
+      - host: ezloyalty.local
+        paths: 
+        - path: /incentiveapi(/|$)(.*)
+          pathType: Prefix
+
+  autoscaling:
+    enabled: false
+
+  serviceAccount:
+    create: false

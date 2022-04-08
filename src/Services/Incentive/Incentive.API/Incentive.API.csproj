@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>55d8e45a-45f1-4320-acdb-487189959c5b</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-		<DockerfileContext>..\..\..\..\..</DockerfileContext>
+		<DockerfileContext>..\..\..\..</DockerfileContext>
 		<AssemblyName>ezLoyalty.Services.Incentive.API</AssemblyName>
 		<RootNamespace>ezLoyalty.Services.Incentive.API</RootNamespace>
 	</PropertyGroup>

@@ -14,6 +14,7 @@ using ezLoyalty.Services.Accounts.API.Application.IntegrationEvents.EventHandlin
 using ezLoyalty.Services.Accounts.API.Application.IntegrationEvents.Events;
 using ezLoyalty.Services.Accounts.API.Extensions;
 using ezLoyalty.Services.Accounts.API.Infrastructure.AutoFacModules;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace ezLoyalty.Services.Accounts.API
 {
@@ -33,6 +34,12 @@ namespace ezLoyalty.Services.Accounts.API
 
             services.AddControllers();
             //services.AddDbContext<ActionsDbContext>(options => options.UseInMemoryDatabase(databaseName: "ActionsInstance"));
+
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
 
             services
               .AddCustomDbContext(Configuration)
@@ -69,9 +76,11 @@ namespace ezLoyalty.Services.Accounts.API
             app.UseSwagger()
              .UseSwaggerUI(c =>
              {
-                 c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "TemplateAPI V1");
+                 c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "AccountsAPI V1");
              });
 
+
+            app.UseForwardedHeaders();
             app.UseHttpsRedirection();
 
             app.UseRouting();
