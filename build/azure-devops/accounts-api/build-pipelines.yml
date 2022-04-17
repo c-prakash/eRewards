@@ -12,7 +12,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '$(drsc)'
   imageRepository: '$(ir)'
-  containerRegistry: '$(containerRegistry)'
+  containerRegistry: '$(cr)'
   dockerfilePath: '$(Build.SourcesDirectory)/src/Services/Accounts/Accounts.API/Dockerfile'
   tag: '$(Build.BuildId)'
 
@@ -32,8 +32,8 @@ stages:
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        repository: $(ir)
+        repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(drsc)
+        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
