@@ -15,6 +15,7 @@ using ezLoyalty.Services.Accounts.API.Application.IntegrationEvents.Events;
 using ezLoyalty.Services.Accounts.API.Extensions;
 using ezLoyalty.Services.Accounts.API.Infrastructure.AutoFacModules;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace ezLoyalty.Services.Accounts.API
 {
@@ -46,13 +47,14 @@ namespace ezLoyalty.Services.Accounts.API
               .AddIntegrationServices(Configuration)
               .AddEventBus(Configuration)
               .AddSwagger()
-              .AddHealthChecks()
-              .AddCheck("self", () => HealthCheckResult.Healthy());
+              .AddHealthChecks(Configuration);
 
             services.AddCors(c =>
               {
                   c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
               });
+
+            services.AddSingleton<ITelemetryInitializer>(new RoleNameInitializer(Program.AppName));
 
             var container = new ContainerBuilder();
             container.Populate(services);

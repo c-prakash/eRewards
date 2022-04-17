@@ -4,6 +4,7 @@ using ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.EventHandli
 using ezLoyalty.Services.Incentive.API.Application.IntegrationEvents.Events;
 using ezLoyalty.Services.Incentive.API.Extensions;
 using ezLoyalty.Services.Incentive.API.Infrastructure.AutoFacModules;
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
@@ -39,8 +40,9 @@ namespace ezLoyalty.Services.Incentive.API
                 .AddIntegrationServices(Configuration)
                 .AddEventBus(Configuration)
                 .AddSwagger()
-                .AddHealthChecks()
-                .AddCheck("self", () => HealthCheckResult.Healthy());
+                .AddHealthChecks(Configuration);
+
+            services.AddSingleton<ITelemetryInitializer>(new RoleNameInitializer(Program.AppName));
 
             var container = new ContainerBuilder();
             container.Populate(services);

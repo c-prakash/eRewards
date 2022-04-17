@@ -15,6 +15,7 @@ using ezloyalty.Services.Programs.API.Application.IntegrationEvents.Events;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
 using ezloyalty.Services.Programs.API.Application.IntegrationEvents.EventHandling;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace ezloyalty.Services.Programs.API
 {
@@ -44,8 +45,9 @@ namespace ezloyalty.Services.Programs.API
               .AddIntegrationServices(Configuration)
               .AddEventBus(Configuration)
               .AddSwagger()
-              .AddHealthChecks()
-              .AddCheck("self", () => HealthCheckResult.Healthy());
+              .AddHealthChecks(Configuration);
+
+            services.AddSingleton<ITelemetryInitializer>(new RoleNameInitializer(Program.AppName));
 
             var container = new ContainerBuilder();
             container.Populate(services);

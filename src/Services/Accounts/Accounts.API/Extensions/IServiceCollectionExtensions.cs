@@ -11,6 +11,7 @@ using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.eShopOnContainers.BuildingBlocks.EventBusServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -179,5 +180,35 @@ namespace ezLoyalty.Services.Accounts.API.Extensions
                 services.AddScoped(handler.GetInterfaces().First(i => i.IsGenericType && i.GetGenericTypeDefinition() == handlerInterface), handler);
             }
         }
+
+        /// <summary>
+        /// AddHealthChecks
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddHealthChecks(this IServiceCollection services, IConfiguration configuration)
+        {
+            var hcBuilder = services.AddHealthChecks();
+
+            hcBuilder.AddCheck("self", () => HealthCheckResult.Healthy());
+
+            hcBuilder
+                .AddSqlServer(configuration["ConnectionString"],
+                name: "AccountsDB-check",
+                tags: new string[] { "accountsdb" });
+
+            if (configuration.GetValue<bool>("AzureServiceBusEnabled"))
+            {
+                hcBuilder
+                    .AddAzureServiceBusTopic(configuration["ServiceBusConnectionString"],
+                    topicName: "erewards_event_bus",
+                    name: "accounts-servicebus-check",
+                    tags: new string[] { "servicebus" });
+            }
+
+            return services;
+        }
+
     }
 }

@@ -15,6 +15,7 @@ using ezLoyalty.Services.Actions.API.Application.IntegrationEvents.Events;
 using ezLoyalty.Services.Actions.API.Extensions;
 using ezLoyalty.Services.Actions.API.Infrastructure.AutoFacModules;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace ezLoyalty.Services.Actions.API
 {
@@ -46,8 +47,9 @@ namespace ezLoyalty.Services.Actions.API
               .AddIntegrationServices(Configuration)
               .AddEventBus(Configuration)
               .AddSwagger()
-              .AddHealthChecks()
-              .AddCheck("self", () => HealthCheckResult.Healthy());
+              .AddHealthChecks(Configuration);
+
+            services.AddSingleton<ITelemetryInitializer>(new RoleNameInitializer(Program.AppName));
 
             var container = new ContainerBuilder();
             container.Populate(services);
